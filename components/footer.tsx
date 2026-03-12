@@ -36,7 +36,7 @@ const footerLinks: FooterSection[] = [
       { title: "Restaurantes", href: "/sectores/restaurantes" },
       { title: "Retail", href: "/sectores/retail" },
       { title: "Oficinas", href: "/sectores/oficinas" },
-      { title: "Servicios Tecnicos", href: "/sectores/servicios-tecnicos" },
+      { title: "Serv. Tecnicos", href: "/sectores/servicios-tecnicos" },
     ],
   },
   {
@@ -44,12 +44,12 @@ const footerLinks: FooterSection[] = [
     links: [
       { title: "Sobre Nosotros", href: "/#sobre" },
       { title: "Inicio", href: "/#inicio" },
-      { title: "Politica de Privacidad", href: "/privacy" },
-      { title: "Terminos de Servicio", href: "/terms" },
+      { title: "Privacidad", href: "/privacy" },
+      { title: "Terminos", href: "/terms" },
     ],
   },
   {
-    label: "Redes Sociales",
+    label: "Siguenos",
     links: [
       { title: "Facebook", href: "#", icon: FacebookIcon },
       { title: "Instagram", href: "#", icon: InstagramIcon },
@@ -62,65 +62,64 @@ const footerLinks: FooterSection[] = [
 export function Footer() {
   return (
     <footer className="relative w-full border-t border-white/10 bg-[radial-gradient(35%_128px_at_50%_0%,theme(backgroundColor.white/8%),transparent)]">
-      <div className="max-w-7xl mx-auto px-6 py-12 lg:py-16">
-        {/* Top: Logo + Columns */}
-        <div className="flex flex-col lg:flex-row gap-12 lg:gap-16">
-          {/* Logo + Addresses */}
-          <AnimatedContainer className="lg:w-1/3 space-y-6">
+      <div className="max-w-6xl mx-auto px-8 py-16 lg:py-20">
+
+        {/* Logo centered at top */}
+        <AnimatedContainer className="text-center mb-12">
+          <div className="flex justify-center mb-4">
             <StaffDigitalLogoDark variant="full" size="lg" />
-            <p className="text-muted-foreground text-sm max-w-xs">
-              Automatizacion IA para empresas. Chat inteligente, flujos de trabajo y automatizaciones, totalmente gestionados.
-            </p>
-
-            {/* Office Addresses */}
-            <div className="space-y-4 pt-2">
-              <div className="flex items-start gap-2">
-                <MapPin className="w-4 h-4 text-muted-foreground mt-0.5 shrink-0" />
-                <div className="text-muted-foreground text-xs leading-relaxed">
-                  <span className="text-foreground/80 font-medium">Barcelona</span><br />
-                  Carrer d&apos;Arago, 308, 1o 2a<br />
-                  08009 Barcelona, Espana
-                </div>
-              </div>
-              <div className="flex items-start gap-2">
-                <MapPin className="w-4 h-4 text-muted-foreground mt-0.5 shrink-0" />
-                <div className="text-muted-foreground text-xs leading-relaxed">
-                  <span className="text-foreground/80 font-medium">Lisboa</span><br />
-                  Av. Afonso Costa 22 B<br />
-                  Lisbon Business Center<br />
-                  1900-036 Lisboa, Portugal
-                </div>
-              </div>
-            </div>
-          </AnimatedContainer>
-
-          {/* 4 Link Columns */}
-          <div className="lg:w-2/3 grid grid-cols-2 md:grid-cols-4 gap-8">
-            {footerLinks.map((section, index) => (
-              <AnimatedContainer key={section.label} delay={0.1 + index * 0.1}>
-                <div>
-                  <h3 className="text-xs font-semibold uppercase tracking-wider text-foreground/80 mb-4">{section.label}</h3>
-                  <ul className="text-muted-foreground space-y-2.5 text-sm">
-                    {section.links.map((link) => (
-                      <li key={link.title}>
-                        <a
-                          href={link.href}
-                          className="hover:text-foreground inline-flex items-center transition-all duration-300"
-                        >
-                          {link.icon && <link.icon className="me-1 size-4" />}
-                          {link.title}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </AnimatedContainer>
-            ))}
           </div>
+          <p className="text-muted-foreground text-sm max-w-md mx-auto">
+            Automatizacion IA para empresas. Chat inteligente, flujos de trabajo y automatizaciones, totalmente gestionados.
+          </p>
+        </AnimatedContainer>
+
+        {/* 4 Link Columns - centered */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-10 md:gap-16 mb-12">
+          {footerLinks.map((section, index) => (
+            <AnimatedContainer key={section.label} delay={0.1 + index * 0.1}>
+              <div>
+                <h3 className="text-xs font-semibold uppercase tracking-wider text-foreground/80 mb-4">{section.label}</h3>
+                <ul className="text-muted-foreground space-y-2.5 text-sm">
+                  {section.links.map((link) => (
+                    <li key={link.title}>
+                      <a
+                        href={link.href}
+                        className="hover:text-foreground inline-flex items-center transition-all duration-300 whitespace-nowrap"
+                      >
+                        {link.icon && <link.icon className="me-1.5 size-4" />}
+                        {link.title}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </AnimatedContainer>
+          ))}
         </div>
 
+        {/* Addresses row */}
+        <AnimatedContainer delay={0.5} className="mb-12">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-8 sm:gap-16">
+            <div className="flex items-start gap-2.5">
+              <MapPin className="w-4 h-4 text-muted-foreground mt-0.5 shrink-0" />
+              <div className="text-muted-foreground text-xs leading-relaxed">
+                <span className="text-foreground/80 font-medium">Barcelona</span>{" · "}
+                Carrer d&apos;Arago, 308, 1o 2a, 08009
+              </div>
+            </div>
+            <div className="flex items-start gap-2.5">
+              <MapPin className="w-4 h-4 text-muted-foreground mt-0.5 shrink-0" />
+              <div className="text-muted-foreground text-xs leading-relaxed">
+                <span className="text-foreground/80 font-medium">Lisboa</span>{" · "}
+                Av. Afonso Costa 22 B, Lisbon Business Center, 1900-036
+              </div>
+            </div>
+          </div>
+        </AnimatedContainer>
+
         {/* Bottom bar */}
-        <div className="mt-12 pt-6 border-t border-foreground/10 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="pt-6 border-t border-foreground/10 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-muted-foreground text-xs">
             &copy; {new Date().getFullYear()} StaffDigital AI. Todos los derechos reservados.
           </p>
