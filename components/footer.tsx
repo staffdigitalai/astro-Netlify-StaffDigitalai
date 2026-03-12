@@ -2,13 +2,12 @@
 import type React from "react"
 import type { ComponentProps, ReactNode } from "react"
 import { motion, useReducedMotion } from "framer-motion"
-import { FacebookIcon, InstagramIcon, LinkedinIcon, YoutubeIcon, MapPin } from "lucide-react"
+import { FacebookIcon, InstagramIcon, LinkedinIcon, YoutubeIcon, MapPin, Phone } from "lucide-react"
 import { StaffDigitalLogoDark } from "@/components/staffdigital-logo"
 
 interface FooterLink {
   title: string
   href: string
-  icon?: React.ComponentType<{ className?: string }>
 }
 
 interface FooterSection {
@@ -48,15 +47,13 @@ const footerLinks: FooterSection[] = [
       { title: "Terminos", href: "/terms" },
     ],
   },
-  {
-    label: "Siguenos",
-    links: [
-      { title: "Facebook", href: "#", icon: FacebookIcon },
-      { title: "Instagram", href: "#", icon: InstagramIcon },
-      { title: "Youtube", href: "#", icon: YoutubeIcon },
-      { title: "LinkedIn", href: "#", icon: LinkedinIcon },
-    ],
-  },
+]
+
+const socialLinks = [
+  { icon: FacebookIcon, href: "#", label: "Facebook" },
+  { icon: InstagramIcon, href: "#", label: "Instagram" },
+  { icon: YoutubeIcon, href: "#", label: "Youtube" },
+  { icon: LinkedinIcon, href: "#", label: "LinkedIn" },
 ]
 
 export function Footer() {
@@ -64,68 +61,102 @@ export function Footer() {
     <footer className="relative w-full border-t border-white/10 bg-[radial-gradient(35%_128px_at_50%_0%,theme(backgroundColor.white/8%),transparent)]">
       <div className="max-w-6xl mx-auto px-8 py-16 lg:py-20">
 
-        {/* Logo centered at top */}
-        <AnimatedContainer className="text-center mb-12">
-          <div className="flex justify-center mb-4">
-            <StaffDigitalLogoDark variant="full" size="lg" />
-          </div>
-          <p className="text-muted-foreground text-sm max-w-md mx-auto">
-            Automatizacion IA para empresas. Chat inteligente, flujos de trabajo y automatizaciones, totalmente gestionados.
-          </p>
-        </AnimatedContainer>
+        {/* Main grid: Logo left + 3 columns + CTA */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 mb-14">
 
-        {/* 4 Link Columns - centered */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-10 md:gap-16 mb-12">
-          {footerLinks.map((section, index) => (
-            <AnimatedContainer key={section.label} delay={0.1 + index * 0.1}>
-              <div>
-                <h3 className="text-xs font-semibold uppercase tracking-wider text-foreground/80 mb-4">{section.label}</h3>
-                <ul className="text-muted-foreground space-y-2.5 text-sm">
-                  {section.links.map((link) => (
-                    <li key={link.title}>
-                      <a
-                        href={link.href}
-                        className="hover:text-foreground inline-flex items-center transition-all duration-300 whitespace-nowrap"
-                      >
-                        {link.icon && <link.icon className="me-1.5 size-4" />}
-                        {link.title}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </AnimatedContainer>
-          ))}
+          {/* Logo + description — 3 cols */}
+          <AnimatedContainer className="lg:col-span-3 space-y-5">
+            <StaffDigitalLogoDark variant="full" size="lg" />
+            <p className="text-white/50 text-sm leading-relaxed max-w-[260px]">
+              Automatizacion IA para empresas. Chat inteligente, flujos de trabajo y automatizaciones.
+            </p>
+            {/* Social icons compact */}
+            <div className="flex items-center gap-3 pt-2">
+              {socialLinks.map((social) => (
+                <a
+                  key={social.label}
+                  href={social.href}
+                  aria-label={social.label}
+                  className="w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-white/10 hover:border-white/20 transition-all duration-300"
+                >
+                  <social.icon className="w-3.5 h-3.5 text-white/60" />
+                </a>
+              ))}
+            </div>
+          </AnimatedContainer>
+
+          {/* 3 Link Columns — 5 cols */}
+          <div className="lg:col-span-5 grid grid-cols-2 sm:grid-cols-3 gap-8">
+            {footerLinks.map((section, index) => (
+              <AnimatedContainer key={section.label} delay={0.1 + index * 0.1}>
+                <div>
+                  <h3 className="text-sm font-semibold uppercase tracking-wider text-white/80 mb-5">{section.label}</h3>
+                  <ul className="space-y-3">
+                    {section.links.map((link) => (
+                      <li key={link.title}>
+                        <a
+                          href={link.href}
+                          className="text-white/50 hover:text-white text-sm transition-all duration-300 whitespace-nowrap"
+                        >
+                          {link.title}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </AnimatedContainer>
+            ))}
+          </div>
+
+          {/* CTA Column — 4 cols */}
+          <AnimatedContainer delay={0.4} className="lg:col-span-4">
+            <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 space-y-4">
+              <h3 className="text-white font-semibold text-base">Habla con un Especialista</h3>
+              <p className="text-white/50 text-sm leading-relaxed">
+                Descubre como la IA puede transformar tu negocio. Solicita una llamada personalizada con nuestro equipo comercial.
+              </p>
+              <a
+                href="https://wa.me/34600000000?text=Hola%2C%20me%20gustaria%20solicitar%20una%20llamada%20comercial"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 w-full justify-center bg-white text-black font-medium text-sm py-3 px-6 rounded-full hover:bg-gray-100 hover:scale-[1.02] transition-all duration-300"
+              >
+                <Phone className="w-4 h-4" />
+                Solicitar Llamada
+              </a>
+              <p className="text-white/30 text-xs text-center">Sin compromiso · Respuesta en 24h</p>
+            </div>
+          </AnimatedContainer>
         </div>
 
         {/* Addresses row */}
-        <AnimatedContainer delay={0.5} className="mb-12">
+        <AnimatedContainer delay={0.5} className="mb-8">
           <div className="flex flex-col sm:flex-row items-center justify-center gap-8 sm:gap-16">
-            <div className="flex items-start gap-2.5">
-              <MapPin className="w-4 h-4 text-muted-foreground mt-0.5 shrink-0" />
-              <div className="text-muted-foreground text-xs leading-relaxed">
-                <span className="text-foreground/80 font-medium">Barcelona</span>{" · "}
+            <div className="flex items-center gap-2.5">
+              <MapPin className="w-4 h-4 text-white/30 shrink-0" />
+              <span className="text-white/40 text-xs">
+                <span className="text-white/60 font-medium">Barcelona</span>{" · "}
                 Carrer d&apos;Arago, 308, 1o 2a, 08009
-              </div>
+              </span>
             </div>
-            <div className="flex items-start gap-2.5">
-              <MapPin className="w-4 h-4 text-muted-foreground mt-0.5 shrink-0" />
-              <div className="text-muted-foreground text-xs leading-relaxed">
-                <span className="text-foreground/80 font-medium">Lisboa</span>{" · "}
+            <div className="flex items-center gap-2.5">
+              <MapPin className="w-4 h-4 text-white/30 shrink-0" />
+              <span className="text-white/40 text-xs">
+                <span className="text-white/60 font-medium">Lisboa</span>{" · "}
                 Av. Afonso Costa 22 B, Lisbon Business Center, 1900-036
-              </div>
+              </span>
             </div>
           </div>
         </AnimatedContainer>
 
         {/* Bottom bar */}
-        <div className="pt-6 border-t border-foreground/10 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-muted-foreground text-xs">
+        <div className="pt-6 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p className="text-white/30 text-xs">
             &copy; {new Date().getFullYear()} StaffDigital AI. Todos los derechos reservados.
           </p>
-          <p className="text-muted-foreground text-xs">
+          <p className="text-white/30 text-xs">
             Desarrollo Web por{" "}
-            <a href="https://www.webdesignvip.pt" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+            <a href="https://www.webdesignvip.pt" target="_blank" rel="noopener noreferrer" className="hover:text-white/60 transition-colors">
               Web Design VIP
             </a>
           </p>
