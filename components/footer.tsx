@@ -2,7 +2,7 @@
 import type React from "react"
 import type { ComponentProps, ReactNode } from "react"
 import { motion, useReducedMotion } from "framer-motion"
-import { FacebookIcon, InstagramIcon, LinkedinIcon, YoutubeIcon } from "lucide-react"
+import { FacebookIcon, InstagramIcon, LinkedinIcon, YoutubeIcon, MapPin } from "lucide-react"
 import { StaffDigitalLogoDark } from "@/components/staffdigital-logo"
 
 interface FooterLink {
@@ -20,28 +20,32 @@ const footerLinks: FooterSection[] = [
   {
     label: "Producto",
     links: [
-      { title: "Funcionalidades", href: "/features" },
-      { title: "Equipo IA", href: "/ai-team" },
-      { title: "Calculadora ROI", href: "/roi-calculator" },
-      { title: "Integracion", href: "/integration" },
+      { title: "Funcionalidades", href: "/#servicos" },
+      { title: "Equipo IA", href: "/#servicos" },
+      { title: "Calculadora ROI", href: "/#testemunhos" },
+      { title: "Testimonios", href: "/#testemunhos" },
+    ],
+  },
+  {
+    label: "Sectores",
+    links: [
+      { title: "Concesionarios", href: "/sectores/concesionarios" },
+      { title: "Clinicas", href: "/sectores/clinicas" },
+      { title: "Dentistas", href: "/sectores/dentistas" },
+      { title: "Peluquerias", href: "/sectores/peluquerias" },
+      { title: "Restaurantes", href: "/sectores/restaurantes" },
+      { title: "Retail", href: "/sectores/retail" },
+      { title: "Oficinas", href: "/sectores/oficinas" },
+      { title: "Servicios Tecnicos", href: "/sectores/servicios-tecnicos" },
     ],
   },
   {
     label: "Empresa",
     links: [
-      { title: "Sobre Nosotros", href: "/about" },
-      { title: "Contacto", href: "/contact" },
+      { title: "Sobre Nosotros", href: "/#sobre" },
+      { title: "Inicio", href: "/#inicio" },
       { title: "Politica de Privacidad", href: "/privacy" },
       { title: "Terminos de Servicio", href: "/terms" },
-    ],
-  },
-  {
-    label: "Recursos",
-    links: [
-      { title: "Blog", href: "/blog" },
-      { title: "Casos de Exito", href: "/case-studies" },
-      { title: "Documentacion", href: "/docs" },
-      { title: "Soporte", href: "/support" },
     ],
   },
   {
@@ -57,48 +61,76 @@ const footerLinks: FooterSection[] = [
 
 export function Footer() {
   return (
-    <footer className="md:rounded-t-6xl relative w-full max-w-6xl mx-auto flex flex-col items-center justify-center rounded-t-4xl border-t bg-[radial-gradient(35%_128px_at_50%_0%,theme(backgroundColor.white/8%),transparent)] px-6 py-12 lg:py-16">
-      <div className="bg-foreground/20 absolute top-0 right-1/2 left-1/2 h-px w-1/3 -translate-x-1/2 -translate-y-1/2 rounded-full blur" />
+    <footer className="relative w-full border-t border-white/10 bg-[radial-gradient(35%_128px_at_50%_0%,theme(backgroundColor.white/8%),transparent)]">
+      <div className="max-w-7xl mx-auto px-6 py-12 lg:py-16">
+        {/* Top: Logo + Columns */}
+        <div className="flex flex-col lg:flex-row gap-12 lg:gap-16">
+          {/* Logo + Addresses */}
+          <AnimatedContainer className="lg:w-1/3 space-y-6">
+            <StaffDigitalLogoDark variant="full" size="lg" />
+            <p className="text-muted-foreground text-sm max-w-xs">
+              Automatizacion IA para empresas. Chat inteligente, flujos de trabajo y automatizaciones, totalmente gestionados.
+            </p>
 
-      <div className="grid w-full gap-8 xl:grid-cols-3 xl:gap-8">
-        <AnimatedContainer className="space-y-4">
-          <StaffDigitalLogoDark variant="full" size="lg" />
-          <div className="text-muted-foreground mt-8 text-sm md:mt-0 md:block hidden">
-            <p>© {new Date().getFullYear()} StaffDigital AI. Todos los derechos reservados.</p>
-          </div>
-        </AnimatedContainer>
-
-        <div className="mt-10 grid grid-cols-2 gap-8 md:grid-cols-4 xl:col-span-2 xl:mt-0">
-          {footerLinks.map((section, index) => (
-            <AnimatedContainer key={section.label} delay={0.1 + index * 0.1}>
-              <div className="mb-10 md:mb-0">
-                <h3 className="text-xs">{section.label}</h3>
-                <ul className="text-muted-foreground mt-4 space-y-2 text-sm">
-                  {section.links.map((link) => (
-                    <li key={link.title}>
-                      <a
-                        href={link.href}
-                        className="hover:text-foreground inline-flex items-center transition-all duration-300"
-                      >
-                        {link.icon && <link.icon className="me-1 size-4" />}
-                        {link.title}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
+            {/* Office Addresses */}
+            <div className="space-y-4 pt-2">
+              <div className="flex items-start gap-2">
+                <MapPin className="w-4 h-4 text-muted-foreground mt-0.5 shrink-0" />
+                <div className="text-muted-foreground text-xs leading-relaxed">
+                  <span className="text-foreground/80 font-medium">Barcelona</span><br />
+                  Carrer d&apos;Arago, 308, 1o 2a<br />
+                  08009 Barcelona, Espana
+                </div>
               </div>
-            </AnimatedContainer>
-          ))}
+              <div className="flex items-start gap-2">
+                <MapPin className="w-4 h-4 text-muted-foreground mt-0.5 shrink-0" />
+                <div className="text-muted-foreground text-xs leading-relaxed">
+                  <span className="text-foreground/80 font-medium">Lisboa</span><br />
+                  Av. Afonso Costa 22 B<br />
+                  Lisbon Business Center<br />
+                  1900-036 Lisboa, Portugal
+                </div>
+              </div>
+            </div>
+          </AnimatedContainer>
+
+          {/* 4 Link Columns */}
+          <div className="lg:w-2/3 grid grid-cols-2 md:grid-cols-4 gap-8">
+            {footerLinks.map((section, index) => (
+              <AnimatedContainer key={section.label} delay={0.1 + index * 0.1}>
+                <div>
+                  <h3 className="text-xs font-semibold uppercase tracking-wider text-foreground/80 mb-4">{section.label}</h3>
+                  <ul className="text-muted-foreground space-y-2.5 text-sm">
+                    {section.links.map((link) => (
+                      <li key={link.title}>
+                        <a
+                          href={link.href}
+                          className="hover:text-foreground inline-flex items-center transition-all duration-300"
+                        >
+                          {link.icon && <link.icon className="me-1 size-4" />}
+                          {link.title}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </AnimatedContainer>
+            ))}
+          </div>
         </div>
-      </div>
 
-      <div className="md:hidden mt-8 text-center space-y-2">
-        <p className="text-muted-foreground text-sm">© {new Date().getFullYear()} StaffDigital AI. Todos los derechos reservados.</p>
-        <p className="text-muted-foreground text-xs">Desarrollo Web por <a href="https://www.webdesignvip.pt" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Web Design VIP</a></p>
-      </div>
-
-      <div className="hidden md:block mt-8 pt-6 border-t border-foreground/10 w-full">
-        <p className="text-muted-foreground text-xs text-center">Desarrollo Web por <a href="https://www.webdesignvip.pt" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Web Design VIP</a></p>
+        {/* Bottom bar */}
+        <div className="mt-12 pt-6 border-t border-foreground/10 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p className="text-muted-foreground text-xs">
+            &copy; {new Date().getFullYear()} StaffDigital AI. Todos los derechos reservados.
+          </p>
+          <p className="text-muted-foreground text-xs">
+            Desarrollo Web por{" "}
+            <a href="https://www.webdesignvip.pt" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+              Web Design VIP
+            </a>
+          </p>
+        </div>
       </div>
     </footer>
   )
