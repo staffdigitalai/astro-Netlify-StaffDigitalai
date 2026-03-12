@@ -61,73 +61,68 @@ export function Footer() {
     <footer className="relative w-full border-t border-white/10 bg-[radial-gradient(35%_128px_at_50%_0%,theme(backgroundColor.white/8%),transparent)]">
       <div className="max-w-6xl mx-auto px-8 py-16 lg:py-20">
 
-        {/* Main grid: Logo left + 3 columns + CTA */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 mb-14">
+        {/* Top row: 3 link columns */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-10 md:gap-16 mb-14">
+          {footerLinks.map((section, index) => (
+            <AnimatedContainer key={section.label} delay={0.1 + index * 0.1}>
+              <div>
+                <h3 className="text-sm font-semibold uppercase tracking-wider text-white/80 mb-5">{section.label}</h3>
+                <ul className="space-y-3">
+                  {section.links.map((link) => (
+                    <li key={link.title}>
+                      <a
+                        href={link.href}
+                        className="text-white/50 hover:text-white text-sm transition-all duration-300 whitespace-nowrap"
+                      >
+                        {link.title}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </AnimatedContainer>
+          ))}
+        </div>
 
-          {/* Logo + description — 3 cols */}
-          <AnimatedContainer className="lg:col-span-3 space-y-5">
-            <StaffDigitalLogoDark variant="full" size="lg" />
-            <p className="text-white/50 text-sm leading-relaxed max-w-[260px]">
-              Automatizacion IA para empresas. Chat inteligente, flujos de trabajo y automatizaciones.
-            </p>
-            {/* Social icons compact */}
-            <div className="flex items-center gap-3 pt-2">
-              {socialLinks.map((social) => (
-                <a
-                  key={social.label}
-                  href={social.href}
-                  aria-label={social.label}
-                  className="w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-white/10 hover:border-white/20 transition-all duration-300"
-                >
-                  <social.icon className="w-3.5 h-3.5 text-white/60" />
-                </a>
-              ))}
+        {/* CTA Banner — full width */}
+        <AnimatedContainer delay={0.4} className="mb-14">
+          <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div className="md:max-w-md">
+              <h3 className="text-white font-semibold text-lg mb-2">Habla con un Especialista</h3>
+              <p className="text-white/50 text-sm leading-relaxed">
+                Descubre como la IA puede transformar tu negocio. Solicita una llamada personalizada sin compromiso.
+              </p>
             </div>
-          </AnimatedContainer>
+            <a
+              href="https://wa.me/34600000000?text=Hola%2C%20me%20gustaria%20solicitar%20una%20llamada%20comercial"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 shrink-0 bg-white text-black font-medium text-sm py-3 px-8 rounded-full hover:bg-gray-100 hover:scale-[1.02] transition-all duration-300"
+            >
+              <Phone className="w-4 h-4" />
+              Solicitar Llamada
+            </a>
+          </div>
+        </AnimatedContainer>
 
-          {/* 3 Link Columns — 5 cols */}
-          <div className="lg:col-span-5 grid grid-cols-2 sm:grid-cols-3 gap-8">
-            {footerLinks.map((section, index) => (
-              <AnimatedContainer key={section.label} delay={0.1 + index * 0.1}>
-                <div>
-                  <h3 className="text-sm font-semibold uppercase tracking-wider text-white/80 mb-5">{section.label}</h3>
-                  <ul className="space-y-3">
-                    {section.links.map((link) => (
-                      <li key={link.title}>
-                        <a
-                          href={link.href}
-                          className="text-white/50 hover:text-white text-sm transition-all duration-300 whitespace-nowrap"
-                        >
-                          {link.title}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </AnimatedContainer>
+        {/* Logo + social row */}
+        <AnimatedContainer delay={0.5} className="flex flex-col sm:flex-row items-center justify-between gap-6 mb-8">
+          <div className="flex items-center gap-4">
+            <StaffDigitalLogoDark variant="full" size="lg" />
+          </div>
+          <div className="flex items-center gap-3">
+            {socialLinks.map((social) => (
+              <a
+                key={social.label}
+                href={social.href}
+                aria-label={social.label}
+                className="w-9 h-9 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-white/10 hover:border-white/20 transition-all duration-300"
+              >
+                <social.icon className="w-4 h-4 text-white/60" />
+              </a>
             ))}
           </div>
-
-          {/* CTA Column — 4 cols */}
-          <AnimatedContainer delay={0.4} className="lg:col-span-4">
-            <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 space-y-4">
-              <h3 className="text-white font-semibold text-base">Habla con un Especialista</h3>
-              <p className="text-white/50 text-sm leading-relaxed">
-                Descubre como la IA puede transformar tu negocio. Solicita una llamada personalizada con nuestro equipo comercial.
-              </p>
-              <a
-                href="https://wa.me/34600000000?text=Hola%2C%20me%20gustaria%20solicitar%20una%20llamada%20comercial"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 w-full justify-center bg-white text-black font-medium text-sm py-3 px-6 rounded-full hover:bg-gray-100 hover:scale-[1.02] transition-all duration-300"
-              >
-                <Phone className="w-4 h-4" />
-                Solicitar Llamada
-              </a>
-              <p className="text-white/30 text-xs text-center">Sin compromiso · Respuesta en 24h</p>
-            </div>
-          </AnimatedContainer>
-        </div>
+        </AnimatedContainer>
 
         {/* Addresses row */}
         <AnimatedContainer delay={0.5} className="mb-8">
