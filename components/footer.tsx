@@ -49,7 +49,7 @@ export function Footer() {
             <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 space-y-4 h-fit">
               <h3 className="text-white font-semibold text-base leading-snug">Habla con un Especialista</h3>
               <p className="text-white/50 text-sm leading-relaxed">Descubre como la IA puede transformar tu negocio. Solicita una llamada personalizada sin compromiso.</p>
-              <a href="https://wa.me/34600000000?text=Hola%2C%20me%20gustaria%20solicitar%20una%20llamada%20comercial" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 w-full justify-center bg-white text-black font-medium text-sm py-3 px-6 rounded-full hover:bg-gray-100 hover:scale-[1.02] transition-all duration-300"><Phone className="w-4 h-4" />Solicitar Llamada</a>
+              <a href="https://wa.me/34600000000?text=Hola%2C%20me%20gustaria%20solicitar%20una%20llamada%20comercial" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 w-full justify-center bg-white text-black font-medium text-sm py-3 px-6 rounded-full hover:bg-gray-100 hover:scale-[1.02] transition-all duration-300"><Phone className="w-4 h-4" />Solicitar Chamada</a>
               <p className="text-white/30 text-xs text-center">Respuesta en 24h</p>
             </div>
           </AnimatedContainer>
