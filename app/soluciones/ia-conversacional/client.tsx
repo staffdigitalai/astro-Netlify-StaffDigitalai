@@ -16,8 +16,16 @@ import {
   Target,
   Zap,
   Globe,
+  TrendingUp,
+  PiggyBank,
+  UserCheck,
+  Sparkles,
+  Stethoscope,
+  Scissors,
+  UtensilsCrossed,
+  Car,
   Building2,
-  ShoppingBag
+  Home
 } from "lucide-react"
 
 const data: ServicePageData = {
@@ -29,69 +37,163 @@ const data: ServicePageData = {
   valueStatement: "Empresas con IA conversacional aumentan",
   valueHighlight: "+40%",
   valueSuffix: "la conversion de leads",
-  features: [
+
+  // Overview section
+  overviewTitle: "Que es la IA Conversacional?",
+  overviewDescription: "La IA Conversacional combina procesamiento de lenguaje natural, aprendizaje automatico y reconocimiento de voz para crear asistentes virtuales que mantienen conversaciones naturales con tus clientes. Desde chatbots en tu web hasta agentes telefonicos que responden llamadas, esta tecnologia transforma como las empresas interactuan con sus clientes.",
+  overviewPoints: [
+    "Respuestas instantaneas y personalizadas basadas en el contexto del cliente y su historial",
+    "Capacidad de aprender y mejorar continuamente con cada interaccion",
+    "Integracion perfecta con tus sistemas existentes (CRM, calendario, bases de datos)",
+    "Transferencia inteligente a agentes humanos cuando la situacion lo requiere",
+  ],
+
+  // Services list
+  services: [
     { 
       icon: MessageSquare, 
       title: "Chatbots Inteligentes 24/7", 
-      description: "Chatbots con IA avanzada que entienden el contexto, responden consultas complejas y guian a los visitantes hacia la conversion.",
+      description: "Chatbots con IA avanzada que entienden el contexto, responden consultas complejas y guian a los visitantes hacia la conversion. Personalizados para tu sector y marca.",
       highlight: "Respuesta en menos de 3 segundos"
     },
     { 
       icon: Phone, 
       title: "Agentes de Voz IA", 
-      description: "Asistentes telefonicos con voz natural que responden llamadas, toman mensajes y gestionan citas cuando no puedes atender.",
+      description: "Asistentes telefonicos con voz natural que responden llamadas, toman mensajes, gestionan citas y resuelven consultas frecuentes cuando no puedes atender.",
       highlight: "Disponible 24/7/365"
     },
     { 
       icon: Users, 
       title: "Cualificacion Automatica de Leads", 
-      description: "Sistema inteligente que cualifica prospectos haciendo las preguntas correctas y priorizando los leads mas calientes para tu equipo.",
+      description: "Sistema inteligente que cualifica prospectos haciendo las preguntas correctas, evaluando su interes y priorizando los leads mas calientes para tu equipo comercial.",
       highlight: "+60% leads cualificados"
     },
     { 
       icon: CalendarCheck, 
       title: "Reserva de Citas Automatica", 
-      description: "Agenda citas directamente desde el chat o llamada, sincronizado con tu calendario y con confirmaciones automaticas.",
-    },
-  ],
-  useCases: [
-    { 
-      icon: Clock, 
-      title: "Soporte Fuera de Horario", 
-      description: "Atiende consultas de clientes cuando tu equipo no esta disponible, sin perder oportunidades de venta." 
-    },
-    { 
-      icon: Target, 
-      title: "Generacion de Leads", 
-      description: "Captura y cualifica visitantes de tu web convirtiendo trafico anonimo en leads calificados." 
-    },
-    { 
-      icon: Zap, 
-      title: "Respuesta Instantanea", 
-      description: "Responde preguntas frecuentes al instante, liberando a tu equipo para tareas de mayor valor." 
+      description: "Agenda citas directamente desde el chat o llamada, sincronizado con tu calendario, con confirmaciones automaticas y recordatorios previos a la cita.",
     },
     { 
       icon: Globe, 
-      title: "Atencion Multiidioma", 
-      description: "Atiende clientes en espanol, portugues, ingles y mas idiomas automaticamente." 
+      title: "Soporte Multiidioma", 
+      description: "Atiende clientes en espanol, portugues, ingles, catalan y mas de 50 idiomas automaticamente, detectando el idioma del usuario y respondiendo en consecuencia.",
     },
     { 
-      icon: Building2, 
-      title: "Recepcion Virtual", 
-      description: "Sustituye o complementa tu recepcion con un asistente IA que nunca esta ocupado." 
-    },
-    { 
-      icon: ShoppingBag, 
-      title: "Asistente de Compra", 
-      description: "Guia a los clientes en su proceso de compra, resolviendo dudas y recomendando productos." 
+      icon: Bot, 
+      title: "Asistente de Ventas IA", 
+      description: "Guia a los clientes en su proceso de compra, responde preguntas sobre productos y servicios, y sugiere opciones relevantes basadas en sus necesidades.",
     },
   ],
+
+  // Benefits for SMEs
+  benefitsTitle: "Beneficios para PYMEs",
+  benefitsSubtitle: "Como la IA conversacional impulsa el crecimiento de pequenas y medianas empresas",
+  benefits: [
+    { 
+      icon: Clock, 
+      title: "Atencion Sin Horarios", 
+      description: "Nunca pierdas una oportunidad de venta por estar cerrado. Tus clientes reciben atencion inmediata a cualquier hora del dia o la noche." 
+    },
+    { 
+      icon: PiggyBank, 
+      title: "Reduccion de Costes", 
+      description: "Automatiza hasta el 80% de consultas repetitivas, permitiendo que tu equipo se centre en tareas de mayor valor sin aumentar plantilla." 
+    },
+    { 
+      icon: TrendingUp, 
+      title: "Aumento de Conversiones", 
+      description: "Captura y cualifica leads automaticamente, aumentando las conversiones hasta un 40% con respuestas instantaneas." 
+    },
+    { 
+      icon: UserCheck, 
+      title: "Mejor Experiencia Cliente", 
+      description: "Respuestas inmediatas, personalizadas y consistentes que mejoran la satisfaccion del cliente y fidelizan." 
+    },
+    { 
+      icon: Zap, 
+      title: "Implementacion Rapida", 
+      description: "Sistema operativo en dias, no meses. Sin necesidad de grandes inversiones en infraestructura o formacion." 
+    },
+    { 
+      icon: Sparkles, 
+      title: "Escalabilidad Instantanea", 
+      description: "Gestiona picos de demanda sin problemas. La IA puede atender a cientos de clientes simultaneamente." 
+    },
+  ],
+
+  // Use cases by sector
+  sectorUseCases: [
+    { 
+      sector: "Clinicas y Dentistas", 
+      sectorIcon: Stethoscope,
+      useCases: [
+        "Reserva de citas automatica sincronizada con agenda",
+        "Respuesta a preguntas sobre tratamientos y precios",
+        "Recordatorios de citas y seguimiento post-visita",
+        "Triaje inicial para urgencias",
+      ]
+    },
+    { 
+      sector: "Peluquerias y Estetica", 
+      sectorIcon: Scissors,
+      useCases: [
+        "Gestion de reservas por WhatsApp o web",
+        "Sugerencia de servicios basada en historial",
+        "Confirmacion y reprogramacion de citas",
+        "Promocion de tratamientos complementarios",
+      ]
+    },
+    { 
+      sector: "Restaurantes", 
+      sectorIcon: UtensilsCrossed,
+      useCases: [
+        "Reservas de mesa con preferencias (terraza, zona tranquila)",
+        "Respuesta a preguntas sobre menu y alergenos",
+        "Gestion de pedidos a domicilio",
+        "Recordatorio de reservas y solicitud de resenas",
+      ]
+    },
+    { 
+      sector: "Concesionarios", 
+      sectorIcon: Car,
+      useCases: [
+        "Cualificacion de compradores potenciales",
+        "Programacion de pruebas de conduccion",
+        "Informacion sobre financiacion y stock",
+        "Seguimiento de leads de campanas",
+      ]
+    },
+    { 
+      sector: "Oficinas y Servicios", 
+      sectorIcon: Building2,
+      useCases: [
+        "Recepcion virtual inteligente",
+        "Programacion de reuniones y visitas",
+        "Respuesta a consultas sobre servicios",
+        "Derivacion a departamentos especificos",
+      ]
+    },
+    { 
+      sector: "Inmobiliarias", 
+      sectorIcon: Home,
+      useCases: [
+        "Cualificacion de compradores (presupuesto, ubicacion)",
+        "Programacion de visitas a propiedades",
+        "Informacion sobre inmuebles disponibles",
+        "Seguimiento automatico de interesados",
+      ]
+    },
+  ],
+
+  // Stats
   stats: [
     { value: "24/7", label: "Disponibilidad" },
     { value: "+40%", label: "Conversion leads" },
     { value: "3s", label: "Tiempo respuesta" },
     { value: "-70%", label: "Carga equipo" },
   ],
+
+  // Related services
   relatedServices: [
     { 
       title: "Automatizacion Omnicanal", 
@@ -109,6 +211,8 @@ const data: ServicePageData = {
       href: "/soluciones/home-staging-ia"
     },
   ],
+
+  // CTA
   ctaTitle: "Listo para automatizar tu",
   ctaAccent: "atencion al cliente?",
   ctaDescription: "Descubre como la IA conversacional puede transformar la experiencia de tus clientes y aumentar tus ventas.",

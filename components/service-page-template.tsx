@@ -1,22 +1,28 @@
 "use client"
 
-import { useEffect, useRef, useState } from "react"
-import { ArrowRight, Check } from "lucide-react"
+import { useEffect, useRef } from "react"
+import { ArrowRight, Check, Building2 } from "lucide-react"
 import type { LucideIcon } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 
-interface Feature {
+interface Service {
   icon: LucideIcon
   title: string
   description: string
   highlight?: string
 }
 
-interface UseCase {
+interface Benefit {
   icon: LucideIcon
   title: string
   description: string
+}
+
+interface SectorUseCase {
+  sector: string
+  sectorIcon: LucideIcon
+  useCases: string[]
 }
 
 interface Stat {
@@ -39,10 +45,23 @@ export interface ServicePageData {
   valueStatement: string
   valueHighlight: string
   valueSuffix: string
-  features: Feature[]
-  useCases: UseCase[]
+  // Overview section
+  overviewTitle: string
+  overviewDescription: string
+  overviewPoints: string[]
+  // Services list
+  services: Service[]
+  // Benefits for SMEs
+  benefitsTitle: string
+  benefitsSubtitle: string
+  benefits: Benefit[]
+  // Use cases by sector
+  sectorUseCases: SectorUseCase[]
+  // Stats
   stats: Stat[]
+  // Related services
   relatedServices: RelatedService[]
+  // CTA
   ctaTitle: string
   ctaAccent: string
   ctaDescription: string
@@ -57,6 +76,8 @@ const colorVariants = {
     iconText: "text-orange-400",
     statGradient: "from-orange-400 to-amber-300",
     badge: "bg-orange-400",
+    sectorBg: "from-orange-500/10 to-amber-500/10",
+    sectorBorder: "border-orange-500/20",
   },
   blue: {
     gradient: "from-blue-400 via-cyan-300 to-blue-400",
@@ -65,6 +86,8 @@ const colorVariants = {
     iconText: "text-blue-400",
     statGradient: "from-blue-400 to-cyan-300",
     badge: "bg-blue-400",
+    sectorBg: "from-blue-500/10 to-cyan-500/10",
+    sectorBorder: "border-blue-500/20",
   },
   emerald: {
     gradient: "from-emerald-400 via-teal-300 to-emerald-400",
@@ -73,6 +96,8 @@ const colorVariants = {
     iconText: "text-emerald-400",
     statGradient: "from-emerald-400 to-teal-300",
     badge: "bg-emerald-400",
+    sectorBg: "from-emerald-500/10 to-teal-500/10",
+    sectorBorder: "border-emerald-500/20",
   },
   purple: {
     gradient: "from-purple-400 via-pink-300 to-purple-400",
@@ -81,12 +106,16 @@ const colorVariants = {
     iconText: "text-purple-400",
     statGradient: "from-purple-400 to-pink-300",
     badge: "bg-pink-400",
+    sectorBg: "from-purple-500/10 to-pink-500/10",
+    sectorBorder: "border-purple-500/20",
   },
 }
 
 export function ServicePageTemplate({ data }: { data: ServicePageData }) {
-  const featRef = useRef<HTMLElement>(null)
-  const useCasesRef = useRef<HTMLElement>(null)
+  const overviewRef = useRef<HTMLElement>(null)
+  const servicesRef = useRef<HTMLElement>(null)
+  const benefitsRef = useRef<HTMLElement>(null)
+  const sectorsRef = useRef<HTMLElement>(null)
   const statsRef = useRef<HTMLElement>(null)
   const relatedRef = useRef<HTMLElement>(null)
 
@@ -101,7 +130,7 @@ export function ServicePageTemplate({ data }: { data: ServicePageData }) {
             elements.forEach((el, i) => {
               setTimeout(() => {
                 el.classList.add("animate-fade-in-up")
-              }, i * 150)
+              }, i * 100)
             })
           }
         }
@@ -109,7 +138,7 @@ export function ServicePageTemplate({ data }: { data: ServicePageData }) {
       { threshold: 0.1 }
     )
 
-    const refs = [featRef, useCasesRef, statsRef, relatedRef]
+    const refs = [overviewRef, servicesRef, benefitsRef, sectorsRef, statsRef, relatedRef]
     for (const ref of refs) {
       if (ref.current) observer.observe(ref.current)
     }
@@ -118,7 +147,7 @@ export function ServicePageTemplate({ data }: { data: ServicePageData }) {
 
   return (
     <div className="relative z-10">
-      {/* Hero */}
+      {/* Hero Section */}
       <section className="min-h-screen flex items-start justify-center px-4 pt-24 md:pt-32 pb-20 relative">
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <div className="inline-flex items-center px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-sm font-medium mb-8 mt-8 md:mt-12 animate-fade-in-badge">
@@ -168,12 +197,41 @@ export function ServicePageTemplate({ data }: { data: ServicePageData }) {
         </div>
       </section>
 
-      {/* Features / Solutions */}
-      <section ref={featRef} className="py-20 md:py-32 px-4">
+      {/* Overview Section */}
+      <section ref={overviewRef} className="py-20 md:py-32 px-4">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <div className="space-y-6">
+              <h2 className="text-3xl md:text-4xl font-bold text-white text-balance fade-in-element opacity-0 translate-y-8 transition-all duration-1000">
+                {data.overviewTitle}
+              </h2>
+              <p className="text-white/70 text-lg leading-relaxed fade-in-element opacity-0 translate-y-8 transition-all duration-1000">
+                {data.overviewDescription}
+              </p>
+            </div>
+            <div className="space-y-4 fade-in-element opacity-0 translate-y-8 transition-all duration-1000">
+              {data.overviewPoints.map((point, index) => (
+                <div
+                  key={index}
+                  className="flex items-start gap-4 p-4 rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm"
+                >
+                  <div className={`w-8 h-8 rounded-lg bg-gradient-to-br ${colors.iconBg} border ${colors.iconBorder} flex items-center justify-center flex-shrink-0`}>
+                    <Check size={16} className={colors.iconText} />
+                  </div>
+                  <p className="text-white/80 leading-relaxed">{point}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Services List Section */}
+      <section ref={servicesRef} className="py-20 md:py-32 px-4">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 text-balance fade-in-element opacity-0 translate-y-8 transition-all duration-1000">
-              Funcionalidades de{" "}
+              Servicios de{" "}
               <span className={`bg-gradient-to-r ${colors.gradient} bg-clip-text text-transparent`}>
                 {data.serviceName}
               </span>
@@ -184,11 +242,11 @@ export function ServicePageTemplate({ data }: { data: ServicePageData }) {
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
-            {data.features.map((feature) => {
-              const Icon = feature.icon
+            {data.services.map((service) => {
+              const Icon = service.icon
               return (
                 <div
-                  key={feature.title}
+                  key={service.title}
                   className="fade-in-element opacity-0 translate-y-8 transition-all duration-1000 group"
                 >
                   <div className="h-full p-8 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm hover:bg-white/10 hover:border-white/20 transition-all duration-300">
@@ -197,12 +255,12 @@ export function ServicePageTemplate({ data }: { data: ServicePageData }) {
                         <Icon size={24} className={colors.iconText} />
                       </div>
                       <div>
-                        <h3 className="text-xl font-semibold text-white mb-2">{feature.title}</h3>
-                        <p className="text-white/60 leading-relaxed">{feature.description}</p>
-                        {feature.highlight && (
+                        <h3 className="text-xl font-semibold text-white mb-2">{service.title}</h3>
+                        <p className="text-white/60 leading-relaxed">{service.description}</p>
+                        {service.highlight && (
                           <div className="mt-3 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-green-500/10 border border-green-500/20">
                             <Check size={14} className="text-green-400" />
-                            <span className="text-green-400 text-sm font-medium">{feature.highlight}</span>
+                            <span className="text-green-400 text-sm font-medium">{service.highlight}</span>
                           </div>
                         )}
                       </div>
@@ -215,32 +273,32 @@ export function ServicePageTemplate({ data }: { data: ServicePageData }) {
         </div>
       </section>
 
-      {/* Use Cases */}
-      <section ref={useCasesRef} className="py-20 md:py-32 px-4">
+      {/* Benefits for SMEs Section */}
+      <section ref={benefitsRef} className="py-20 md:py-32 px-4">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 text-balance fade-in-element opacity-0 translate-y-8 transition-all duration-1000">
-              Casos de Uso
+              {data.benefitsTitle}
             </h2>
             <p className="text-white/60 text-lg max-w-2xl mx-auto fade-in-element opacity-0 translate-y-8 transition-all duration-1000">
-              Como nuestros clientes aprovechan {data.serviceName.toLowerCase()}
+              {data.benefitsSubtitle}
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {data.useCases.map((useCase) => {
-              const Icon = useCase.icon
+            {data.benefits.map((benefit) => {
+              const Icon = benefit.icon
               return (
                 <div
-                  key={useCase.title}
+                  key={benefit.title}
                   className="fade-in-element opacity-0 translate-y-8 transition-all duration-1000 group"
                 >
                   <div className="h-full p-6 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm hover:bg-white/10 hover:border-white/20 transition-all duration-300">
                     <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${colors.iconBg} border ${colors.iconBorder} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
                       <Icon size={24} className={colors.iconText} />
                     </div>
-                    <h3 className="text-lg font-semibold text-white mb-2">{useCase.title}</h3>
-                    <p className="text-white/60 leading-relaxed text-sm">{useCase.description}</p>
+                    <h3 className="text-lg font-semibold text-white mb-2">{benefit.title}</h3>
+                    <p className="text-white/60 leading-relaxed text-sm">{benefit.description}</p>
                   </div>
                 </div>
               )
@@ -249,7 +307,53 @@ export function ServicePageTemplate({ data }: { data: ServicePageData }) {
         </div>
       </section>
 
-      {/* Stats */}
+      {/* Use Cases by Sector Section */}
+      <section ref={sectorsRef} className="py-20 md:py-32 px-4">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 text-balance fade-in-element opacity-0 translate-y-8 transition-all duration-1000">
+              Casos de Uso por{" "}
+              <span className={`bg-gradient-to-r ${colors.gradient} bg-clip-text text-transparent`}>
+                Sector
+              </span>
+            </h2>
+            <p className="text-white/60 text-lg max-w-2xl mx-auto fade-in-element opacity-0 translate-y-8 transition-all duration-1000">
+              Descubre como diferentes industrias aprovechan {data.serviceName.toLowerCase()}
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {data.sectorUseCases.map((sectorCase) => {
+              const SectorIcon = sectorCase.sectorIcon
+              return (
+                <div
+                  key={sectorCase.sector}
+                  className="fade-in-element opacity-0 translate-y-8 transition-all duration-1000 group"
+                >
+                  <div className="h-full p-6 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm hover:bg-white/10 hover:border-white/20 transition-all duration-300">
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${colors.sectorBg} border ${colors.sectorBorder} flex items-center justify-center group-hover:scale-110 transition-transform`}>
+                        <SectorIcon size={20} className={colors.iconText} />
+                      </div>
+                      <h3 className="text-lg font-semibold text-white">{sectorCase.sector}</h3>
+                    </div>
+                    <ul className="space-y-2">
+                      {sectorCase.useCases.map((useCase, index) => (
+                        <li key={index} className="flex items-start gap-2">
+                          <div className="w-1.5 h-1.5 rounded-full bg-white/40 mt-2 flex-shrink-0" />
+                          <span className="text-white/60 text-sm leading-relaxed">{useCase}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              )
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Stats Section */}
       <section ref={statsRef} className="py-20 md:py-32 px-4">
         <div className="max-w-5xl mx-auto">
           <div className="fade-in-element opacity-0 translate-y-8 transition-all duration-1000 rounded-3xl border border-white/10 bg-white/5 backdrop-blur-sm p-8 md:p-12">
@@ -267,7 +371,7 @@ export function ServicePageTemplate({ data }: { data: ServicePageData }) {
         </div>
       </section>
 
-      {/* Related Services */}
+      {/* Related Services Section */}
       {data.relatedServices.length > 0 && (
         <section ref={relatedRef} className="py-20 md:py-32 px-4">
           <div className="max-w-6xl mx-auto">
@@ -299,7 +403,7 @@ export function ServicePageTemplate({ data }: { data: ServicePageData }) {
         </section>
       )}
 
-      {/* CTA */}
+      {/* CTA Section */}
       <section id="contact" className="relative py-8 px-4 sm:px-6 lg:px-8 mb-32">
         <div className="relative max-w-4xl mx-auto">
           <div className="fade-in-element opacity-0 translate-y-8 transition-all duration-1000 text-center p-8 md:p-10 rounded-3xl border border-white/20 bg-[radial-gradient(35%_128px_at_50%_0%,theme(backgroundColor.white/15%),theme(backgroundColor.white/5%))]">

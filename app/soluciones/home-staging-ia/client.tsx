@@ -17,7 +17,17 @@ import {
   Image,
   LayoutTemplate,
   Users,
-  TrendingUp
+  TrendingUp,
+  Clock,
+  PiggyBank,
+  Zap,
+  Eye,
+  Building2,
+  MapPin,
+  Key,
+  Briefcase,
+  Award,
+  Target
 } from "lucide-react"
 
 const data: ServicePageData = {
@@ -29,69 +39,163 @@ const data: ServicePageData = {
   valueStatement: "Inmuebles con home staging se venden hasta",
   valueHighlight: "50%",
   valueSuffix: "mas rapido",
-  features: [
+
+  // Overview section
+  overviewTitle: "Que es Home Staging con IA?",
+  overviewDescription: "Home Staging IA es una solucion completa que combina la preparacion fisica de propiedades con tecnologia de inteligencia artificial para maximizar el atractivo de cada inmueble. Desde la limpieza y staging virtual hasta landing pages personalizadas y agentes IA que atienden compradores 24/7, cubrimos todo el proceso de comercializacion inmobiliaria.",
+  overviewPoints: [
+    "Preparacion integral: limpieza profesional, pequenas reparaciones y staging fisico o virtual",
+    "Contenido visual premium: fotografia HDR, tours 360°, video walkthrough y fotos aereas",
+    "Marketing digital: landing pages exclusivas y publicacion en portales optimizada",
+    "Atencion IA 24/7: chatbots y agentes telefonicos que cualifican y reservan visitas automaticamente",
+  ],
+
+  // Services list
+  services: [
     { 
       icon: Sparkles, 
       title: "Preparacion Integral de Propiedades", 
-      description: "Servicio completo de limpieza profesional, pequenas reparaciones y home staging virtual o fisico para maximizar el atractivo visual.",
+      description: "Servicio completo de limpieza profesional, pequenas reparaciones, despeje, y home staging virtual o fisico para maximizar el atractivo visual de cada propiedad.",
       highlight: "Listo para vender en 48h"
     },
     { 
       icon: Camera, 
       title: "Fotografia y Video Profesional", 
-      description: "Sesion fotografica HDR, tour virtual 360°, video walkthrough y fotos aereas con dron para presentaciones impactantes.",
+      description: "Sesion fotografica HDR de alta calidad, tour virtual 360°, video walkthrough cinematografico y fotos aereas con dron para presentaciones impactantes.",
       highlight: "+300% mas visitas"
     },
     { 
       icon: LayoutTemplate, 
       title: "Landing Pages Personalizadas", 
-      description: "Microsite exclusivo para cada propiedad con galeria, planos, zona y formulario de contacto optimizado para conversion.",
+      description: "Microsite exclusivo para cada propiedad con galeria interactiva, planos, informacion de la zona, calculadora de hipoteca y formulario de contacto optimizado.",
     },
     { 
       icon: MessageSquare, 
       title: "Agentes IA para Compradores", 
-      description: "Chatbot y agente telefonico IA que responden consultas 24/7, cualifican compradores y reservan visitas automaticamente.",
+      description: "Chatbot y agente telefonico IA que responden consultas 24/7, cualifican compradores segun presupuesto y urgencia, y reservan visitas automaticamente.",
       highlight: "24/7 atencion compradores"
-    },
-  ],
-  useCases: [
-    { 
-      icon: Wrench, 
-      title: "Preparacion Express", 
-      description: "Limpieza, pequenas reparaciones y staging listo en 24-48 horas para acelerar la venta." 
     },
     { 
       icon: Image, 
       title: "Home Staging Virtual", 
-      description: "Transforma fotos de espacios vacios en imagenes amuebladas virtualmente con IA." 
+      description: "Transforma fotos de espacios vacios en imagenes amuebladas virtualmente con IA. Multiples estilos decorativos para diferentes perfiles de comprador.",
     },
     { 
       icon: Globe, 
       title: "Marketing Multi-portal", 
-      description: "Publicacion automatica en los principales portales inmobiliarios con textos optimizados." 
+      description: "Publicacion automatica en Idealista, Fotocasa, Habitaclia y mas portales con textos SEO optimizados y sincronizacion de cambios en tiempo real.",
+    },
+  ],
+
+  // Benefits for SMEs
+  benefitsTitle: "Beneficios para Inmobiliarias",
+  benefitsSubtitle: "Como el Home Staging con IA transforma tu agencia inmobiliaria",
+  benefits: [
+    { 
+      icon: Clock, 
+      title: "Ventas Mas Rapidas", 
+      description: "Reduce el tiempo medio de venta hasta un 50% gracias a presentaciones profesionales y atencion inmediata a compradores." 
     },
     { 
-      icon: Phone, 
-      title: "Agente Telefonico IA", 
-      description: "Responde llamadas de interesados, cualifica su presupuesto y agenda visitas automaticamente." 
-    },
-    { 
-      icon: CalendarCheck, 
-      title: "Reserva de Visitas", 
-      description: "Sistema inteligente que coordina disponibilidad de propiedad, agente y comprador." 
+      icon: TrendingUp, 
+      title: "Mayor Precio de Venta", 
+      description: "Propiedades con home staging profesional se venden hasta un 10% por encima del precio de mercado." 
     },
     { 
       icon: Users, 
-      title: "Cualificacion de Compradores", 
-      description: "Identifica compradores serios preguntando presupuesto, financiacion y urgencia de compra." 
+      title: "Mas Compradores Cualificados", 
+      description: "La IA filtra curiosos de compradores serios, enviandote solo leads que realmente tienen intencion y capacidad de compra." 
+    },
+    { 
+      icon: PiggyBank, 
+      title: "Ahorro de Tiempo", 
+      description: "Automatiza tareas repetitivas: atencion inicial, cualificacion, reserva de visitas, y seguimiento de interesados." 
+    },
+    { 
+      icon: Zap, 
+      title: "Diferenciacion Competitiva", 
+      description: "Destaca frente a otras agencias con presentaciones premium y tecnologia de vanguardia que impresiona a propietarios." 
+    },
+    { 
+      icon: Eye, 
+      title: "Visibilidad Maximizada", 
+      description: "Fotos profesionales y landing pages optimizadas generan hasta 3x mas visitas online a tus propiedades." 
     },
   ],
+
+  // Use cases by sector
+  sectorUseCases: [
+    { 
+      sector: "Agencias Inmobiliarias", 
+      sectorIcon: Building2,
+      useCases: [
+        "Servicio premium para captacion de propietarios exclusivos",
+        "Diferenciacion frente a competidores con presentaciones de alto impacto",
+        "Atencion 24/7 a compradores sin aumentar equipo",
+        "Cualificacion automatica para optimizar tiempo de agentes",
+      ]
+    },
+    { 
+      sector: "Promotoras Inmobiliarias", 
+      sectorIcon: Key,
+      useCases: [
+        "Visualizacion de pisos sobre plano con staging virtual",
+        "Landing pages para cada promocion con configurador",
+        "Gestion de listas de espera con IA",
+        "Cualificacion de compradores para priorizar entregas",
+      ]
+    },
+    { 
+      sector: "Inversores y Propietarios", 
+      sectorIcon: Briefcase,
+      useCases: [
+        "Preparacion express de viviendas para alquiler o venta",
+        "Maximizacion del precio con presentacion profesional",
+        "Gestion de consultas sin dedicar tiempo personal",
+        "Seguimiento automatico de interesados",
+      ]
+    },
+    { 
+      sector: "Pisos Turisticos", 
+      sectorIcon: MapPin,
+      useCases: [
+        "Fotos profesionales para Airbnb, Booking, etc.",
+        "Landing page propia para reservas directas",
+        "Chatbot para consultas de huespedes potenciales",
+        "Automatizacion de check-in/check-out virtual",
+      ]
+    },
+    { 
+      sector: "Propiedades de Lujo", 
+      sectorIcon: Award,
+      useCases: [
+        "Produccion audiovisual cinematografica de alta gama",
+        "Tours virtuales inmersivos con narracion",
+        "Marketing exclusivo en redes y portales premium",
+        "Cualificacion exhaustiva de compradores VIP",
+      ]
+    },
+    { 
+      sector: "Locales Comerciales", 
+      sectorIcon: Target,
+      useCases: [
+        "Visualizacion de diferentes usos comerciales con staging",
+        "Landing pages orientadas a inversores y empresas",
+        "Informacion automatica sobre licencias y normativa",
+        "Cualificacion de potencial inquilino o comprador",
+      ]
+    },
+  ],
+
+  // Stats
   stats: [
     { value: "-50%", label: "Tiempo de venta" },
     { value: "+300%", label: "Visitas online" },
     { value: "24/7", label: "Atencion IA" },
     { value: "48h", label: "Preparacion" },
   ],
+
+  // Related services
   relatedServices: [
     { 
       title: "IA Conversacional", 
@@ -109,6 +213,8 @@ const data: ServicePageData = {
       href: "/soluciones/seguridad-ia"
     },
   ],
+
+  // CTA
   ctaTitle: "Listo para vender propiedades",
   ctaAccent: "mas rapido?",
   ctaDescription: "Descubre como el home staging con IA puede transformar tu agencia inmobiliaria y acelerar las ventas.",

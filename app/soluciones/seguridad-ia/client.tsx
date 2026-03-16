@@ -17,7 +17,17 @@ import {
   Lock,
   Monitor,
   Wifi,
-  Clock
+  Clock,
+  PiggyBank,
+  TrendingUp,
+  Zap,
+  FileCheck,
+  ShoppingBag,
+  Warehouse,
+  Building2,
+  UtensilsCrossed,
+  Home,
+  Wrench
 } from "lucide-react"
 
 const data: ServicePageData = {
@@ -29,69 +39,163 @@ const data: ServicePageData = {
   valueStatement: "Reduce falsas alarmas hasta",
   valueHighlight: "95%",
   valueSuffix: "con deteccion inteligente",
-  features: [
+
+  // Overview section
+  overviewTitle: "Que es la Seguridad con IA?",
+  overviewDescription: "La seguridad con IA transforma tus camaras existentes en un sistema de vigilancia inteligente. Mediante algoritmos de vision por computador y aprendizaje profundo, detectamos personas, vehiculos, objetos y comportamientos anomalos en tiempo real, eliminando las falsas alarmas y alertandote solo cuando realmente importa.",
+  overviewPoints: [
+    "Deteccion precisa de personas, vehiculos y objetos con 98% de fiabilidad",
+    "Eliminacion del 95% de falsas alarmas causadas por animales, clima o sombras",
+    "Alertas instantaneas con imagen y video directamente a tu movil",
+    "Compatible con camaras existentes - no necesitas cambiar tu infraestructura",
+  ],
+
+  // Services list
+  services: [
     { 
       icon: Eye, 
       title: "Deteccion Inteligente con IA", 
-      description: "Reconocimiento avanzado de personas, vehiculos, objetos y comportamientos anomalos con precision superior al 98%.",
+      description: "Reconocimiento avanzado de personas, vehiculos, objetos y comportamientos anomalos con precision superior al 98%. Diferencia entre amenazas reales y falsas alarmas.",
       highlight: "98% precision"
     },
     { 
       icon: Bell, 
       title: "Alertas Automaticas Inteligentes", 
-      description: "Notificaciones instantaneas al detectar eventos relevantes, filtrando automaticamente falsas alarmas por animales o clima.",
+      description: "Notificaciones instantaneas al detectar eventos relevantes, filtrando automaticamente falsas alarmas por animales, clima o movimientos irrelevantes.",
       highlight: "-95% falsas alarmas"
     },
     { 
       icon: Lock, 
       title: "Integracion con Alarmas", 
-      description: "Conecta con tu sistema de alarmas existente para activacion automatica basada en detecciones de IA.",
+      description: "Conecta con tu sistema de alarmas existente para activacion automatica basada en detecciones de IA. Compatible con los principales proveedores.",
     },
     { 
       icon: Monitor, 
       title: "Dashboard de Monitorizacion", 
-      description: "Panel centralizado con vista en tiempo real de todas las camaras, historial de eventos y analiticas de seguridad.",
+      description: "Panel centralizado con vista en tiempo real de todas las camaras, historial de eventos, zonas calientes y analiticas de seguridad.",
       highlight: "Acceso remoto 24/7"
-    },
-  ],
-  useCases: [
-    { 
-      icon: Users, 
-      title: "Control de Acceso", 
-      description: "Detecta y registra automaticamente personas autorizadas y no autorizadas en areas restringidas." 
-    },
-    { 
-      icon: Car, 
-      title: "Vigilancia de Parking", 
-      description: "Monitorizacion de estacionamientos con deteccion de vehiculos, matriculas y movimientos sospechosos." 
-    },
-    { 
-      icon: AlertTriangle, 
-      title: "Prevencion de Robos", 
-      description: "Deteccion temprana de comportamientos sospechosos con alertas antes de que ocurra el incidente." 
     },
     { 
       icon: Smartphone, 
-      title: "Alertas Moviles", 
-      description: "Recibe notificaciones push en tu movil con imagenes y video del evento detectado." 
-    },
-    { 
-      icon: Wifi, 
-      title: "Monitorizacion Remota", 
-      description: "Accede a tus camaras desde cualquier lugar con conexion segura y encriptada." 
+      title: "App Movil con Video en Vivo", 
+      description: "Recibe alertas push con capturas del evento, accede a video en directo y revisa grabaciones desde cualquier lugar con tu smartphone.",
     },
     { 
       icon: Clock, 
       title: "Grabacion Inteligente", 
-      description: "Solo graba cuando hay movimiento relevante, ahorrando almacenamiento y facilitando busquedas." 
+      description: "Solo graba cuando hay movimiento relevante, ahorrando almacenamiento y facilitando la busqueda de eventos especificos en el historial.",
     },
   ],
+
+  // Benefits for SMEs
+  benefitsTitle: "Beneficios para PYMEs",
+  benefitsSubtitle: "Como la seguridad con IA protege tu negocio de forma inteligente",
+  benefits: [
+    { 
+      icon: PiggyBank, 
+      title: "Ahorro en Vigilancia", 
+      description: "Reduce costes de seguridad hasta un 60% eliminando la necesidad de vigilancia presencial continua." 
+    },
+    { 
+      icon: AlertTriangle, 
+      title: "Prevencion Activa", 
+      description: "Detecta comportamientos sospechosos antes de que ocurra el incidente, permitiendo actuar preventivamente." 
+    },
+    { 
+      icon: FileCheck, 
+      title: "Evidencia Automatica", 
+      description: "Grabaciones indexadas automaticamente por tipo de evento, facilitando la revision y uso como evidencia si es necesario." 
+    },
+    { 
+      icon: Zap, 
+      title: "Respuesta Inmediata", 
+      description: "Alertas en menos de 1 segundo permiten reaccion rapida, ya sea llamando a la policia o activando medidas disuasorias." 
+    },
+    { 
+      icon: TrendingUp, 
+      title: "Tranquilidad Total", 
+      description: "Supervisa tu negocio desde cualquier lugar, sabiendo que seras alertado instantaneamente ante cualquier incidencia." 
+    },
+    { 
+      icon: Shield, 
+      title: "Sin Falsas Alarmas", 
+      description: "Olvida las llamadas nocturnas por un gato o una rama. La IA distingue amenazas reales de eventos irrelevantes." 
+    },
+  ],
+
+  // Use cases by sector
+  sectorUseCases: [
+    { 
+      sector: "Retail y Comercios", 
+      sectorIcon: ShoppingBag,
+      useCases: [
+        "Deteccion de comportamientos sospechosos en tienda",
+        "Alerta de merodeo fuera del horario comercial",
+        "Control de aforo en tiempo real",
+        "Prevencion de hurtos con alertas inmediatas",
+      ]
+    },
+    { 
+      sector: "Almacenes y Logistica", 
+      sectorIcon: Warehouse,
+      useCases: [
+        "Vigilancia de zonas de carga y descarga",
+        "Control de acceso vehicular a instalaciones",
+        "Deteccion de intrusiones en perimetro",
+        "Monitorizacion de areas restringidas",
+      ]
+    },
+    { 
+      sector: "Oficinas y Coworking", 
+      sectorIcon: Building2,
+      useCases: [
+        "Control de acceso inteligente por reconocimiento",
+        "Deteccion de presencia fuera de horario",
+        "Alertas de puertas abiertas en zonas seguras",
+        "Gestion de visitantes y contratistas",
+      ]
+    },
+    { 
+      sector: "Restaurantes y Hosteleria", 
+      sectorIcon: UtensilsCrossed,
+      useCases: [
+        "Vigilancia de cajas y zonas de cobro",
+        "Control de accesos a almacenes y neveras",
+        "Deteccion de actividad sospechosa nocturna",
+        "Monitorizacion de terrazas y espacios exteriores",
+      ]
+    },
+    { 
+      sector: "Concesionarios", 
+      sectorIcon: Car,
+      useCases: [
+        "Vigilancia de exposicion y stock exterior",
+        "Deteccion de vehiculos no autorizados",
+        "Control de taller y zonas de reparacion",
+        "Alertas de merodeo en horario nocturno",
+      ]
+    },
+    { 
+      sector: "Residencial y Comunidades", 
+      sectorIcon: Home,
+      useCases: [
+        "Control de acceso a zonas comunes",
+        "Deteccion de intrusiones en parkings",
+        "Vigilancia de piscinas y jardines",
+        "Alertas de paqueteria y visitas",
+      ]
+    },
+  ],
+
+  // Stats
   stats: [
     { value: "98%", label: "Precision deteccion" },
     { value: "-95%", label: "Falsas alarmas" },
     { value: "24/7", label: "Monitorizacion" },
     { value: "<1s", label: "Tiempo alerta" },
   ],
+
+  // Related services
   relatedServices: [
     { 
       title: "IA Conversacional", 
@@ -109,6 +213,8 @@ const data: ServicePageData = {
       href: "/soluciones/home-staging-ia"
     },
   ],
+
+  // CTA
   ctaTitle: "Listo para una seguridad",
   ctaAccent: "verdaderamente inteligente?",
   ctaDescription: "Descubre como la videovigilancia con IA puede proteger tu negocio las 24 horas sin falsas alarmas.",
