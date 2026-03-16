@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect, useRef } from "react"
-import { Menu, X, ArrowRight, ChevronDown, Stethoscope, Scissors, UtensilsCrossed, Car, ShoppingBag, Building2, Warehouse, Wrench, BriefcaseMedical, Globe, MessageSquare, Layers, Shield, Home } from "lucide-react"
+import { Menu, X, ArrowRight, ChevronDown, Stethoscope, Scissors, UtensilsCrossed, Car, ShoppingBag, Building2, Warehouse, Wrench, BriefcaseMedical, Globe, MessageSquare, Layers, Shield, Home, GraduationCap, Dumbbell } from "lucide-react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { StaffDigitalLogo } from "@/components/staffdigital-logo"
@@ -16,13 +16,15 @@ const services = [
 const sectors = [
   { name: "Concesionarios", href: "/sectores/concesionarios", icon: Car, description: "Venta y posventa de vehiculos" },
   { name: "Clinicas", href: "/sectores/clinicas", icon: BriefcaseMedical, description: "Clinicas y centros medicos" },
-  { name: "Dentistas", href: "/sectores/dentistas", icon: Stethoscope, description: "Clinicas dentales" },
-  { name: "Peluquerias", href: "/sectores/peluquerias", icon: Scissors, description: "Belleza y estetica" },
+  { name: "Centros de Belleza", href: "/sectores/peluquerias", icon: Scissors, description: "Belleza y estetica" },
   { name: "Restaurantes", href: "/sectores/restaurantes", icon: UtensilsCrossed, description: "Hosteleria y restauracion" },
   { name: "Retail", href: "/sectores/retail", icon: ShoppingBag, description: "Comercio minorista" },
   { name: "Oficinas", href: "/sectores/oficinas", icon: Building2, description: "Espacios corporativos" },
-  { name: "Almacenes", href: "/sectores/almacenes", icon: Warehouse, description: "Logistica y distribucion" },
+  { name: "Logistica", href: "/sectores/almacenes", icon: Warehouse, description: "Almacenes y distribucion" },
   { name: "Servicios Tecnicos", href: "/sectores/servicios-tecnicos", icon: Wrench, description: "Asistencia tecnica y SAT" },
+  { name: "Inmobiliarias", href: "/sectores/inmobiliarias", icon: Home, description: "Agencias inmobiliarias" },
+  { name: "Educacion", href: "/sectores/educacion", icon: GraduationCap, description: "Colegios y academias" },
+  { name: "Gimnasios", href: "/sectores/gimnasios", icon: Dumbbell, description: "Centros deportivos" },
 ]
 
 const languages = [
@@ -260,8 +262,8 @@ export function GlassmorphismNav() {
                               : "opacity-0 -translate-y-2 pointer-events-none"
                           }`}
                         >
-                          <div className="bg-slate-900/95 backdrop-blur-xl border border-white/10 rounded-2xl p-3 shadow-2xl w-[480px]">
-                            <div className="grid grid-cols-2 gap-0.5">
+                          <div className="bg-slate-900/95 backdrop-blur-xl border border-white/10 rounded-2xl p-3 shadow-2xl w-[560px]">
+                            <div className="grid grid-cols-3 gap-0.5">
                               {sectors.map((sector) => {
                                 const Icon = sector.icon
                                 return (
