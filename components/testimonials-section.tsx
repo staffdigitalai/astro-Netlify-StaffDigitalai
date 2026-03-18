@@ -74,7 +74,7 @@ export function TestimonialsSection() {
   ]
 
   return (
-    <section id="testimonials" ref={sectionRef} className="relative pt-16 pb-16 px-4 sm:px-6 lg:px-8">
+    <section id="testimonials" ref={sectionRef} className="relative pt-12 pb-12 md:pt-16 md:pb-16 px-4 sm:px-6 lg:px-8">
       {/* Grid Background */}
       <div className="absolute inset-0 opacity-10">
         <div
@@ -91,7 +91,7 @@ export function TestimonialsSection() {
 
       <div className="relative max-w-7xl mx-auto">
         {/* Header Section - Keep as user loves it */}
-        <div className="text-center mb-16 md:mb-32">
+        <div className="text-center mb-12 md:mb-16">
           <div className="fade-in-element opacity-0 translate-y-8 transition-all duration-1000 ease-out inline-flex items-center gap-2 text-white/60 text-sm font-medium tracking-wider uppercase mb-6">
             <div className="w-8 h-px bg-white/30"></div>
             Casos de Exito

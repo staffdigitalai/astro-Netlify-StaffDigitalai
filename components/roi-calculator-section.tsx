@@ -85,7 +85,7 @@ export function ROICalculatorSection() {
   const revenueIncrease = ((newRevenue - currentRevenue) / currentRevenue) * 100
 
   return (
-    <section id="roi-calculator" className="py-16 md:py-20 px-4 relative">
+    <section id="roi-calculator" className="py-12 md:py-16 px-4 relative">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div
