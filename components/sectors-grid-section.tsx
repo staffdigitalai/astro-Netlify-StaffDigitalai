@@ -277,7 +277,7 @@ export function SectorsGridSection() {
             href="#contact"
             className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 rounded-full text-white font-medium transition-all duration-300 hover:scale-105 shadow-lg shadow-orange-500/25"
           >
-            Solicitar Demo Gratuita
+            Pide tu Demo Hoy
             <ArrowRight size={16} />
           </Link>
         </div>

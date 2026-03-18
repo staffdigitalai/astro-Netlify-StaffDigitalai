@@ -71,7 +71,7 @@ export function HeroSection() {
             size="lg"
             className="bg-white text-black rounded-full px-8 py-4 text-lg font-medium transition-all duration-300 hover:bg-gray-50 hover:scale-105 hover:shadow-lg group cursor-pointer relative overflow-hidden"
           >
-            Empezar a Automatizar
+            Pide tu Demo Hoy
             <ArrowRight />
           </Button>
 
@@ -80,8 +80,7 @@ export function HeroSection() {
             size="lg"
             className="rounded-full px-8 py-4 text-lg font-medium border-border hover:bg-accent transition-all duration-200 hover:scale-105 group bg-transparent cursor-pointer"
           >
-            <Play />
-            Ver Demo
+            Pedir Presupuesto
           </Button>
         </div>
 

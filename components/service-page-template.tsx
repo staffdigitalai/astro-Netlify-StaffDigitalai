@@ -182,7 +182,7 @@ export function ServicePageTemplate({ data }: { data: ServicePageData }) {
                 size="lg"
                 className="bg-white text-black rounded-full px-8 py-4 text-lg font-medium transition-all duration-300 hover:bg-gray-50 hover:scale-105 hover:shadow-lg group cursor-pointer w-full sm:w-auto"
               >
-                Solicitar Demo
+                Pide tu Demo Hoy
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Button>
               <Button
@@ -190,7 +190,7 @@ export function ServicePageTemplate({ data }: { data: ServicePageData }) {
                 variant="outline"
                 className="bg-transparent text-white border-2 border-white/30 rounded-full px-8 py-4 text-lg font-medium transition-all duration-300 hover:bg-white/10 hover:border-white/50 hover:scale-105 cursor-pointer backdrop-blur-sm w-full sm:w-auto"
               >
-                Hablar con Experto
+                Pedir Presupuesto
               </Button>
             </div>
           </div>
@@ -418,7 +418,7 @@ export function ServicePageTemplate({ data }: { data: ServicePageData }) {
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
               <button className="group inline-flex items-center gap-3 px-8 py-4 md:px-12 md:py-6 bg-gradient-to-r from-white to-slate-100 text-slate-900 rounded-full font-semibold text-base md:text-lg hover:from-slate-50 hover:to-slate-200 transition-all duration-300 hover:scale-105 shadow-2xl">
-                Solicita tu Demo Hoy
+                Pide tu Demo Hoy
                 <ArrowRight className="w-5 h-5 md:w-6 md:h-6 group-hover:translate-x-1 transition-transform duration-200" />
               </button>
             </div>

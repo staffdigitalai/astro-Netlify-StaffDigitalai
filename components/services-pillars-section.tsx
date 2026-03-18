@@ -173,7 +173,7 @@ export function ServicesPillarsSection() {
             href="#contact"
             className="inline-flex items-center gap-2 px-6 py-3 bg-white/10 hover:bg-white/15 border border-white/20 hover:border-white/30 rounded-full text-white font-medium transition-all duration-300 hover:scale-105"
           >
-            Habla con un experto
+            Pedir Presupuesto
             <ArrowRight size={16} />
           </Link>
         </div>
