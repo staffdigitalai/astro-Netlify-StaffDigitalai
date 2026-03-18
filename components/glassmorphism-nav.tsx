@@ -423,7 +423,7 @@ export function GlassmorphismNav() {
                   className="relative bg-white hover:bg-gray-50 text-black font-medium px-5 py-1.5 rounded-full flex items-center transition-all duration-300 hover:scale-105 hover:shadow-lg cursor-pointer group text-sm"
                   onClick={() => scrollToSection("#contact")}
                 >
-                  <span className="mr-1.5">Comecar</span>
+                  <span className="mr-1.5">Empezar</span>
                   <ArrowRight size={14} className="transition-transform duration-300 group-hover:translate-x-0.5" />
                 </button>
               </div>
@@ -647,7 +647,7 @@ export function GlassmorphismNav() {
                   className="relative bg-white hover:bg-gray-50 text-black font-medium px-6 py-3 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-105 hover:shadow-lg cursor-pointer group"
                   onClick={() => scrollToSection("#contact")}
                 >
-                  <span className="mr-2">Comecar</span>
+                  <span className="mr-2">Empezar</span>
                   <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
                 </button>
               </div>
