@@ -186,7 +186,7 @@ export function LeadsProblemSection() {
             size="lg"
             className="bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white rounded-full px-8 py-4 text-lg font-medium transition-all duration-300 hover:scale-105 cursor-pointer shadow-lg shadow-orange-500/25 group"
           >
-            Auditoria de Respuesta Gratuita
+            Auditoria Gratuita
             <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
           </Button>
         </div>
