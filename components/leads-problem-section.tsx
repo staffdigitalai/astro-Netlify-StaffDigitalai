@@ -2,7 +2,8 @@
 
 import { useRef } from "react"
 import { useInView } from "framer-motion"
-import { Clock, AlertTriangle, Users, TrendingDown, Bot, Calendar, Plug, MessageSquare } from "lucide-react"
+import { Clock, AlertTriangle, Users, TrendingDown, Bot, Calendar, Plug, MessageSquare, ArrowRight } from "lucide-react"
+import { Button } from "@/components/ui/button"
 
 export function LeadsProblemSection() {
   const sectionRef = useRef<HTMLDivElement>(null)
@@ -146,7 +147,7 @@ export function LeadsProblemSection() {
 
         {/* Stats Row */}
         <div 
-          className="grid grid-cols-3 gap-4"
+          className="grid grid-cols-3 gap-4 mb-12"
           style={{
             opacity: isInView ? 1 : 0,
             transform: isInView ? "translateY(0)" : "translateY(20px)",
@@ -164,6 +165,30 @@ export function LeadsProblemSection() {
               <p className="text-white/50 text-xs md:text-sm">{stat.label}</p>
             </div>
           ))}
+        </div>
+
+        {/* CTA Section */}
+        <div 
+          className="bg-gradient-to-r from-orange-500/10 to-amber-500/10 backdrop-blur-sm border border-orange-500/20 rounded-2xl p-8 text-center"
+          style={{
+            opacity: isInView ? 1 : 0,
+            transform: isInView ? "translateY(0)" : "translateY(20px)",
+            transition: "all 0.6s ease-out 0.5s",
+          }}
+        >
+          <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
+            Deja de Perder Clientes Hoy
+          </h3>
+          <p className="text-white/60 text-lg max-w-2xl mx-auto mb-6">
+            Obtiene una auditoria gratuita de tiempo de respuesta y descubre exactamente cuantos leads estas perdiendo ahora mismo.
+          </p>
+          <Button
+            size="lg"
+            className="bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white rounded-full px-8 py-4 text-lg font-medium transition-all duration-300 hover:scale-105 cursor-pointer shadow-lg shadow-orange-500/25 group"
+          >
+            Auditoria de Respuesta Gratuita
+            <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+          </Button>
         </div>
       </div>
     </section>
