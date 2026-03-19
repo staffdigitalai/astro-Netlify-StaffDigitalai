@@ -9,6 +9,7 @@ import { TyreKickersSection } from "@/components/tyre-kickers-section"
 import { InstagramServiceSection } from "@/components/instagram-service-section"
 import { OmnichannelSection } from "@/components/omnichannel-section"
 import { WhatsAppDemoSection } from "@/components/whatsapp-demo-section"
+import { AITeamSection } from "@/components/ai-team-section"
 
 export function ConcesionariosClient() {
   return (
@@ -33,6 +34,7 @@ export function ConcesionariosClient() {
           </section>
 
           <SplitScreenBeforeAfter />
+          <AITeamSection />
           <TyreKickersSection />
           <WhatsAppDemoSection />
           <InstagramServiceSection />

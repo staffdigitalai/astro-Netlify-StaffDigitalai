@@ -9,7 +9,7 @@ const sectors = [
     id: "concesionarios",
     icon: Car,
     title: "Concesionarios",
-    subtitle: "Automotive Dealerships",
+    subtitle: "Venta y posventa de vehiculos",
     description: "Venta de vehiculos, posventa, talleres y recambios con atencion 24/7 y gestion de citas automatizada.",
     href: "/sectores/concesionarios",
     gradient: "from-slate-500 to-zinc-500",
@@ -19,8 +19,8 @@ const sectors = [
   {
     id: "clinicas",
     icon: Stethoscope,
-    title: "Clinicas",
-    subtitle: "Medical Clinics",
+    title: "Clinicas Medicas",
+    subtitle: "Centros medicos y especializados",
     description: "Centros medicos, clinicas especializadas y consultas con gestion de pacientes y recordatorios.",
     href: "/sectores/clinicas",
     gradient: "from-blue-500 to-cyan-500",
@@ -31,7 +31,7 @@ const sectors = [
     id: "peluquerias",
     icon: Scissors,
     title: "Centros de Belleza",
-    subtitle: "Beauty Centers",
+    subtitle: "Peluquerias, estetica y spas",
     description: "Peluquerias, estetica, spas y centros de bienestar con reservas online y fidelizacion.",
     href: "/sectores/peluquerias",
     gradient: "from-pink-500 to-rose-500",
@@ -42,7 +42,7 @@ const sectors = [
     id: "restaurantes",
     icon: UtensilsCrossed,
     title: "Restaurantes y Hosteleria",
-    subtitle: "Restaurants & Hospitality",
+    subtitle: "Bares, hoteles y catering",
     description: "Restaurantes, bares, hoteles y catering con reservas, pedidos y atencion multicanal.",
     href: "/sectores/restaurantes",
     gradient: "from-orange-500 to-amber-500",
@@ -52,8 +52,8 @@ const sectors = [
   {
     id: "retail",
     icon: ShoppingBag,
-    title: "Retail",
-    subtitle: "Retail Stores",
+    title: "Comercio Minorista",
+    subtitle: "Tiendas fisicas y online",
     description: "Tiendas fisicas y online con atencion al cliente, stock y promociones automatizadas.",
     href: "/sectores/retail",
     gradient: "from-emerald-500 to-teal-500",
@@ -64,7 +64,7 @@ const sectors = [
     id: "oficinas",
     icon: Building2,
     title: "Oficinas",
-    subtitle: "Office Spaces",
+    subtitle: "Espacios corporativos y coworking",
     description: "Espacios corporativos, coworking y centros de negocios con control de accesos y servicios.",
     href: "/sectores/oficinas",
     gradient: "from-indigo-500 to-violet-500",
@@ -75,7 +75,7 @@ const sectors = [
     id: "almacenes",
     icon: Warehouse,
     title: "Logistica",
-    subtitle: "Logistics & Warehouses",
+    subtitle: "Almacenes y distribucion",
     description: "Almacenes, centros de distribucion y empresas de transporte con seguimiento y alertas.",
     href: "/sectores/almacenes",
     gradient: "from-amber-600 to-yellow-500",
@@ -86,7 +86,7 @@ const sectors = [
     id: "servicios-tecnicos",
     icon: Wrench,
     title: "Servicios Tecnicos",
-    subtitle: "Technical Services",
+    subtitle: "SAT, instaladores y reparaciones",
     description: "SAT, instaladores, mantenimiento y reparaciones con gestion de tickets y agenda.",
     href: "/sectores/servicios-tecnicos",
     gradient: "from-red-500 to-orange-500",
@@ -97,7 +97,7 @@ const sectors = [
     id: "inmobiliarias",
     icon: Home,
     title: "Inmobiliarias",
-    subtitle: "Real Estate",
+    subtitle: "Agencias y gestion de propiedades",
     description: "Agencias inmobiliarias con cualificacion de leads, visitas virtuales y gestion de propiedades.",
     href: "/sectores/inmobiliarias",
     gradient: "from-purple-500 to-pink-500",
@@ -108,7 +108,7 @@ const sectors = [
     id: "educacion",
     icon: GraduationCap,
     title: "Educacion",
-    subtitle: "Education",
+    subtitle: "Colegios, academias y formacion",
     description: "Colegios, academias, universidades y centros de formacion con matriculacion y seguimiento.",
     href: "/sectores/educacion",
     gradient: "from-sky-500 to-blue-500",
@@ -119,7 +119,7 @@ const sectors = [
     id: "gimnasios",
     icon: Dumbbell,
     title: "Gimnasios",
-    subtitle: "Gyms & Fitness",
+    subtitle: "Centros deportivos y clubes",
     description: "Centros deportivos, gimnasios y clubes con gestion de socios, clases y reservas.",
     href: "/sectores/gimnasios",
     gradient: "from-lime-500 to-green-500",
@@ -277,7 +277,7 @@ export function SectorsGridSection() {
             href="#contact"
             className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 rounded-full text-white font-medium transition-all duration-300 hover:scale-105 shadow-lg shadow-orange-500/25"
           >
-            Solicitar Demo Gratuita
+            Habla con un Experto
             <ArrowRight size={16} />
           </Link>
         </div>

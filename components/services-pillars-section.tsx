@@ -9,7 +9,6 @@ const pillars = [
     id: "conversational-ai",
     icon: MessageSquare,
     title: "IA Conversacional",
-    titleEn: "Conversational AI",
     description: "Chatbots inteligentes, asistentes virtuales, agentes de voz, cualificacion de leads y reserva automatica de citas.",
     features: ["Chatbots 24/7", "Agentes de Voz", "Cualificacion de Leads", "Reserva de Citas"],
     href: "/soluciones/ia-conversacional",
@@ -21,7 +20,6 @@ const pillars = [
     id: "omnichannel",
     icon: Layers,
     title: "Automatizacion Omnicanal",
-    titleEn: "Omnichannel Automation",
     description: "Bandeja unificada, respuestas automaticas, automatizacion de email, CRM y flujos de trabajo integrados.",
     features: ["Bandeja Unificada", "Email Automatico", "CRM Integrado", "Workflows"],
     href: "/soluciones/automatizacion-omnicanal",
@@ -33,7 +31,6 @@ const pillars = [
     id: "security",
     icon: Shield,
     title: "Seguridad IA y Videovigilancia",
-    titleEn: "AI Security & Video Surveillance",
     description: "Monitorizacion inteligente, deteccion de personas y vehiculos, alertas automaticas e integracion con alarmas.",
     features: ["Deteccion IA", "Alertas Automaticas", "Integracion Alarmas", "Dashboard Remoto"],
     href: "/soluciones/seguridad-ia",
@@ -45,7 +42,6 @@ const pillars = [
     id: "home-staging",
     icon: Home,
     title: "Home Staging IA",
-    titleEn: "AI Home Staging",
     description: "Solucion completa para inmobiliarias: limpieza, reparaciones, fotografia profesional, landing pages y agentes IA.",
     features: ["Preparacion Integral", "Landing Pages", "Chat IA Compradores", "Reserva Visitas"],
     href: "/soluciones/home-staging-ia",
@@ -177,7 +173,7 @@ export function ServicesPillarsSection() {
             href="#contact"
             className="inline-flex items-center gap-2 px-6 py-3 bg-white/10 hover:bg-white/15 border border-white/20 hover:border-white/30 rounded-full text-white font-medium transition-all duration-300 hover:scale-105"
           >
-            Habla con un experto
+            Pedir Presupuesto
             <ArrowRight size={16} />
           </Link>
         </div>

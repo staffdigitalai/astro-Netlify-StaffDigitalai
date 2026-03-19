@@ -33,37 +33,37 @@ export function TestimonialsSection() {
   const testimonials = [
     {
       text: "Pasamos de perder el 70% de las consultas fuera de horario a captar cada lead. Las reservas de clientes aumentaron un 50% en el primer mes.",
-      name: "Mike Rodriguez",
+      name: "Miguel Rodriguez",
       role: "Propietario",
     },
     {
       text: "Dedicamos mucho menos tiempo a pensar en la respuesta a leads gracias a la interaccion instantanea que nos ofrece StaffDigital AI.",
-      name: "Sarah Chen",
+      name: "Sara Martinez",
       role: "Directora Comercial",
     },
     {
       text: "Con StaffDigital AI, nuestras tasas de conversion aumentaron un 85% y nuestros ingresos de fin de semana subieron un 40%.",
-      name: "Michael Torres",
+      name: "Carlos Torres",
       role: "Director General",
     },
     {
       text: "La IA gestiona las preguntas de los clientes 24/7, asi que nunca perdemos una venta potencial. Nuestro equipo puede centrarse en cerrar acuerdos.",
-      name: "Jennifer Walsh",
+      name: "Elena Fernandez",
       role: "Directora de Operaciones",
     },
     {
       text: "Las puntuaciones de satisfaccion del cliente mejoraron dramaticamente desde que implementamos StaffDigital AI. A los clientes les encantan las respuestas instantaneas.",
-      name: "David Kim",
+      name: "David Sanchez",
       role: "Responsable de Experiencia del Cliente",
     },
     {
       text: "Nuestra tienda vio un aumento del 60% en leads cualificados. El chatbot gestiona las consultas de productos perfectamente mientras nos centramos en los clientes presenciales.",
-      name: "Lisa Thompson",
+      name: "Laura Gomez",
       role: "Directora de Tienda",
     },
     {
       text: "Las consultas inmobiliarias se gestionan al instante. Hemos cerrado 3 veces mas acuerdos desde que implementamos el asistente IA de StaffDigital AI.",
-      name: "James Wilson",
+      name: "Javier Lopez",
       role: "Agente Inmobiliario",
     },
     {

@@ -61,8 +61,7 @@ export function HeroSection() {
 
         {/* Subheading */}
         <p className="text-base sm:text-xl md:text-2xl text-white text-balance max-w-sm sm:max-w-3xl mx-auto mb-8 sm:mb-12 leading-relaxed px-4 sm:px-0 animate-fade-in-subheading font-light">
-          StaffDigital AI ayuda a las empresas a ahorrar tiempo y aumentar ingresos con chat inteligente, flujos de trabajo y automatizaciones, totalmente
-          gestionados para ti.
+          StaffDigital AI impulsa el crecimiento de las empresas con inteligencia artificial aplicada a atencion al cliente, automatizacion, seguridad inteligente y Home Staging AI. Todo, totalmente gestionado para ti.
         </p>
 
         {/* CTA Buttons */}
@@ -71,7 +70,7 @@ export function HeroSection() {
             size="lg"
             className="bg-white text-black rounded-full px-8 py-4 text-lg font-medium transition-all duration-300 hover:bg-gray-50 hover:scale-105 hover:shadow-lg group cursor-pointer relative overflow-hidden"
           >
-            Empezar a Automatizar
+            Habla con un Experto
             <ArrowRight />
           </Button>
 
@@ -80,8 +79,7 @@ export function HeroSection() {
             size="lg"
             className="rounded-full px-8 py-4 text-lg font-medium border-border hover:bg-accent transition-all duration-200 hover:scale-105 group bg-transparent cursor-pointer"
           >
-            <Play />
-            Ver Demo
+            Pedir Presupuesto
           </Button>
         </div>
 

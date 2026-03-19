@@ -4,8 +4,6 @@ import { ProblemSolutionSection } from "@/components/problem-solution-section"
 import Aurora from "@/components/Aurora"
 import { ServicesPillarsSection } from "@/components/services-pillars-section"
 import { SectorsGridSection } from "@/components/sectors-grid-section"
-import { FeaturesSection } from "@/components/features-section"
-import { AITeamSection } from "@/components/ai-team-section"
 import { TestimonialsSection } from "@/components/testimonials-section"
 import { ROICalculatorSection } from "@/components/roi-calculator-section"
 import { CTASection } from "@/components/cta-section"
@@ -23,18 +21,14 @@ export default function HomePage() {
           <div id="inicio">
             <HeroSection />
           </div>
-          <div id="sobre">
-            <ProblemSolutionSection />
-          </div>
           <div id="soluciones">
             <ServicesPillarsSection />
           </div>
+          <div id="sobre">
+            <ProblemSolutionSection />
+          </div>
           <div id="sectores">
             <SectorsGridSection />
-          </div>
-          <div id="servicos">
-            <FeaturesSection />
-            <AITeamSection />
           </div>
           <div id="testemunhos">
             <TestimonialsSection />

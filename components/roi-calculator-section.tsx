@@ -3,8 +3,7 @@
 import { useState, useEffect } from "react"
 import { Slider } from "@/components/ui/slider"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { Card } from "@/components/ui/card"
-import { TrendingUp, Users, DollarSign, Clock } from "lucide-react"
+import { TrendingUp, Users, DollarSign } from "lucide-react"
 
 interface CalculatorInputs {
   monthlyVisitors: number
@@ -45,14 +44,14 @@ export function ROICalculatorSection() {
 
   const getBusinessDefaults = () => {
     const businessDefaults = {
-      ecommerce: { avgOrder: 85, maxOrder: 500, conversion: 35, response: 80, satisfaction: 45 },
-      retail: { avgOrder: 65, maxOrder: 300, conversion: 30, response: 75, satisfaction: 40 },
-      realestate: { avgOrder: 5000, maxOrder: 50000, conversion: 40, response: 85, satisfaction: 50 },
-      hospitality: { avgOrder: 180, maxOrder: 1000, conversion: 25, response: 70, satisfaction: 35 },
-      healthcare: { avgOrder: 250, maxOrder: 2000, conversion: 45, response: 90, satisfaction: 55 },
-      finance: { avgOrder: 1200, maxOrder: 10000, conversion: 35, response: 85, satisfaction: 50 },
-      automotive: { avgOrder: 25000, maxOrder: 100000, conversion: 30, response: 75, satisfaction: 40 },
-      default: { avgOrder: 150, maxOrder: 2000, conversion: 35, response: 80, satisfaction: 45 },
+      ecommerce: { avgOrder: 85, maxOrder: 500, conversion: 35 },
+      retail: { avgOrder: 65, maxOrder: 300, conversion: 30 },
+      realestate: { avgOrder: 5000, maxOrder: 50000, conversion: 40 },
+      hospitality: { avgOrder: 180, maxOrder: 1000, conversion: 25 },
+      healthcare: { avgOrder: 250, maxOrder: 2000, conversion: 45 },
+      finance: { avgOrder: 1200, maxOrder: 10000, conversion: 35 },
+      automotive: { avgOrder: 25000, maxOrder: 100000, conversion: 30 },
+      default: { avgOrder: 150, maxOrder: 2000, conversion: 35 },
     }
 
     return businessDefaults[inputs.businessType as keyof typeof businessDefaults] || businessDefaults.default
@@ -64,279 +63,153 @@ export function ROICalculatorSection() {
   }, [inputs.businessType])
 
   const businessConfig = getBusinessDefaults()
-  const improvements = {
-    conversion: businessConfig.conversion,
-    response: businessConfig.response,
-    satisfaction: businessConfig.satisfaction,
-  }
 
   // Current metrics
   const currentLeads = Math.round((inputs.monthlyVisitors * inputs.currentConversionRate) / 100)
   const currentRevenue = currentLeads * inputs.averageOrderValue
 
-  // Improved metrics with AI chatbot
-  const newConversionRate = inputs.currentConversionRate * (1 + improvements.conversion / 100)
+  // Improved metrics with AI
+  const newConversionRate = inputs.currentConversionRate * (1 + businessConfig.conversion / 100)
   const newLeads = Math.round((inputs.monthlyVisitors * newConversionRate) / 100)
   const newRevenue = newLeads * inputs.averageOrderValue
 
   // Gains
   const additionalLeads = newLeads - currentLeads
   const additionalRevenue = newRevenue - currentRevenue
-  const revenueIncrease = ((newRevenue - currentRevenue) / currentRevenue) * 100
 
   return (
     <section id="roi-calculator" className="py-12 md:py-16 px-4 relative">
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-5xl mx-auto">
         {/* Header */}
         <div
-          className={`text-center mb-12 md:mb-16 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+          className={`text-center mb-8 md:mb-10 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm mb-6">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm mb-4">
             <TrendingUp className="w-4 h-4 text-primary" />
             <span className="text-sm font-medium text-white/80">Calculadora de ROI</span>
           </div>
 
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 md:mb-6 text-balance">
-            Descubre tu potencial de{" "}
-            <span className="bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
-              crecimiento de ingresos
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-3 text-balance">
+            Calcula tu{" "}
+            <span className="bg-gradient-to-r from-orange-400 to-amber-400 bg-clip-text text-transparent">
+              potencial de crecimiento
             </span>
           </h2>
-
-          <p className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto text-balance">
-            Calcula cuantos ingresos adicionales podria generar tu negocio con la atencion al cliente impulsada por IA
-          </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-10 items-stretch">
-          {/* Calculator Inputs */}
-          <div
-            className={`transition-all duration-700 delay-200 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
-          >
-            <Card className="p-6 md:p-8 bg-[radial-gradient(35%_128px_at_50%_0%,theme(backgroundColor.white/15%),theme(backgroundColor.white/5%))] border-white/20 backdrop-blur-sm shadow-2xl h-full flex flex-col">
-              <h3 className="text-xl md:text-2xl font-semibold text-white mb-6 md:mb-8">Metricas de tu Negocio</h3>
-
-              <div className="space-y-8 flex-1">
-                {/* Business Type */}
-                <div>
-                  <label className="block text-sm font-medium text-gray-300 mb-3">Tipo de Negocio</label>
-                  <Select
-                    value={inputs.businessType}
-                    onValueChange={(value) => setInputs((prev) => ({ ...prev, businessType: value }))}
-                  >
-                    <SelectTrigger className="bg-gray-700/50 border-gray-600 text-white">
-                      <SelectValue />
-                    </SelectTrigger>
-                    <SelectContent className="bg-gray-800 border-gray-700">
-                      <SelectItem value="ecommerce">E-commerce</SelectItem>
-                      <SelectItem value="retail">Comercio</SelectItem>
-                      <SelectItem value="realestate">Inmobiliaria</SelectItem>
-                      <SelectItem value="hospitality">Hosteleria</SelectItem>
-                      <SelectItem value="healthcare">Sanidad</SelectItem>
-                      <SelectItem value="finance">Finanzas</SelectItem>
-                      <SelectItem value="automotive">Automocion</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-
-                {/* Monthly Visitors */}
-                <div>
-                  <label className="block text-sm font-medium text-gray-300 mb-3">
-                    Visitantes Mensuales Web:{" "}
-                    <span className="text-white font-semibold">{inputs.monthlyVisitors.toLocaleString("es-ES")}</span>
-                  </label>
-                  <Slider
-                    value={[inputs.monthlyVisitors]}
-                    onValueChange={([value]) => setInputs((prev) => ({ ...prev, monthlyVisitors: value }))}
-                    max={100000}
-                    min={1000}
-                    step={1000}
-                    className="w-full"
-                  />
-                  <div className="flex justify-between text-xs text-gray-400 mt-1">
-                    <span>1K</span>
-                    <span>100K</span>
-                  </div>
-                </div>
-
-                {/* Conversion Rate */}
-                <div>
-                  <label className="block text-sm font-medium text-gray-300 mb-3">
-                    Tasa de Conversion Actual:{" "}
-                    <span className="text-white font-semibold">{inputs.currentConversionRate}%</span>
-                  </label>
-                  <Slider
-                    value={[inputs.currentConversionRate]}
-                    onValueChange={([value]) => setInputs((prev) => ({ ...prev, currentConversionRate: value }))}
-                    max={10}
-                    min={0.5}
-                    step={0.1}
-                    className="w-full"
-                  />
-                  <div className="flex justify-between text-xs text-gray-400 mt-1">
-                    <span>0.5%</span>
-                    <span>10%</span>
-                  </div>
-                </div>
-
-                {/* Average Order Value */}
-                <div>
-                  <label className="block text-sm font-medium text-gray-300 mb-3">
-                    Valor Medio del Pedido:{" "}
-                    <span className="text-white font-semibold">€{inputs.averageOrderValue.toLocaleString("es-ES")}</span>
-                  </label>
-                  <Slider
-                    value={[inputs.averageOrderValue]}
-                    onValueChange={([value]) => setInputs((prev) => ({ ...prev, averageOrderValue: value }))}
-                    max={businessConfig.maxOrder}
-                    min={25}
-                    step={inputs.businessType === "automotive" || inputs.businessType === "realestate" ? 1000 : 25}
-                    className="w-full"
-                  />
-                  <div className="flex justify-between text-xs text-gray-400 mt-1">
-                    <span>€25</span>
-                    <span>€{businessConfig.maxOrder.toLocaleString("es-ES")}</span>
-                  </div>
-                </div>
-
-                <div className="flex-1"></div>
-              </div>
-
-              <div className="mt-6 lg:hidden">
-                <div className="flex items-center justify-center gap-2 p-3 rounded-lg bg-primary/10 border border-primary/20">
-                  <div className="animate-bounce">
-                    <svg className="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M19 14l-7 7m0 0l-7-7m7 7V3"
-                      />
-                    </svg>
-                  </div>
-                  <span className="text-sm text-primary font-medium">Desplazate hacia abajo para ver tus resultados</span>
-                </div>
-              </div>
-
-              <div className="mt-8 pt-6 border-t border-gray-700/50">
-                <div className="space-y-4">
-                  <h4 className="text-sm font-semibold text-gray-300 mb-3">{"💡 Datos del Sector"}</h4>
-                  <div className="space-y-3">
-                    <div className="flex items-start gap-3 p-3 rounded-lg bg-white/5">
-                      <div className="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0"></div>
-                      <div>
-                        <p className="text-sm text-gray-300">
-                          <span className="font-medium text-white">Mejora media:</span> Las empresas ven un{" "}
-                          {businessConfig.conversion}% de aumento en conversiones en 30 dias
-                        </p>
-                      </div>
-                    </div>
-                    <div className="flex items-start gap-3 p-3 rounded-lg bg-white/5">
-                      <div className="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0"></div>
-                      <div>
-                        <p className="text-sm text-gray-300">
-                          <span className="font-medium text-white">Tiempo de respuesta:</span> Los chatbots IA responden un{" "}
-                          {businessConfig.response}% mas rapido que los metodos tradicionales
-                        </p>
-                      </div>
-                    </div>
-                    <div className="flex items-start gap-3 p-3 rounded-lg bg-white/5">
-                      <div className="w-2 h-2 rounded-full bg-primary mt-2 flex-shrink-0"></div>
-                      <div>
-                        <p className="text-sm text-gray-300">
-                          <span className="font-medium text-white">Satisfaccion del cliente:</span> Aumenta un{" "}
-                          {businessConfig.satisfaction}% con soporte IA 24/7
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </Card>
-          </div>
-
-          {/* Results */}
-          <div
-            className={`transition-all duration-700 delay-400 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
-          >
-            <Card className="p-6 md:p-8 bg-[radial-gradient(35%_128px_at_50%_0%,theme(backgroundColor.white/15%),theme(backgroundColor.white/5%))] border-white/20 backdrop-blur-sm shadow-2xl h-full flex flex-col">
-              <h3 className="text-xl md:text-2xl font-semibold text-white mb-6 md:mb-8">
-                Tu Potencial con StaffDigital AI
-              </h3>
-
-              <div className="space-y-6 flex-1">
-                {/* Current vs New Metrics */}
-                <div className="grid grid-cols-2 gap-3 md:gap-4">
-                  <div className="text-center p-3 md:p-4 rounded-lg bg-gray-700/30">
-                    <div className="text-xs md:text-sm text-gray-400 mb-1">Actual</div>
-                    <div className="text-xl md:text-2xl font-bold text-white">{currentLeads}</div>
-                    <div className="text-xs text-gray-400">leads/mes</div>
-                  </div>
-                  <div className="text-center p-3 md:p-4 rounded-lg bg-white/10 border border-white/20">
-                    <div className="text-xs md:text-sm text-gray-300 mb-1">Con StaffDigital AI</div>
-                    <div className="text-xl md:text-2xl font-bold text-white">{newLeads}</div>
-                    <div className="text-xs text-gray-300">leads/mes</div>
-                  </div>
-                </div>
-
-                <div className="space-y-3 md:space-y-4">
-                  <div className="flex items-center justify-between p-3 md:p-4 rounded-lg bg-white/5 border border-white/10">
-                    <div className="flex items-center gap-3">
-                      <Users className="w-4 h-4 md:w-5 md:h-5 text-gray-300" />
-                      <span className="text-sm md:text-base text-white">Leads Adicionales</span>
-                    </div>
-                    <span className="text-lg md:text-xl font-bold text-white">+{additionalLeads}</span>
-                  </div>
-
-                  <div className="flex items-center justify-between p-3 md:p-4 rounded-lg bg-white/5 border border-white/10">
-                    <div className="flex items-center gap-3">
-                      <DollarSign className="w-4 h-4 md:w-5 md:h-5 text-gray-300" />
-                      <span className="text-sm md:text-base text-white">Ingresos Adicionales</span>
-                    </div>
-                    <span className="text-lg md:text-xl font-bold text-white">
-                      €{additionalRevenue.toLocaleString("es-ES")}
-                    </span>
-                  </div>
-
-                  <div className="flex items-center justify-between p-3 md:p-4 rounded-lg bg-white/5 border border-white/10">
-                    <div className="flex items-center gap-3">
-                      <TrendingUp className="w-4 h-4 md:w-5 md:h-5 text-gray-300" />
-                      <span className="text-sm md:text-base text-white">Aumento de Ingresos</span>
-                    </div>
-                    <span className="text-lg md:text-xl font-bold text-white">+{revenueIncrease.toFixed(1)}%</span>
-                  </div>
-
-                  <div className="flex items-center justify-between p-3 md:p-4 rounded-lg bg-white/5 border border-white/10">
-                    <div className="flex items-center gap-3">
-                      <Clock className="w-4 h-4 md:w-5 md:h-5 text-gray-300" />
-                      <span className="text-sm md:text-base text-white">Tiempo de Respuesta</span>
-                    </div>
-                    <span className="text-lg md:text-xl font-bold text-white">{improvements.response}% mas rapido</span>
-                  </div>
-                </div>
-
-                {/* Annual Projection */}
-                <div className="mt-6 md:mt-8 p-4 md:p-6 rounded-lg bg-white/5 border border-white/10">
-                  <div className="text-center">
-                    <div className="text-xs md:text-sm text-gray-300 mb-2">Aumento Anual de Ingresos Proyectado</div>
-                    <div className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-2">
-                      €{(additionalRevenue * 12).toLocaleString("es-ES")}
-                    </div>
-                    <div className="text-xs md:text-sm text-gray-400">
-                      Basado en tus metricas actuales y referencias del sector
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </Card>
-          </div>
-        </div>
-
-        {/* CTA */}
+        {/* Compact Calculator */}
         <div
-          className={`text-center mt-12 md:mt-16 transition-all duration-700 delay-600 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+          className={`bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 md:p-8 transition-all duration-700 delay-200 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
         >
-          <p className="text-sm text-gray-400 mt-4">* Resultados basados en medias del sector y pueden variar segun el negocio</p>
+          {/* Inputs Row */}
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-6 mb-8">
+            {/* Business Type */}
+            <div>
+              <label className="block text-xs font-medium text-white/60 mb-2">Tipo de Negocio</label>
+              <Select
+                value={inputs.businessType}
+                onValueChange={(value) => setInputs((prev) => ({ ...prev, businessType: value }))}
+              >
+                <SelectTrigger className="bg-white/5 border-white/10 text-white text-sm h-10">
+                  <SelectValue />
+                </SelectTrigger>
+                <SelectContent className="bg-slate-900 border-white/10">
+                  <SelectItem value="ecommerce">E-commerce</SelectItem>
+                  <SelectItem value="retail">Comercio</SelectItem>
+                  <SelectItem value="realestate">Inmobiliaria</SelectItem>
+                  <SelectItem value="hospitality">Hosteleria</SelectItem>
+                  <SelectItem value="healthcare">Sanidad</SelectItem>
+                  <SelectItem value="automotive">Automocion</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+
+            {/* Monthly Visitors */}
+            <div>
+              <label className="block text-xs font-medium text-white/60 mb-2">
+                Visitantes/mes: <span className="text-white">{inputs.monthlyVisitors.toLocaleString("es-ES")}</span>
+              </label>
+              <Slider
+                value={[inputs.monthlyVisitors]}
+                onValueChange={([value]) => setInputs((prev) => ({ ...prev, monthlyVisitors: value }))}
+                max={100000}
+                min={1000}
+                step={1000}
+                className="w-full mt-3"
+              />
+            </div>
+
+            {/* Conversion Rate */}
+            <div>
+              <label className="block text-xs font-medium text-white/60 mb-2">
+                Conversion actual: <span className="text-white">{inputs.currentConversionRate}%</span>
+              </label>
+              <Slider
+                value={[inputs.currentConversionRate]}
+                onValueChange={([value]) => setInputs((prev) => ({ ...prev, currentConversionRate: value }))}
+                max={10}
+                min={0.5}
+                step={0.1}
+                className="w-full mt-3"
+              />
+            </div>
+
+            {/* Average Order Value */}
+            <div>
+              <label className="block text-xs font-medium text-white/60 mb-2">
+                Valor medio: <span className="text-white">{inputs.averageOrderValue.toLocaleString("es-ES")}€</span>
+              </label>
+              <Slider
+                value={[inputs.averageOrderValue]}
+                onValueChange={([value]) => setInputs((prev) => ({ ...prev, averageOrderValue: value }))}
+                max={businessConfig.maxOrder}
+                min={25}
+                step={inputs.businessType === "automotive" || inputs.businessType === "realestate" ? 1000 : 25}
+                className="w-full mt-3"
+              />
+            </div>
+          </div>
+
+          {/* Results Row */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div className="bg-white/5 rounded-xl p-4 text-center">
+              <div className="flex items-center justify-center gap-2 mb-2">
+                <Users className="w-4 h-4 text-white/50" />
+                <span className="text-xs text-white/50">Leads actuales</span>
+              </div>
+              <div className="text-xl md:text-2xl font-bold text-white">{currentLeads}</div>
+            </div>
+
+            <div className="bg-white/5 rounded-xl p-4 text-center border border-orange-500/20">
+              <div className="flex items-center justify-center gap-2 mb-2">
+                <Users className="w-4 h-4 text-orange-400" />
+                <span className="text-xs text-orange-400">Leads con IA</span>
+              </div>
+              <div className="text-xl md:text-2xl font-bold text-white">{newLeads}</div>
+            </div>
+
+            <div className="bg-white/5 rounded-xl p-4 text-center">
+              <div className="flex items-center justify-center gap-2 mb-2">
+                <DollarSign className="w-4 h-4 text-white/50" />
+                <span className="text-xs text-white/50">Leads extra/mes</span>
+              </div>
+              <div className="text-xl md:text-2xl font-bold text-emerald-400">+{additionalLeads}</div>
+            </div>
+
+            <div className="bg-gradient-to-br from-orange-500/20 to-amber-500/20 rounded-xl p-4 text-center border border-orange-500/30">
+              <div className="flex items-center justify-center gap-2 mb-2">
+                <TrendingUp className="w-4 h-4 text-orange-400" />
+                <span className="text-xs text-orange-400">Ingresos extra/ano</span>
+              </div>
+              <div className="text-xl md:text-2xl font-bold text-white">
+                {(additionalRevenue * 12).toLocaleString("es-ES")}€
+              </div>
+            </div>
+          </div>
+
+          <p className="text-xs text-white/40 text-center mt-4">
+            * Basado en medias del sector. Los resultados pueden variar.
+          </p>
         </div>
       </div>
     </section>

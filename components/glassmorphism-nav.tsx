@@ -28,18 +28,17 @@ const sectors = [
 ]
 
 const languages = [
-  { code: "pt", label: "Portugues" },
   { code: "es", label: "Espanol" },
   { code: "en", label: "English" },
-  { code: "fr", label: "Francais" },
+  { code: "pt", label: "Portugues" },
 ]
 
 const navItems = [
   { label: "Inicio", href: "#inicio" },
-  { label: "Sobre", href: "#sobre" },
+  { label: "Nosotros", href: "#sobre" },
   { label: "Soluciones", href: "#", dropdown: "services" },
   { label: "Sectores", href: "#", dropdown: "sectors" },
-  { label: "Testemunhos", href: "#testemunhos" },
+  { label: "Testimonios", href: "#testemunhos" },
 ]
 
 export function GlassmorphismNav() {
@@ -50,7 +49,7 @@ export function GlassmorphismNav() {
   const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false)
   const [isMobileSectorsOpen, setIsMobileSectorsOpen] = useState(false)
   const [isMobileLangOpen, setIsMobileLangOpen] = useState(false)
-  const [currentLang, setCurrentLang] = useState("pt")
+  const [currentLang, setCurrentLang] = useState("es")
   const [isVisible, setIsVisible] = useState(true)
   const [hasLoaded, setHasLoaded] = useState(false)
   const [activeSection, setActiveSection] = useState<string>("#inicio")
@@ -99,7 +98,7 @@ export function GlassmorphismNav() {
   useEffect(() => {
     if (pathname !== "/") return
 
-    const sectionIds = ["inicio", "sobre", "soluciones", "sectores", "servicos", "testemunhos"]
+    const sectionIds = ["inicio", "sobre", "soluciones", "sectores", "testemunhos"]
     const observers: IntersectionObserver[] = []
 
     sectionIds.forEach((id) => {
@@ -424,7 +423,7 @@ export function GlassmorphismNav() {
                   className="relative bg-white hover:bg-gray-50 text-black font-medium px-5 py-1.5 rounded-full flex items-center transition-all duration-300 hover:scale-105 hover:shadow-lg cursor-pointer group text-sm"
                   onClick={() => scrollToSection("#contact")}
                 >
-                  <span className="mr-1.5">Comecar</span>
+                  <span className="mr-1.5">Empezar</span>
                   <ArrowRight size={14} className="transition-transform duration-300 group-hover:translate-x-0.5" />
                 </button>
               </div>
@@ -648,7 +647,7 @@ export function GlassmorphismNav() {
                   className="relative bg-white hover:bg-gray-50 text-black font-medium px-6 py-3 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-105 hover:shadow-lg cursor-pointer group"
                   onClick={() => scrollToSection("#contact")}
                 >
-                  <span className="mr-2">Comecar</span>
+                  <span className="mr-2">Empezar</span>
                   <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
                 </button>
               </div>
