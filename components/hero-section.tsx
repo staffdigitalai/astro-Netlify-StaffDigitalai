@@ -61,8 +61,7 @@ export function HeroSection() {
 
         {/* Subheading */}
         <p className="text-base sm:text-xl md:text-2xl text-white text-balance max-w-sm sm:max-w-3xl mx-auto mb-8 sm:mb-12 leading-relaxed px-4 sm:px-0 animate-fade-in-subheading font-light">
-          StaffDigital AI ayuda a las empresas a ahorrar tiempo y aumentar ingresos con chat inteligente, flujos de trabajo y automatizaciones, totalmente
-          gestionados para ti.
+          StaffDigital AI impulsa el crecimiento de las empresas con inteligencia artificial aplicada a atencion al cliente, automatizacion, seguridad inteligente y Home Staging AI. Todo, totalmente gestionado para ti.
         </p>
 
         {/* CTA Buttons */}
