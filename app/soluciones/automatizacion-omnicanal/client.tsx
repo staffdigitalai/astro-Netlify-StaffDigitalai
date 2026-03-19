@@ -238,8 +238,8 @@ export function OmnichannelClient() {
           <GlassmorphismNav />
           <ServicePageTemplate data={data}>
             <LeadsProblemSection />
+            <FeaturesSection />
           </ServicePageTemplate>
-          <FeaturesSection />
           <ROICalculatorSection />
           <PillarCTASection />
           <Footer />
