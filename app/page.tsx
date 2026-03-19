@@ -21,11 +21,11 @@ export default function HomePage() {
           <div id="inicio">
             <HeroSection />
           </div>
-          <div id="sobre">
-            <ProblemSolutionSection />
-          </div>
           <div id="soluciones">
             <ServicesPillarsSection />
+          </div>
+          <div id="sobre">
+            <ProblemSolutionSection />
           </div>
           <div id="sectores">
             <SectorsGridSection />
