@@ -5,6 +5,7 @@ import Aurora from "@/components/Aurora"
 import { Footer } from "@/components/footer"
 import { ServicePageTemplate } from "@/components/service-page-template"
 import { FeaturesSection } from "@/components/features-section"
+import { LeadsProblemSection } from "@/components/leads-problem-section"
 import type { ServicePageData } from "@/components/service-page-template"
 import { 
   Layers, 
@@ -234,6 +235,7 @@ export function OmnichannelClient() {
         <div className="relative z-10">
           <GlassmorphismNav />
           <ServicePageTemplate data={data} />
+          <LeadsProblemSection />
           <FeaturesSection />
           <Footer />
         </div>
