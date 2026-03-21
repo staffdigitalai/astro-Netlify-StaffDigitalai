@@ -38,7 +38,8 @@ const navItems = [
   { label: "Nosotros", href: "#sobre" },
   { label: "Soluciones", href: "#", dropdown: "services" },
   { label: "Sectores", href: "#", dropdown: "sectors" },
-  { label: "Testimonios", href: "#testemunhos" },
+  { label: "Blog", href: "/blog" },
+  { label: "Casos", href: "/casos" },
 ]
 
 export function GlassmorphismNav() {
@@ -187,6 +188,10 @@ export function GlassmorphismNav() {
     // On subpages, check if we're on a solutions or sectors page
     if (pathname.startsWith("/soluciones") && item.dropdown === "services") return true
     if (pathname.startsWith("/sectores") && item.dropdown === "sectors") return true
+    
+    // Check for Blog and Casos pages
+    if (pathname.startsWith("/blog") && item.href === "/blog") return true
+    if (pathname.startsWith("/casos") && item.href === "/casos") return true
     
     // On homepage, check active section
     if (pathname === "/") {
@@ -351,6 +356,25 @@ export function GlassmorphismNav() {
                   }
 
                   const isActive = isNavItemActive(item)
+                  
+                  // For internal pages (Blog, Casos), use Link
+                  if (item.href.startsWith("/")) {
+                    return (
+                      <Link
+                        key={item.label}
+                        href={item.href}
+                        className={`transition-all duration-200 text-sm font-medium cursor-pointer px-3 py-2 rounded-full ${
+                          isActive 
+                            ? "text-white bg-white/10" 
+                            : "text-white/70 hover:text-white hover:bg-white/5"
+                        }`}
+                      >
+                        {item.label}
+                      </Link>
+                    )
+                  }
+                  
+                  // For anchor links, use button
                   return (
                     <button
                       key={item.label}
@@ -583,6 +607,26 @@ export function GlassmorphismNav() {
                   }
 
                   const isActive = isNavItemActive(item)
+                  
+                  // For internal pages (Blog, Casos), use Link
+                  if (item.href.startsWith("/")) {
+                    return (
+                      <Link
+                        key={item.label}
+                        href={item.href}
+                        onClick={() => setIsOpen(false)}
+                        className={`rounded-lg px-3 py-3 text-left transition-all duration-300 font-medium cursor-pointer block ${
+                          isActive 
+                            ? "text-white bg-white/10" 
+                            : "text-white/80 hover:text-white hover:bg-white/10"
+                        }`}
+                      >
+                        {item.label}
+                      </Link>
+                    )
+                  }
+                  
+                  // For anchor links, use button
                   return (
                     <button
                       key={item.label}
