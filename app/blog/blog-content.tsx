@@ -216,7 +216,7 @@ export function BlogContent({ initialCategories }: BlogContentProps) {
             return (
               <Link
                 key={post.id}
-                href={usingSampleData ? "#" : `/blog/${post.slug}`}
+                href={`/blog/${post.slug}`}
                 className="group"
               >
                 <article className="h-full rounded-2xl border border-border bg-card overflow-hidden hover:border-primary/30 hover:bg-card/80 transition-all duration-300">

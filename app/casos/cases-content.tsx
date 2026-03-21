@@ -102,24 +102,30 @@ export function CasesContent({ initialSectors }: CasesContentProps) {
       const apiUrl = "https://cms.staffdigital.ai/wp-json/wp/v2"
       const url = `${apiUrl}/case-studies?${params.toString()}`
       
+      console.log("[v0] Fetching cases from:", url)
       const response = await fetch(url)
+      console.log("[v0] Cases response status:", response.status)
       
       if (response.ok) {
         const data = await response.json()
+        console.log("[v0] Cases data received:", data)
         if (data.length > 0) {
           setCases(data)
           setTotalPages(parseInt(response.headers.get("X-WP-TotalPages") || "1", 10))
           setUsingSampleData(false)
         } else {
+          console.log("[v0] No cases from API, using sample data")
           setCases(sampleCases)
           setUsingSampleData(true)
         }
       } else {
+        const errorText = await response.text()
+        console.log("[v0] Cases API error:", response.status, errorText)
         setCases(sampleCases)
         setUsingSampleData(true)
       }
     } catch (error) {
-      console.error("Error fetching cases:", error)
+      console.error("[v0] Error fetching cases:", error)
       setCases(sampleCases)
       setUsingSampleData(true)
     } finally {
@@ -187,7 +193,7 @@ export function CasesContent({ initialSectors }: CasesContentProps) {
             return (
               <Link
                 key={caseStudy.id}
-                href={usingSampleData ? "#" : `/casos/${caseStudy.slug}`}
+                href={`/casos/${caseStudy.slug}`}
                 className="group"
               >
                 <article className="h-full rounded-2xl border border-border bg-card overflow-hidden hover:border-primary/30 hover:bg-card/80 transition-all duration-300">
