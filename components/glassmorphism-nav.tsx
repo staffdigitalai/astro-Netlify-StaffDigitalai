@@ -38,7 +38,8 @@ const navItems = [
   { label: "Nosotros", href: "#sobre" },
   { label: "Soluciones", href: "#", dropdown: "services" },
   { label: "Sectores", href: "#", dropdown: "sectors" },
-  { label: "Testimonios", href: "#testemunhos" },
+  { label: "Blog", href: "/blog" },
+  { label: "Casos", href: "/casos" },
 ]
 
 export function GlassmorphismNav() {
@@ -187,6 +188,10 @@ export function GlassmorphismNav() {
     // On subpages, check if we're on a solutions or sectors page
     if (pathname.startsWith("/soluciones") && item.dropdown === "services") return true
     if (pathname.startsWith("/sectores") && item.dropdown === "sectors") return true
+    
+    // Check for blog and cases pages
+    if (pathname.startsWith("/blog") && item.href === "/blog") return true
+    if (pathname.startsWith("/casos") && item.href === "/casos") return true
     
     // On homepage, check active section
     if (pathname === "/") {
