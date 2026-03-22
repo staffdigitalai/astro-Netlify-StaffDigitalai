@@ -1,5 +1,8 @@
+"use client"
+
 import { Button } from "@/components/ui/button"
 import RotatingText from "./RotatingText"
+import { useFormModals } from "@/components/contact-form-modals"
 
 const ArrowRight = () => (
   <svg
@@ -29,6 +32,8 @@ const Play = () => (
 )
 
 export function HeroSection() {
+  const { openContactForm, openBudgetForm } = useFormModals()
+  
   return (
     <section className="min-h-screen flex items-center justify-center px-4 py-20 relative">
       <div className="max-w-4xl mx-auto text-center relative z-10 animate-fade-in-hero">
@@ -68,6 +73,7 @@ export function HeroSection() {
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8 sm:mb-16 animate-fade-in-buttons">
           <Button
             size="lg"
+            onClick={openContactForm}
             className="bg-white text-black rounded-full px-8 py-4 text-lg font-medium transition-all duration-300 hover:bg-gray-50 hover:scale-105 hover:shadow-lg group cursor-pointer relative overflow-hidden"
           >
             Habla con un Experto
@@ -77,6 +83,7 @@ export function HeroSection() {
           <Button
             variant="outline"
             size="lg"
+            onClick={openBudgetForm}
             className="rounded-full px-8 py-4 text-lg font-medium border-border hover:bg-accent transition-all duration-200 hover:scale-105 group bg-transparent cursor-pointer"
           >
             Pedir Presupuesto
