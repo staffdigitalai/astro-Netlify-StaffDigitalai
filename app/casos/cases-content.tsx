@@ -101,25 +101,25 @@ export function CasesContent({ initialSectors }: CasesContentProps) {
 
       const apiUrl = "https://cms.staffdigital.ai/wp-json/wp/v2"
       const url = `${apiUrl}/case-studies?${params.toString()}`
-      
-      const response = await fetch(url)
-      
+
+      const controller = new AbortController()
+      const timeoutId = setTimeout(() => controller.abort(), 8000)
+
+      const response = await fetch(url, { signal: controller.signal })
+      clearTimeout(timeoutId)
+
       if (response.ok) {
         const data = await response.json()
-        if (data.length > 0) {
+        if (Array.isArray(data) && data.length > 0) {
           setCases(data)
           setTotalPages(parseInt(response.headers.get("X-WP-TotalPages") || "1", 10))
           setUsingSampleData(false)
-        } else {
-          setCases(sampleCases)
-          setUsingSampleData(true)
+          return
         }
-      } else {
-        setCases(sampleCases)
-        setUsingSampleData(true)
       }
-    } catch (error) {
-      console.error("Error fetching cases:", error)
+      setCases(sampleCases)
+      setUsingSampleData(true)
+    } catch {
       setCases(sampleCases)
       setUsingSampleData(true)
     } finally {

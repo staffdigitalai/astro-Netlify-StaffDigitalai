@@ -8,6 +8,12 @@ const nextConfig = {
   },
   images: {
     formats: ['image/avif', 'image/webp'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'cms.staffdigital.ai',
+      },
+    ],
   },
   async redirects() {
     return [

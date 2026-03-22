@@ -111,25 +111,26 @@ export function BlogContent({ initialCategories }: BlogContentProps) {
 
       const apiUrl = "https://cms.staffdigital.ai/wp-json/wp/v2"
       const url = `${apiUrl}/posts?${params.toString()}`
-      
-      const response = await fetch(url)
-      
+
+      const controller = new AbortController()
+      const timeoutId = setTimeout(() => controller.abort(), 8000)
+
+      const response = await fetch(url, { signal: controller.signal })
+      clearTimeout(timeoutId)
+
       if (response.ok) {
         const data = await response.json()
-        if (data.length > 0) {
+        if (Array.isArray(data) && data.length > 0) {
           setPosts(data)
           setTotalPages(parseInt(response.headers.get("X-WP-TotalPages") || "1", 10))
           setUsingSampleData(false)
-        } else {
-          setPosts(samplePosts)
-          setUsingSampleData(true)
+          return
         }
-      } else {
-        setPosts(samplePosts)
-        setUsingSampleData(true)
       }
-    } catch (error) {
-      console.error("Error fetching posts:", error)
+      // API returned empty or non-ok — fall through to sample data
+      setPosts(samplePosts)
+      setUsingSampleData(true)
+    } catch {
       setPosts(samplePosts)
       setUsingSampleData(true)
     } finally {
