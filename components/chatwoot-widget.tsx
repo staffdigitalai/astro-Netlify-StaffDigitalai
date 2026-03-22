@@ -36,14 +36,16 @@ export function ChatwootWidget() {
         .woot-widget-bubble::before {
           content: '' !important;
           position: absolute !important;
-          top: -4px !important;
-          right: -4px !important;
-          width: 14px !important;
-          height: 14px !important;
-          background: #EF4444 !important;
+          bottom: 2px !important;
+          right: 2px !important;
+          top: auto !important;
+          left: auto !important;
+          width: 16px !important;
+          height: 16px !important;
+          background: #22C55E !important;
           border-radius: 50% !important;
-          border: 2px solid white !important;
-          animation: staffdigital-badge-pulse 1.5s ease-in-out infinite !important;
+          border: 2.5px solid white !important;
+          animation: staffdigital-heartbeat 1.4s ease-in-out infinite !important;
           z-index: 10 !important;
         }
         .woot-widget-bubble::after {
@@ -55,36 +57,41 @@ export function ChatwootWidget() {
           width: 100% !important;
           height: 100% !important;
           border-radius: 50% !important;
-          border: 3px solid rgba(255, 255, 255, 0.8) !important;
+          border: 3px solid rgba(255, 255, 255, 0.9) !important;
           animation: staffdigital-ring-ping 2.5s ease-out infinite !important;
           pointer-events: none !important;
         }
         .woot-widget-bubble:hover {
           animation: none !important;
           transform: scale(1.15) !important;
-          box-shadow: 0 0 30px 10px rgba(139, 92, 246, 0.7), 0 0 60px 20px rgba(255, 255, 255, 0.2) !important;
+          box-shadow: 0 0 30px 10px rgba(139, 92, 246, 0.7), 0 0 60px 20px rgba(255, 255, 255, 0.25) !important;
           transition: all 0.3s ease !important;
         }
         .woot-widget-bubble:hover::before {
           animation: none !important;
+          background: #22C55E !important;
+          box-shadow: 0 0 6px 2px rgba(34, 197, 94, 0.6) !important;
         }
         .woot-widget-bubble:hover::after {
           animation: none !important;
           opacity: 0 !important;
         }
         @keyframes staffdigital-breathe {
-          0%   { box-shadow: 0 0 8px 4px rgba(255, 255, 255, 0.5), 0 0 20px 8px rgba(139, 92, 246, 0.3); }
-          50%  { box-shadow: 0 0 20px 12px rgba(255, 255, 255, 0.7), 0 0 40px 20px rgba(139, 92, 246, 0.5); }
-          100% { box-shadow: 0 0 8px 4px rgba(255, 255, 255, 0.5), 0 0 20px 8px rgba(139, 92, 246, 0.3); }
+          0%   { box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.5), 0 0 25px 10px rgba(139, 92, 246, 0.3); }
+          50%  { box-shadow: 0 0 25px 15px rgba(255, 255, 255, 0.75), 0 0 50px 25px rgba(139, 92, 246, 0.5); }
+          100% { box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.5), 0 0 25px 10px rgba(139, 92, 246, 0.3); }
         }
-        @keyframes staffdigital-badge-pulse {
-          0%, 100% { transform: scale(1); opacity: 1; }
-          50%      { transform: scale(1.3); opacity: 0.9; }
+        @keyframes staffdigital-heartbeat {
+          0%   { transform: scale(1); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.6); }
+          15%  { transform: scale(1.25); box-shadow: 0 0 8px 3px rgba(34, 197, 94, 0.5); }
+          30%  { transform: scale(1); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.3); }
+          45%  { transform: scale(1.2); box-shadow: 0 0 6px 2px rgba(34, 197, 94, 0.4); }
+          60%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
         }
         @keyframes staffdigital-ring-ping {
-          0%   { transform: translate(-50%, -50%) scale(1); opacity: 0.8; border-color: rgba(255, 255, 255, 0.8); }
-          70%  { transform: translate(-50%, -50%) scale(2); opacity: 0; border-color: rgba(139, 92, 246, 0.4); }
-          100% { transform: translate(-50%, -50%) scale(2); opacity: 0; }
+          0%   { transform: translate(-50%, -50%) scale(1); opacity: 0.9; border-color: rgba(255, 255, 255, 0.9); }
+          70%  { transform: translate(-50%, -50%) scale(2.2); opacity: 0; border-color: rgba(139, 92, 246, 0.3); }
+          100% { transform: translate(-50%, -50%) scale(2.2); opacity: 0; }
         }
       `
       document.head.appendChild(style)
