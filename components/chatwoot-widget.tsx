@@ -25,6 +25,27 @@ export function ChatwootWidget() {
 
     const BASE_URL = "https://chat.staffdigital.eu"
 
+    // Inject pulse animation styles
+    if (!document.getElementById("chatwoot-styles")) {
+      const style = document.createElement("style")
+      style.id = "chatwoot-styles"
+      style.textContent = `
+        .woot-widget-bubble {
+          animation: staffdigital-pulse 2s ease-in-out infinite;
+        }
+        @keyframes staffdigital-pulse {
+          0%   { box-shadow: 0 0 0 0 rgba(27, 130, 242, 0.5); }
+          50%  { box-shadow: 0 0 16px 8px rgba(27, 130, 242, 0.15); }
+          100% { box-shadow: 0 0 0 0 rgba(27, 130, 242, 0); }
+        }
+        /* Stop pulse when chat is open */
+        .woot-widget-bubble.woot--close {
+          animation: none;
+        }
+      `
+      document.head.appendChild(style)
+    }
+
     const script = document.createElement("script")
     script.id = "chatwoot-sdk"
     script.src = `${BASE_URL}/packs/js/sdk.js`
@@ -47,6 +68,10 @@ export function ChatwootWidget() {
       const existingScript = document.getElementById("chatwoot-sdk")
       if (existingScript) {
         existingScript.remove()
+      }
+      const existingStyles = document.getElementById("chatwoot-styles")
+      if (existingStyles) {
+        existingStyles.remove()
       }
     }
   }, [])
