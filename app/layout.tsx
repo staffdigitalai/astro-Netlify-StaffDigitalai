@@ -5,6 +5,7 @@ import "./globals.css"
 import { PageTransition } from "@/components/page-transition"
 import { NavigationTransition } from "@/components/navigation-transition"
 import { ChatwootWidget } from "@/components/chatwoot-widget"
+import { FormModalProvider } from "@/components/contact-form-modals"
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import { Dancing_Script, Caveat } from "next/font/google"
 
@@ -35,12 +36,14 @@ export default function RootLayout({
   return (
     <html lang="es" className="dark">
       <body className={`font-sans antialiased ${dancingScript.variable} ${caveat.variable}`}>
-        <Suspense fallback={null}>
-          <NavigationTransition />
-          <PageTransition>{children}</PageTransition>
-        </Suspense>
-        <ChatwootWidget />
-        <SpeedInsights />
+        <FormModalProvider>
+          <Suspense fallback={null}>
+            <NavigationTransition />
+            <PageTransition>{children}</PageTransition>
+          </Suspense>
+          <ChatwootWidget />
+          <SpeedInsights />
+        </FormModalProvider>
       </body>
     </html>
   )

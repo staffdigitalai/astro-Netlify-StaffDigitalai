@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from "next/server"
 const CHATWOOT_URL = "https://chat.staffdigital.eu"
 const ACCOUNT_ID = "2"
 const INBOX_ID = "2"
-const API_TOKEN = process.env.CHATWOOT_API_TOKEN || "ownkUaN243tPqEutWmEdBVUw"
+const API_TOKEN = process.env.CHATWOOT_API_TOKEN
 
 interface ContactPayload {
   name: string
@@ -83,6 +83,14 @@ async function addLabels(conversationId: number, labels: string[]) {
 
 export async function POST(request: NextRequest) {
   try {
+    if (!API_TOKEN) {
+      console.error("CHATWOOT_API_TOKEN is not set")
+      return NextResponse.json(
+        { error: "Server configuration error" },
+        { status: 500 }
+      )
+    }
+
     const body = await request.json()
     const { formType, formData } = body
 
