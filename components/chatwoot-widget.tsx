@@ -32,7 +32,6 @@ export function ChatwootWidget() {
       style.textContent = `
         .woot-widget-bubble {
           animation: staffdigital-breathe 3s ease-in-out infinite !important;
-          position: relative !important;
         }
         .woot-widget-bubble::before {
           content: '' !important;
