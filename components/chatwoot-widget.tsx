@@ -20,10 +20,16 @@ declare global {
 
 export function ChatwootWidget() {
   useEffect(() => {
+    console.log("[v0] ChatwootWidget useEffect running")
+    
     // Check if script is already loaded
-    if (document.getElementById("chatwoot-sdk")) return
+    if (document.getElementById("chatwoot-sdk")) {
+      console.log("[v0] Chatwoot script already exists")
+      return
+    }
 
     const BASE_URL = "https://chat.staffdigital.eu"
+    console.log("[v0] Loading Chatwoot from:", BASE_URL)
 
     // Inject pulse animation styles
     if (!document.getElementById("chatwoot-styles")) {
@@ -53,15 +59,24 @@ export function ChatwootWidget() {
     script.defer = true
 
     script.onload = () => {
+      console.log("[v0] Chatwoot script loaded successfully")
       if (window.chatwootSDK) {
+        console.log("[v0] Running chatwootSDK.run()")
         window.chatwootSDK.run({
           websiteToken: "wWcdMuPDEZea3tJYNcWkKa2c",
           baseUrl: BASE_URL,
         })
+      } else {
+        console.log("[v0] chatwootSDK not available on window")
       }
     }
 
+    script.onerror = (error) => {
+      console.error("[v0] Failed to load Chatwoot script:", error)
+    }
+
     document.body.appendChild(script)
+    console.log("[v0] Chatwoot script appended to body")
 
     return () => {
       // Cleanup on unmount
