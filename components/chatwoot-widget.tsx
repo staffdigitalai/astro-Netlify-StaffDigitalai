@@ -32,19 +32,20 @@ export function ChatwootWidget() {
       style.textContent = `
         .woot-widget-bubble {
           animation: staffdigital-breathe 2.5s ease-in-out infinite !important;
+          overflow: visible !important;
         }
-        .woot-widget-bubble::before {
-          content: '' !important;
+        #sd-online-dot {
           position: absolute !important;
-          top: -2px !important;
-          right: -2px !important;
-          width: 16px !important;
-          height: 16px !important;
+          top: 13px !important;
+          right: 13px !important;
+          width: 12px !important;
+          height: 12px !important;
           background: #22C55E !important;
           border-radius: 50% !important;
-          border: 2.5px solid white !important;
+          border: 2px solid white !important;
           animation: staffdigital-heartbeat 1.4s ease-in-out infinite !important;
           z-index: 10 !important;
+          pointer-events: none !important;
         }
         .woot-widget-bubble::after {
           content: '' !important;
@@ -65,9 +66,8 @@ export function ChatwootWidget() {
           box-shadow: 0 0 30px 10px rgba(139, 92, 246, 0.7), 0 0 60px 20px rgba(255, 255, 255, 0.25) !important;
           transition: all 0.3s ease !important;
         }
-        .woot-widget-bubble:hover::before {
+        .woot-widget-bubble:hover #sd-online-dot {
           animation: none !important;
-          background: #22C55E !important;
           box-shadow: 0 0 6px 2px rgba(34, 197, 94, 0.6) !important;
         }
         .woot-widget-bubble:hover::after {
@@ -81,9 +81,9 @@ export function ChatwootWidget() {
         }
         @keyframes staffdigital-heartbeat {
           0%   { transform: scale(1); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.6); }
-          15%  { transform: scale(1.25); box-shadow: 0 0 8px 3px rgba(34, 197, 94, 0.5); }
+          15%  { transform: scale(1.3); box-shadow: 0 0 8px 3px rgba(34, 197, 94, 0.5); }
           30%  { transform: scale(1); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.3); }
-          45%  { transform: scale(1.2); box-shadow: 0 0 6px 2px rgba(34, 197, 94, 0.4); }
+          45%  { transform: scale(1.25); box-shadow: 0 0 6px 2px rgba(34, 197, 94, 0.4); }
           60%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
         }
         @keyframes staffdigital-ring-ping {
@@ -106,6 +106,23 @@ export function ChatwootWidget() {
         websiteToken: "wWcdMuPDEZea3tJYNcWkKa2c",
         baseUrl: BASE_URL,
       })
+
+      // Inject green "online" dot into the bubble once it appears
+      const injectDot = () => {
+        const bubble = document.querySelector(".woot-widget-bubble:not(.woot--hide)")
+        if (bubble && !document.getElementById("sd-online-dot")) {
+          const dot = document.createElement("span")
+          dot.id = "sd-online-dot"
+          bubble.appendChild(dot)
+        }
+      }
+      // Bubble renders async — watch for it
+      const observer = new MutationObserver(() => {
+        injectDot()
+        if (document.getElementById("sd-online-dot")) observer.disconnect()
+      })
+      observer.observe(document.body, { childList: true, subtree: true })
+      setTimeout(() => observer.disconnect(), 15000)
     }
 
     document.head.appendChild(script)
