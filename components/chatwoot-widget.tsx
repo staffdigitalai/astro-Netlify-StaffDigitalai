@@ -31,15 +31,62 @@ export function ChatwootWidget() {
       style.id = "chatwoot-styles"
       style.textContent = `
         .woot-widget-bubble {
-          animation: staffdigital-pulse 2s ease-in-out infinite;
+          animation: staffdigital-breathe 3s ease-in-out infinite !important;
+          position: relative !important;
+        }
+        .woot-widget-bubble::before {
+          content: '' !important;
+          position: absolute !important;
+          top: -4px !important;
+          right: -4px !important;
+          width: 14px !important;
+          height: 14px !important;
+          background: #EF4444 !important;
+          border-radius: 50% !important;
+          border: 2px solid white !important;
+          animation: staffdigital-badge-pulse 1.5s ease-in-out infinite !important;
+          z-index: 10 !important;
+        }
+        .woot-widget-bubble::after {
+          content: '' !important;
+          position: absolute !important;
+          top: 50% !important;
+          left: 50% !important;
+          transform: translate(-50%, -50%) !important;
+          width: 100% !important;
+          height: 100% !important;
+          border-radius: 50% !important;
+          border: 2px solid #10B981 !important;
+          animation: staffdigital-ring-ping 3s ease-out infinite !important;
+          pointer-events: none !important;
         }
         .woot-widget-bubble:hover {
-          animation: none;
+          animation: none !important;
+          transform: scale(1.1) !important;
+          box-shadow: 0 0 25px rgba(27, 130, 242, 0.6) !important;
+          transition: all 0.3s ease !important;
         }
-        @keyframes staffdigital-pulse {
-          0%   { box-shadow: 0 0 0 0 rgba(27, 130, 242, 0.5); }
-          50%  { box-shadow: 0 0 16px 8px rgba(27, 130, 242, 0.15); }
-          100% { box-shadow: 0 0 0 0 rgba(27, 130, 242, 0); }
+        .woot-widget-bubble:hover::before {
+          animation: none !important;
+        }
+        .woot-widget-bubble:hover::after {
+          animation: none !important;
+          opacity: 0 !important;
+        }
+        @keyframes staffdigital-breathe {
+          0%   { box-shadow: 0 0 0 0 rgba(27, 130, 242, 0.6); background-color: #1B82F2; }
+          33%  { box-shadow: 0 0 20px 8px rgba(16, 185, 129, 0.4); background-color: #0EA572; }
+          66%  { box-shadow: 0 0 20px 8px rgba(27, 130, 242, 0.4); background-color: #1B82F2; }
+          100% { box-shadow: 0 0 0 0 rgba(27, 130, 242, 0.6); background-color: #1B82F2; }
+        }
+        @keyframes staffdigital-badge-pulse {
+          0%, 100% { transform: scale(1); opacity: 1; }
+          50%      { transform: scale(1.2); opacity: 0.8; }
+        }
+        @keyframes staffdigital-ring-ping {
+          0%   { transform: translate(-50%, -50%) scale(1); opacity: 0.6; border-color: #10B981; }
+          80%  { transform: translate(-50%, -50%) scale(1.8); opacity: 0; border-color: #10B981; }
+          100% { transform: translate(-50%, -50%) scale(1.8); opacity: 0; }
         }
       `
       document.head.appendChild(style)
