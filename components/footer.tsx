@@ -14,24 +14,24 @@ const solucionesLinks = [
 
 const productLinks = [
   { title: "Precios", href: "/precios" },
-  { title: "Tecnologia", href: "/tecnologia" },
+  { title: "Tecnología", href: "/tecnologia" },
   { title: "Integraciones", href: "/integraciones" },
   { title: "Seguridad", href: "/seguridad-compliance" },
   { title: "Sectores", href: "/sectores" },
 ]
 
 const empresaLinks = [
-  { title: "Sobre Nosotros", href: "/#sobre" },
-  { title: "Solicitar Demo", href: "/#contact" },
+  { title: "Sobre Nosotros", href: "/nosotros" },
+  { title: "Solicitar Demo", href: "/demo" },
   { title: "FAQ", href: "/faq" },
-  { title: "Metodología", href: "/#soluciones" },
+  { title: "Metodología", href: "/metodologia" },
 ]
 
 const recursosLinks = [
   { title: "Blog", href: "/blog" },
   { title: "Casos de Éxito", href: "/casos" },
-  { title: "Guías", href: "/blog" },
-  { title: "Comparativas", href: "/blog" },
+  { title: "Guías y Recursos", href: "/blog" },
+  { title: "Sectores", href: "/sectores" },
 ]
 
 const socialLinks = [
@@ -57,7 +57,7 @@ export function Footer() {
               <div className="flex items-start gap-2">
                 <MapPin className="w-4 h-4 text-white/40 mt-0.5 shrink-0" />
                 <p className="text-white/50 text-sm leading-relaxed">
-                  Carrer d&apos;Arago, 308, 1o 2a<br />
+                  Carrer d&apos;Aragó, 308, 1o 2a<br />
                   08009 Barcelona
                 </p>
               </div>

@@ -42,7 +42,7 @@ export const metadata: Metadata = {
       "Chatbots inteligentes, agentes de voz, automatización omnicanal y seguridad IA. Soluciones de IA para PYMEs que operan 24/7.",
     images: [
       {
-        url: "/og-image.png",
+        url: "/og-image.jpg",
         width: 1200,
         height: 630,
         alt: "StaffDigital AI - Automatización IA para Empresas",
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
     title: "StaffDigital AI - Automatización IA para Empresas",
     description:
       "Chatbots inteligentes, agentes de voz, automatización omnicanal y seguridad IA para PYMEs.",
-    images: ["/og-image.png"],
+    images: ["/og-image.jpg"],
   },
   robots: {
     index: true,
