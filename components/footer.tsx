@@ -8,27 +8,29 @@ const solucionesLinks = [
   { title: "Automatizacion Omnicanal", href: "/soluciones/automatizacion-omnicanal" },
   { title: "Seguridad IA", href: "/soluciones/seguridad-ia" },
   { title: "Home Staging IA", href: "/soluciones/home-staging-ia" },
+  { title: "Ver todas las soluciones", href: "/soluciones" },
 ]
 
 const productLinks = [
-  { title: "Funcionalidades", href: "/#servicos" },
-  { title: "Equipo IA", href: "/#servicos" },
-  { title: "Calculadora ROI", href: "/#testemunhos" },
-  { title: "Sectores", href: "/#sectores" },
+  { title: "Precios", href: "/precios" },
+  { title: "Tecnologia", href: "/tecnologia" },
+  { title: "Integraciones", href: "/integraciones" },
+  { title: "Seguridad", href: "/seguridad-compliance" },
+  { title: "Sectores", href: "/sectores" },
 ]
 
 const empresaLinks = [
-  { title: "Sobre Nosotros", href: "/sobre-nosotros" },
-  { title: "Contacto", href: "/contacto" },
-  { title: "Politica de Privacidad", href: "/privacidad" },
-  { title: "Terminos de Servicio", href: "/terminos" },
+  { title: "Sobre Nosotros", href: "/nosotros" },
+  { title: "Metodologia", href: "/metodologia" },
+  { title: "Solicitar Demo", href: "/demo" },
+  { title: "FAQ", href: "/faq" },
 ]
 
 const recursosLinks = [
   { title: "Blog", href: "/blog" },
-  { title: "Casos de Exito", href: "/casos" },
-  { title: "Documentacion", href: "/docs" },
-  { title: "Soporte", href: "/soporte" },
+  { title: "Casos de Exito", href: "/casos-exito" },
+  { title: "Guias", href: "/blog?tipo=guia" },
+  { title: "Comparativas", href: "/blog?tipo=comparativa" },
 ]
 
 const socialLinks = [

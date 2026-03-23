@@ -34,12 +34,13 @@ const languages = [
 ]
 
 const navItems = [
-  { label: "Inicio", href: "#inicio" },
-  { label: "Nosotros", href: "#sobre" },
-  { label: "Soluciones", href: "#", dropdown: "services" },
-  { label: "Sectores", href: "#", dropdown: "sectors" },
+  { label: "Inicio", href: "/" },
+  { label: "Nosotros", href: "/nosotros" },
+  { label: "Soluciones", href: "/soluciones", dropdown: "services" },
+  { label: "Sectores", href: "/sectores", dropdown: "sectors" },
+  { label: "Precios", href: "/precios" },
   { label: "Blog", href: "/blog" },
-  { label: "Casos", href: "/casos" },
+  { label: "Casos", href: "/casos-exito" },
 ]
 
 export function GlassmorphismNav() {
@@ -191,14 +192,12 @@ export function GlassmorphismNav() {
     
     // Check for blog and cases pages
     if (pathname.startsWith("/blog") && item.href === "/blog") return true
-    if (pathname.startsWith("/casos") && item.href === "/casos") return true
+    if (pathname.startsWith("/casos-exito") && item.href === "/casos-exito") return true
+    if (pathname.startsWith("/precios") && item.href === "/precios") return true
+    if (pathname.startsWith("/nosotros") && item.href === "/nosotros") return true
     
-    // On homepage, check active section
-    if (pathname === "/") {
-      if (item.dropdown === "services" && activeSection === "#soluciones") return true
-      if (item.dropdown === "sectors" && activeSection === "#sectores") return true
-      if (item.href === activeSection) return true
-    }
+    // Homepage active
+    if (pathname === "/" && item.href === "/") return true
     
     return false
   }
