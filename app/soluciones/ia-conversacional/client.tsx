@@ -8,6 +8,8 @@ import { FeaturesSection } from "@/components/features-section"
 import { LeadsProblemSection } from "@/components/leads-problem-section"
 import { ROICalculatorSection } from "@/components/roi-calculator-section"
 import { PillarCTASection } from "@/components/pillar-cta-section"
+import { ConversationSimulator } from "@/components/conversation-simulator"
+import { getConversationsForService } from "@/lib/conversation-data"
 import type { ServicePageData } from "@/components/service-page-template"
 import { 
   MessageSquare, 
@@ -224,6 +226,8 @@ const data: ServicePageData = {
 }
 
 export function ConversationalAIClient() {
+  const conversations = getConversationsForService("ia-conversacional")
+
   return (
     <div className="min-h-screen bg-black overflow-hidden">
       <main className="min-h-screen relative overflow-hidden">
@@ -235,6 +239,15 @@ export function ConversationalAIClient() {
           <ServicePageTemplate data={data}>
             <LeadsProblemSection />
           </ServicePageTemplate>
+          {conversations.length > 0 && (
+            <ConversationSimulator
+              title="Tu Chatbot en Accion"
+              subtitle="Mira como nuestros chatbots cualifican leads y responden consultas automaticamente."
+              badge="Simulacion Chat Web"
+              badgeIcon="chat"
+              simulations={conversations}
+            />
+          )}
           <FeaturesSection />
           <ROICalculatorSection />
           <PillarCTASection />

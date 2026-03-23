@@ -8,6 +8,8 @@ import { FeaturesSection } from "@/components/features-section"
 import { LeadsProblemSection } from "@/components/leads-problem-section"
 import { ROICalculatorSection } from "@/components/roi-calculator-section"
 import { PillarCTASection } from "@/components/pillar-cta-section"
+import { ConversationSimulator } from "@/components/conversation-simulator"
+import { getConversationsForService } from "@/lib/conversation-data"
 import type { ServicePageData } from "@/components/service-page-template"
 import { 
   Layers, 
@@ -228,6 +230,8 @@ const data: ServicePageData = {
 }
 
 export function OmnichannelClient() {
+  const conversations = getConversationsForService("automatizacion-omnicanal")
+
   return (
     <div className="min-h-screen bg-black overflow-hidden">
       <main className="min-h-screen relative overflow-hidden">
@@ -240,6 +244,15 @@ export function OmnichannelClient() {
             <LeadsProblemSection />
             <FeaturesSection />
           </ServicePageTemplate>
+          {conversations.length > 0 && (
+            <ConversationSimulator
+              title="Todos tus Canales, Una Bandeja"
+              subtitle="Mira como gestionamos mensajes de Instagram, WhatsApp y web en una unica plataforma."
+              badge="Bandeja Unificada"
+              badgeIcon="default"
+              simulations={conversations}
+            />
+          )}
           <ROICalculatorSection />
           <PillarCTASection />
           <Footer />

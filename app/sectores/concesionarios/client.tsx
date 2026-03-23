@@ -8,10 +8,13 @@ import { SplitScreenBeforeAfter } from "@/components/split-screen-before-after"
 import { TyreKickersSection } from "@/components/tyre-kickers-section"
 import { InstagramServiceSection } from "@/components/instagram-service-section"
 import { OmnichannelSection } from "@/components/omnichannel-section"
-import { WhatsAppDemoSection } from "@/components/whatsapp-demo-section"
+import { ConversationSimulator } from "@/components/conversation-simulator"
 import { AITeamSection } from "@/components/ai-team-section"
+import { getConversationsForSector } from "@/lib/conversation-data"
 
 export function ConcesionariosClient() {
+  const conversations = getConversationsForSector("concesionarios")
+
   return (
     <div className="min-h-screen bg-black overflow-hidden">
       <main className="min-h-screen relative overflow-hidden">
@@ -36,7 +39,13 @@ export function ConcesionariosClient() {
           <SplitScreenBeforeAfter />
           <AITeamSection />
           <TyreKickersSection />
-          <WhatsAppDemoSection />
+          <ConversationSimulator
+            title="Tu IA Atendiendo Clientes"
+            subtitle="Mira como nuestros asistentes gestionan consultas de stock, test drives y citas de posventa."
+            badge="Simulacion en Vivo"
+            badgeIcon="whatsapp"
+            simulations={conversations}
+          />
           <InstagramServiceSection />
           <OmnichannelSection />
           <Footer />

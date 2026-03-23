@@ -4,6 +4,8 @@ import { GlassmorphismNav } from "@/components/glassmorphism-nav"
 import Aurora from "@/components/Aurora"
 import { Footer } from "@/components/footer"
 import { SectorPageTemplate } from "@/components/sector-page-template"
+import { ConversationSimulator } from "@/components/conversation-simulator"
+import { getConversationsForSector } from "@/lib/conversation-data"
 import type { SectorPageData } from "@/components/sector-page-template"
 import { Phone, Clock, CalendarX, CreditCard, Users, AlertTriangle, CalendarCheck, MessageSquare, Stethoscope, BarChart3 } from "lucide-react"
 
@@ -43,6 +45,8 @@ const data: SectorPageData = {
 }
 
 export function SectorPageClient() {
+  const conversations = getConversationsForSector("dentistas")
+
   return (
     <div className="min-h-screen bg-black overflow-hidden">
       <main className="min-h-screen relative overflow-hidden">
@@ -52,6 +56,15 @@ export function SectorPageClient() {
         <div className="relative z-10">
           <GlassmorphismNav />
           <SectorPageTemplate data={data} />
+          {conversations.length > 0 && (
+            <ConversationSimulator
+              title="Tu IA Gestionando Pacientes"
+              subtitle="Mira como nuestros asistentes gestionan citas, urgencias y consultas dentales."
+              badge="Simulacion en Vivo"
+              badgeIcon="whatsapp"
+              simulations={conversations}
+            />
+          )}
           <Footer />
         </div>
       </main>

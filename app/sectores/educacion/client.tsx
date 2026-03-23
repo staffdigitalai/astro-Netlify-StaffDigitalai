@@ -4,6 +4,8 @@ import { GlassmorphismNav } from "@/components/glassmorphism-nav"
 import Aurora from "@/components/Aurora"
 import { Footer } from "@/components/footer"
 import { SectorPageTemplate } from "@/components/sector-page-template"
+import { ConversationSimulator } from "@/components/conversation-simulator"
+import { getConversationsForSector } from "@/lib/conversation-data"
 import type { SectorPageData } from "@/components/sector-page-template"
 import { Clock, Phone, CalendarX, FileText, Users, AlertTriangle, CalendarCheck, MessageSquare, GraduationCap, BarChart3, BookOpen, Bell } from "lucide-react"
 
@@ -45,6 +47,8 @@ const data: SectorPageData = {
 }
 
 export function EducacionClient() {
+  const conversations = getConversationsForSector("educacion")
+
   return (
     <div className="min-h-screen bg-black overflow-hidden">
       <main className="min-h-screen relative overflow-hidden">
@@ -54,6 +58,15 @@ export function EducacionClient() {
         <div className="relative z-10">
           <GlassmorphismNav />
           <SectorPageTemplate data={data} />
+          {conversations.length > 0 && (
+            <ConversationSimulator
+              title="Tu IA Atendiendo Familias"
+              subtitle="Mira como nuestros asistentes gestionan consultas de inscripcion y matriculacion."
+              badge="Simulacion en Vivo"
+              badgeIcon="whatsapp"
+              simulations={conversations}
+            />
+          )}
           <Footer />
         </div>
       </main>
