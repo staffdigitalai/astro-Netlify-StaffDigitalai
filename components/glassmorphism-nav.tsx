@@ -7,17 +7,24 @@ import { usePathname } from "next/navigation"
 import { StaffDigitalLogo } from "@/components/staffdigital-logo"
 
 const services = [
-  { name: "IA Conversacional", href: "/soluciones/ia-conversacional", icon: MessageSquare, description: "Chatbots, agentes de voz y cualificacion de leads" },
-  { name: "Automatizacion Omnicanal", href: "/soluciones/automatizacion-omnicanal", icon: Layers, description: "Bandeja unificada, CRM y workflows" },
-  { name: "Seguridad IA", href: "/soluciones/seguridad-ia", icon: Shield, description: "Videovigilancia inteligente y alertas" },
+  { name: "Atencion Telefonica IA", href: "/soluciones/atencion-telefonica-ia", icon: MessageSquare, description: "Agentes de voz inteligentes 24/7", featured: true },
+  { name: "IA Conversacional", href: "/soluciones/ia-conversacional", icon: MessageSquare, description: "Chatbots y cualificacion de leads" },
+  { name: "Automatizacion Omnicanal", href: "/soluciones/automatizacion-omnicanal", icon: Layers, description: "Bandeja unificada y workflows" },
+  { name: "Gestion de Citas IA", href: "/soluciones/gestion-citas-ia", icon: GraduationCap, description: "Reservas automatizadas" },
+  { name: "Cualificacion de Leads", href: "/soluciones/cualificacion-leads", icon: BriefcaseMedical, description: "Scoring y nurturing automatico" },
+  { name: "Seguridad IA", href: "/soluciones/seguridad-ia", icon: Shield, description: "Videovigilancia inteligente" },
   { name: "Home Staging IA", href: "/soluciones/home-staging-ia", icon: Home, description: "Marketing inmobiliario con IA" },
+  { name: "Analisis Documental IA", href: "/soluciones/analisis-documental-ia", icon: Layers, description: "Procesamiento de documentos" },
 ]
 
 const sectors = [
   { name: "Concesionarios", href: "/sectores/concesionarios", icon: Car, description: "Venta y posventa de vehiculos" },
   { name: "Clinicas", href: "/sectores/clinicas", icon: BriefcaseMedical, description: "Clinicas y centros medicos" },
+  { name: "Hospitales", href: "/sectores/hospitales", icon: Stethoscope, description: "Centros hospitalarios" },
+  { name: "Veterinarias", href: "/sectores/veterinarias", icon: BriefcaseMedical, description: "Clinicas veterinarias" },
   { name: "Centros de Belleza", href: "/sectores/peluquerias", icon: Scissors, description: "Belleza y estetica" },
   { name: "Restaurantes", href: "/sectores/restaurantes", icon: UtensilsCrossed, description: "Hosteleria y restauracion" },
+  { name: "Turismo", href: "/sectores/turismo", icon: Globe, description: "Hoteles y agencias de viajes" },
   { name: "Retail", href: "/sectores/retail", icon: ShoppingBag, description: "Comercio minorista" },
   { name: "Oficinas", href: "/sectores/oficinas", icon: Building2, description: "Espacios corporativos" },
   { name: "Logistica", href: "/sectores/almacenes", icon: Warehouse, description: "Almacenes y distribucion" },
@@ -258,9 +265,38 @@ export function GlassmorphismNav() {
                               : "opacity-0 -translate-y-2 pointer-events-none"
                           }`}
                         >
-                          <div className="bg-slate-900/95 backdrop-blur-xl border border-white/10 rounded-2xl p-3 shadow-2xl w-[340px]">
-                            <div className="space-y-0.5">
-                              {services.map((service) => {
+                          <div className="bg-slate-900/95 backdrop-blur-xl border border-white/10 rounded-2xl p-3 shadow-2xl w-[480px]">
+                            {/* Featured Service */}
+                            {services.filter(s => s.featured).map((service) => {
+                              const Icon = service.icon
+                              return (
+                                <Link
+                                  key={service.name}
+                                  href={service.href}
+                                  className="flex items-center gap-3 px-3 py-3 rounded-xl bg-gradient-to-r from-primary/20 to-primary/5 border border-primary/30 hover:border-primary/50 transition-all duration-200 group mb-2"
+                                  onClick={() => setIsServicesOpen(false)}
+                                >
+                                  <div className="w-10 h-10 rounded-lg bg-primary/20 border border-primary/30 flex items-center justify-center group-hover:bg-primary/30 transition-all duration-200 flex-shrink-0">
+                                    <Icon size={18} className="text-primary group-hover:text-primary transition-colors" />
+                                  </div>
+                                  <div className="min-w-0 flex-1">
+                                    <div className="flex items-center gap-2">
+                                      <p className="text-sm font-semibold text-white group-hover:text-white transition-colors">
+                                        {service.name}
+                                      </p>
+                                      <span className="text-[10px] font-medium bg-primary/30 text-primary px-1.5 py-0.5 rounded">ESTRELLA</span>
+                                    </div>
+                                    <p className="text-[11px] text-white/50 group-hover:text-white/70 transition-colors">
+                                      {service.description}
+                                    </p>
+                                  </div>
+                                  <ArrowRight size={14} className="text-primary/60 group-hover:text-primary group-hover:translate-x-0.5 transition-all" />
+                                </Link>
+                              )
+                            })}
+                            {/* Other Services Grid */}
+                            <div className="grid grid-cols-2 gap-0.5">
+                              {services.filter(s => !s.featured).map((service) => {
                                 const Icon = service.icon
                                 return (
                                   <Link
@@ -284,6 +320,15 @@ export function GlassmorphismNav() {
                                 )
                               })}
                             </div>
+                            {/* View All Link */}
+                            <Link
+                              href="/soluciones"
+                              className="flex items-center justify-center gap-2 mt-2 px-3 py-2 rounded-xl border border-white/10 hover:bg-white/5 hover:border-white/20 transition-all duration-200 group"
+                              onClick={() => setIsServicesOpen(false)}
+                            >
+                              <span className="text-xs font-medium text-white/60 group-hover:text-white/80">Ver todas las soluciones</span>
+                              <ArrowRight size={12} className="text-white/40 group-hover:text-white/60 group-hover:translate-x-0.5 transition-all" />
+                            </Link>
                           </div>
                         </div>
                       </div>
@@ -322,7 +367,7 @@ export function GlassmorphismNav() {
                               : "opacity-0 -translate-y-2 pointer-events-none"
                           }`}
                         >
-                          <div className="bg-slate-900/95 backdrop-blur-xl border border-white/10 rounded-2xl p-3 shadow-2xl w-[560px]">
+                          <div className="bg-slate-900/95 backdrop-blur-xl border border-white/10 rounded-2xl p-3 shadow-2xl w-[640px]">
                             <div className="grid grid-cols-3 gap-0.5">
                               {sectors.map((sector) => {
                                 const Icon = sector.icon
@@ -330,24 +375,30 @@ export function GlassmorphismNav() {
                                   <Link
                                     key={sector.name}
                                     href={sector.href}
-                                    className="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-white/10 transition-all duration-200 group"
+                                    className="flex items-center gap-2 px-2.5 py-2 rounded-xl hover:bg-white/10 transition-all duration-200 group"
                                     onClick={() => setIsSectorsOpen(false)}
                                   >
-                                    <div className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-white/10 group-hover:border-white/20 transition-all duration-200 flex-shrink-0">
-                                      <Icon size={16} className="text-white/60 group-hover:text-white transition-colors" />
+                                    <div className="w-7 h-7 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-white/10 group-hover:border-white/20 transition-all duration-200 flex-shrink-0">
+                                      <Icon size={14} className="text-white/60 group-hover:text-white transition-colors" />
                                     </div>
                                     <div className="min-w-0">
-                                      <p className="text-sm font-medium text-white/90 group-hover:text-white transition-colors truncate">
+                                      <p className="text-xs font-medium text-white/90 group-hover:text-white transition-colors truncate">
                                         {sector.name}
-                                      </p>
-                                      <p className="text-[11px] text-white/35 group-hover:text-white/55 transition-colors truncate">
-                                        {sector.description}
                                       </p>
                                     </div>
                                   </Link>
                                 )
                               })}
                             </div>
+                            {/* View All Link */}
+                            <Link
+                              href="/sectores"
+                              className="flex items-center justify-center gap-2 mt-2 px-3 py-2 rounded-xl border border-white/10 hover:bg-white/5 hover:border-white/20 transition-all duration-200 group"
+                              onClick={() => setIsSectorsOpen(false)}
+                            >
+                              <span className="text-xs font-medium text-white/60 group-hover:text-white/80">Ver todos los sectores</span>
+                              <ArrowRight size={12} className="text-white/40 group-hover:text-white/60 group-hover:translate-x-0.5 transition-all" />
+                            </Link>
                           </div>
                         </div>
                       </div>
