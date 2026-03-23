@@ -8,6 +8,7 @@ import { StaffDigitalLogo } from "@/components/staffdigital-logo"
 
 const services = [
   { name: "Atencion Telefonica IA", href: "/soluciones/atencion-telefonica-ia", icon: MessageSquare, description: "Agentes de voz inteligentes 24/7", featured: true },
+  { name: "WhatsApp IA Empresas", href: "/soluciones/whatsapp-ia-empresas", icon: MessageSquare, description: "Automatiza WhatsApp Business", featured: true },
   { name: "IA Conversacional", href: "/soluciones/ia-conversacional", icon: MessageSquare, description: "Chatbots y cualificacion de leads" },
   { name: "Automatizacion Omnicanal", href: "/soluciones/automatizacion-omnicanal", icon: Layers, description: "Bandeja unificada y workflows" },
   { name: "Gestion de Citas IA", href: "/soluciones/gestion-citas-ia", icon: GraduationCap, description: "Reservas automatizadas" },

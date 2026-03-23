@@ -4,6 +4,7 @@ import { WhyDifferentSection } from "@/components/why-different-section"
 import { ProblemSolutionSection } from "@/components/problem-solution-section"
 import Aurora from "@/components/Aurora"
 import { ServicesPillarsSection } from "@/components/services-pillars-section"
+import { WhatsAppHighlightSection } from "@/components/whatsapp-highlight-section"
 import { SectorsGridSection } from "@/components/sectors-grid-section"
 import { TestimonialsSection } from "@/components/testimonials-section"
 import { ROICalculatorSection } from "@/components/roi-calculator-section"
@@ -26,6 +27,7 @@ export default function HomePage() {
           <div id="soluciones">
             <ServicesPillarsSection />
           </div>
+          <WhatsAppHighlightSection />
           <div id="sobre">
             <ProblemSolutionSection />
           </div>

@@ -4,6 +4,7 @@ import { FacebookIcon, InstagramIcon, LinkedinIcon, YoutubeIcon, MapPin } from "
 import { StaffDigitalLogoDark } from "@/components/staffdigital-logo"
 
 const solucionesLinks = [
+  { title: "WhatsApp IA Empresas", href: "/soluciones/whatsapp-ia-empresas" },
   { title: "IA Conversacional", href: "/soluciones/ia-conversacional" },
   { title: "Automatizacion Omnicanal", href: "/soluciones/automatizacion-omnicanal" },
   { title: "Seguridad IA", href: "/soluciones/seguridad-ia" },

@@ -584,3 +584,223 @@ export function getDefaultConversations(): ConversationSimulation[] {
     sectorConversations.restaurantes[0],
   ]
 }
+
+// ============================================
+// WHATSAPP HUB CONVERSATIONS
+// ============================================
+
+export const whatsappHubConversations: ConversationSimulation[] = [
+  {
+    id: "whatsapp-atencion",
+    type: "whatsapp",
+    title: "Atencion al Cliente",
+    description: "Resolviendo dudas 24/7",
+    headerName: "WhatsApp Business IA",
+    headerStatus: "en linea",
+    messages: [
+      { text: "Hola, cual es el horario de atencion?", isUser: true, time: "08:30" },
+      { text: "Buenos dias! Estamos abiertos de 9:00 a 21:00 de lunes a sabado. Domingos cerrado. En que puedo ayudarle?", isUser: false, time: "08:30" },
+      { text: "Necesito hacer una devolucion", isUser: true, time: "08:31" },
+      { text: "Por supuesto. Tiene 30 dias para devoluciones. Puede traerlo a tienda o solicitar recogida. Cual prefiere?", isUser: false, time: "08:31" },
+      { text: "Recogida, por favor", isUser: true, time: "08:32" },
+      { text: "Perfecto! Pasaremos manana entre 9:00 y 14:00. Confirme su direccion y tendre todo listo.", isUser: false, time: "08:32" },
+    ],
+    stats: [
+      { value: "<5s", label: "Respuesta" },
+      { value: "-70%", label: "Tickets" },
+      { value: "24/7", label: "Disponible" },
+    ],
+  },
+  {
+    id: "whatsapp-ventas",
+    type: "whatsapp",
+    title: "Agente de Ventas",
+    description: "Cerrando ventas automaticamente",
+    headerName: "Ventas IA",
+    headerStatus: "en linea",
+    messages: [
+      { text: "Me interesa el plan Professional", isUser: true, time: "10:00" },
+      { text: "Excelente eleccion! El plan Professional incluye voz premium, 3 integraciones CRM y soporte prioritario. 199 EUR/mes. Agendamos una demo personalizada?", isUser: false, time: "10:00" },
+      { text: "Si, me gustaria ver como funciona", isUser: true, time: "10:01" },
+      { text: "Perfecto! Tenemos hueco manana a las 11:00 o el jueves a las 16:00. Cual le viene mejor?", isUser: false, time: "10:01" },
+      { text: "Jueves a las 16:00", isUser: true, time: "10:02" },
+      { text: "Reservado! Le enviare invitacion por email. Algun sector o caso de uso especifico que quiera ver en la demo?", isUser: false, time: "10:02" },
+    ],
+    stats: [
+      { value: "+35%", label: "Conversion" },
+      { value: "Auto", label: "Cualificacion" },
+      { value: "0", label: "Leads perdidos" },
+    ],
+  },
+  {
+    id: "whatsapp-citas",
+    type: "whatsapp",
+    title: "Reservas y Citas",
+    description: "Agendando automaticamente",
+    headerName: "Citas IA",
+    headerStatus: "en linea",
+    messages: [
+      { text: "Necesito una cita para el martes", isUser: true, time: "15:00" },
+      { text: "Claro! El martes tenemos disponibilidad a las 10:00, 12:30 y 16:30. Cual prefiere?", isUser: false, time: "15:00" },
+      { text: "A las 10:00", isUser: true, time: "15:01" },
+      { text: "Perfecto! Cita reservada para el martes a las 10:00. Le recuerdo: traiga DNI y tarjeta de socio. Confirmo?", isUser: false, time: "15:01" },
+      { text: "Confirmado!", isUser: true, time: "15:02" },
+      { text: "Excelente! Recibira recordatorio 24h antes. Si necesita cancelar o cambiar, escribame aqui. Hasta el martes!", isUser: false, time: "15:02" },
+    ],
+    stats: [
+      { value: "-80%", label: "No-shows" },
+      { value: "Auto", label: "Recordatorios" },
+      { value: "100%", label: "Confirmadas" },
+    ],
+  },
+]
+
+// WhatsApp sub-page specific conversations
+export const whatsappSubPageConversations: Record<string, ConversationSimulation[]> = {
+  "agente-voz-whatsapp": [
+    {
+      id: "voz-whatsapp",
+      type: "whatsapp",
+      title: "Mensaje de Voz IA",
+      description: "Respuesta por audio",
+      headerName: "Voz IA WhatsApp",
+      headerStatus: "en linea",
+      messages: [
+        { text: "[Nota de voz 0:08] Hola, quiero saber si tienen el producto en stock", isUser: true, time: "11:00" },
+        { text: "He escuchado tu mensaje. Si, tenemos stock disponible. Te envio audio con detalles:", isUser: false, time: "11:00" },
+        { text: "[Nota de voz 0:15] Si, tenemos 5 unidades en almacen Madrid y 3 en Barcelona. Precio 89 euros con envio gratis. Te lo reservo?", isUser: false, time: "11:00" },
+        { text: "Si, reservame uno!", isUser: true, time: "11:01" },
+        { text: "Reservado! Te envio link de pago seguro. Una vez pagado, envio en 24-48h. Necesitas algo mas?", isUser: false, time: "11:01" },
+      ],
+      stats: [
+        { value: "Audio", label: "Respuestas" },
+        { value: "<10s", label: "Procesado" },
+        { value: "Natural", label: "Conversacion" },
+      ],
+    },
+  ],
+  "atencion-cliente-whatsapp": [
+    {
+      id: "atencion-whatsapp",
+      type: "whatsapp",
+      title: "Soporte 24/7",
+      description: "Resolviendo consultas",
+      headerName: "Soporte IA",
+      headerStatus: "en linea",
+      messages: [
+        { text: "Cual es el horario de atencion?", isUser: true, time: "23:45" },
+        { text: "Estamos abiertos de 9:00 a 21:00 de lunes a sabado. Los domingos permanecemos cerrados. En que puedo ayudarle?", isUser: false, time: "23:45" },
+        { text: "Tengo un problema con mi pedido", isUser: true, time: "23:46" },
+        { text: "Lamento escuchar eso. Por favor, indiqueme su numero de pedido para revisar el estado y ayudarle a resolverlo.", isUser: false, time: "23:46" },
+        { text: "Pedido #4521", isUser: true, time: "23:47" },
+        { text: "Localizado! Su pedido esta en transito, entrega estimada manana 14:00. Si hay algun problema con el producto, tiene 30 dias para devolucion gratuita.", isUser: false, time: "23:47" },
+      ],
+      stats: [
+        { value: "24/7", label: "Disponible" },
+        { value: "-70%", label: "Tickets" },
+        { value: "95%", label: "Resolucion" },
+      ],
+    },
+  ],
+  "agente-ventas-whatsapp": [
+    {
+      id: "ventas-whatsapp",
+      type: "whatsapp",
+      title: "Cierre de Ventas",
+      description: "Convirtiendo leads",
+      headerName: "Ventas IA",
+      headerStatus: "en linea",
+      messages: [
+        { text: "Me interesa el plan Professional", isUser: true, time: "14:00" },
+        { text: "Excelente eleccion! El Professional incluye: voz premium ilimitada, 3 integraciones CRM (HubSpot, Salesforce, Pipedrive), y soporte prioritario. 199 EUR/mes. Agendamos demo?", isUser: false, time: "14:00" },
+        { text: "Que diferencia hay con el Enterprise?", isUser: true, time: "14:01" },
+        { text: "Enterprise anade: agentes ilimitados, API personalizada, SLA 99.9% y gestor dedicado. Ideal para +50 empleados. Su equipo es de que tamano?", isUser: false, time: "14:01" },
+        { text: "Somos 25 personas", isUser: true, time: "14:02" },
+        { text: "Para 25 personas, Professional es perfecto. Incluyo 30% descuento primer ano: 139 EUR/mes. Cerramos la demo para esta semana?", isUser: false, time: "14:02" },
+      ],
+      stats: [
+        { value: "+35%", label: "Conversion" },
+        { value: "Auto", label: "Upselling" },
+        { value: "100%", label: "Follow-up" },
+      ],
+    },
+  ],
+  "citas-reservas-whatsapp": [
+    {
+      id: "citas-whatsapp",
+      type: "whatsapp",
+      title: "Gestion de Citas",
+      description: "Reservas automaticas",
+      headerName: "Citas IA",
+      headerStatus: "en linea",
+      messages: [
+        { text: "Necesito una cita para el martes", isUser: true, time: "09:00" },
+        { text: "Por supuesto! El martes tenemos disponibilidad a las 10:00 y 16:30. Cual prefiere?", isUser: false, time: "09:00" },
+        { text: "A las 16:30", isUser: true, time: "09:01" },
+        { text: "Perfecto! Cita agendada martes 16:30. Me confirma su nombre y telefono para el recordatorio?", isUser: false, time: "09:01" },
+        { text: "Maria Garcia, 612345678", isUser: true, time: "09:02" },
+        { text: "Listo Maria! Recibira SMS recordatorio 24h antes. Si necesita cambiar, responda a este chat. Hasta el martes!", isUser: false, time: "09:02" },
+      ],
+      stats: [
+        { value: "-80%", label: "No-shows" },
+        { value: "Auto", label: "Recordatorios" },
+        { value: "24/7", label: "Reservas" },
+      ],
+    },
+  ],
+  "lead-qualification-whatsapp": [
+    {
+      id: "leads-whatsapp",
+      type: "whatsapp",
+      title: "Cualificacion de Leads",
+      description: "Scoring automatico",
+      headerName: "Lead IA",
+      headerStatus: "en linea",
+      messages: [
+        { text: "Quiero informacion sobre sus servicios", isUser: true, time: "10:30" },
+        { text: "Encantado de ayudarle! Para darle la informacion mas relevante: cual es su sector de actividad?", isUser: false, time: "10:30" },
+        { text: "Clinica dental", isUser: true, time: "10:31" },
+        { text: "Perfecto! Tenemos solucion especializada para clinicas. Cuantos pacientes atienden aproximadamente al mes?", isUser: false, time: "10:31" },
+        { text: "Unos 500", isUser: true, time: "10:32" },
+        { text: "Excelente! Con 500 pacientes/mes, nuestra IA puede gestionar +80% de sus citas automaticamente. Le conecto con especialista en salud para demo personalizada?", isUser: false, time: "10:32" },
+      ],
+      stats: [
+        { value: "Auto", label: "Scoring" },
+        { value: "100%", label: "Cualificados" },
+        { value: "+45%", label: "SQL rate" },
+      ],
+    },
+  ],
+  "integracion-crm-whatsapp": [
+    {
+      id: "crm-whatsapp",
+      type: "whatsapp",
+      title: "Sync CRM en Tiempo Real",
+      description: "HubSpot, Salesforce, Pipedrive",
+      headerName: "CRM Sync IA",
+      headerStatus: "Sincronizando",
+      messages: [
+        { text: "[Sistema] Nuevo lead WhatsApp detectado", isUser: false, time: "11:00" },
+        { text: "Hola, me interesa contratar el servicio", isUser: true, time: "11:00" },
+        { text: "[CRM] Lead creado en HubSpot: Maria Lopez, +34612345678", isUser: false, time: "11:00" },
+        { text: "Soy Maria, tengo una tienda online", isUser: true, time: "11:01" },
+        { text: "[CRM] Actualizado: Sector=E-commerce, Score=85/100, Etapa=Cualificado", isUser: false, time: "11:01" },
+        { text: "[CRM] Notificacion enviada a vendedor: Juan Garcia asignado", isUser: false, time: "11:01" },
+        { text: "Maria, he notificado a Juan, nuestro especialista en e-commerce. Le contactara en 5 minutos. Mientras, le envio casos de exito similares.", isUser: false, time: "11:02" },
+      ],
+      stats: [
+        { value: "Real-time", label: "Sync CRM" },
+        { value: "Auto", label: "Asignacion" },
+        { value: "0", label: "Datos perdidos" },
+      ],
+    },
+  ],
+}
+
+export function getWhatsAppHubConversations(): ConversationSimulation[] {
+  return whatsappHubConversations
+}
+
+export function getWhatsAppSubPageConversations(slug: string): ConversationSimulation[] {
+  return whatsappSubPageConversations[slug] || whatsappHubConversations
+}
