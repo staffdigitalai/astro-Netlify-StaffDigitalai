@@ -6,7 +6,7 @@ import { StaffDigitalLogoDark } from "@/components/staffdigital-logo"
 const solucionesLinks = [
   { title: "WhatsApp IA Empresas", href: "/soluciones/whatsapp-ia-empresas" },
   { title: "IA Conversacional", href: "/soluciones/ia-conversacional" },
-  { title: "Automatizacion Omnicanal", href: "/soluciones/automatizacion-omnicanal" },
+  { title: "Automatización Omnicanal", href: "/soluciones/automatizacion-omnicanal" },
   { title: "Seguridad IA", href: "/soluciones/seguridad-ia" },
   { title: "Home Staging IA", href: "/soluciones/home-staging-ia" },
   { title: "Ver todas las soluciones", href: "/soluciones" },
@@ -21,24 +21,24 @@ const productLinks = [
 ]
 
 const empresaLinks = [
-  { title: "Sobre Nosotros", href: "/nosotros" },
-  { title: "Metodologia", href: "/metodologia" },
-  { title: "Solicitar Demo", href: "/demo" },
+  { title: "Sobre Nosotros", href: "/#sobre" },
+  { title: "Solicitar Demo", href: "/#contact" },
   { title: "FAQ", href: "/faq" },
+  { title: "Metodología", href: "/#soluciones" },
 ]
 
 const recursosLinks = [
   { title: "Blog", href: "/blog" },
-  { title: "Casos de Exito", href: "/casos-exito" },
-  { title: "Guias", href: "/blog?tipo=guia" },
-  { title: "Comparativas", href: "/blog?tipo=comparativa" },
+  { title: "Casos de Éxito", href: "/casos" },
+  { title: "Guías", href: "/blog" },
+  { title: "Comparativas", href: "/blog" },
 ]
 
 const socialLinks = [
-  { icon: FacebookIcon, href: "#", label: "Facebook" },
-  { icon: InstagramIcon, href: "#", label: "Instagram" },
-  { icon: YoutubeIcon, href: "#", label: "Youtube" },
-  { icon: LinkedinIcon, href: "#", label: "LinkedIn" },
+  { icon: FacebookIcon, href: "https://www.facebook.com/staffdigitalai", label: "Facebook" },
+  { icon: InstagramIcon, href: "https://www.instagram.com/staffdigitalai", label: "Instagram" },
+  { icon: YoutubeIcon, href: "https://www.youtube.com/@staffdigitalai", label: "Youtube" },
+  { icon: LinkedinIcon, href: "https://www.linkedin.com/company/staffdigitalai", label: "LinkedIn" },
 ]
 
 export function Footer() {
@@ -51,7 +51,7 @@ export function Footer() {
           <div className="space-y-5 lg:col-span-1">
             <StaffDigitalLogoDark variant="full" size="md" />
             <p className="text-white/50 text-sm leading-relaxed">
-              Automatizacion IA para empresas. Chat inteligente, flujos de trabajo y automatizaciones.
+              Automatización IA para empresas. Chat inteligente, flujos de trabajo y automatizaciones.
             </p>
             <div className="space-y-3">
               <div className="flex items-start gap-2">
