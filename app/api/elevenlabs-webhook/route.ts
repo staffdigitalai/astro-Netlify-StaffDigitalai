@@ -157,6 +157,7 @@ interface ElevenLabsTranscriptEntry {
 }
 
 interface ElevenLabsWebhookPayload {
+  // Top-level fields
   type?: string
   event_type?: string
   conversation_id?: string
@@ -164,18 +165,37 @@ interface ElevenLabsWebhookPayload {
   agent_name?: string
   status?: string
   call_duration_secs?: number
-  caller_id?: string // phone number of the caller
-  phone_number?: string // phone number used
+  caller_id?: string
+  phone_number?: string
+  // Transcript
   transcript?: ElevenLabsTranscriptEntry[]
-  metadata?: Record<string, string>
+  // Metadata — contains call_duration_secs, start_time, cost
+  metadata?: {
+    start_time_unix_secs?: number
+    call_duration_secs?: number
+    [key: string]: unknown
+  }
+  // Analysis — summary, success, data collection
   analysis?: {
     call_successful?: string
     transcript_summary?: string
     evaluation_criteria_results?: Record<string, unknown>
     data_collection_results?: Record<string, unknown>
+    data_collection_results_list?: Array<{ name?: string; value?: string }>
+    [key: string]: unknown
   }
   recording_url?: string
-  conversation_initiation_client_data?: Record<string, unknown>
+  // Client data — contains dynamic_variables with system__caller_id
+  conversation_initiation_client_data?: {
+    dynamic_variables?: {
+      system__caller_id?: string
+      system__called_number?: string
+      system__call_duration_secs?: number
+      system__conversation_id?: string
+      [key: string]: unknown
+    }
+    [key: string]: unknown
+  }
 }
 
 // ---------- Main handler ----------
@@ -198,35 +218,55 @@ export async function POST(request: NextRequest) {
     }
 
     const payload: ElevenLabsWebhookPayload = await request.json()
-    console.log("ElevenLabs webhook received:", payload.event_type || payload.type, payload.conversation_id)
+    console.log("ElevenLabs webhook received:", JSON.stringify(payload).substring(0, 500))
 
-    // Extract caller phone (ElevenLabs sends it as caller_id for inbound calls)
-    const callerPhone = payload.caller_id || undefined
+    // Extract dynamic variables (where ElevenLabs puts phone data for SIP/Telnyx calls)
+    const dynVars = payload.conversation_initiation_client_data?.dynamic_variables || {}
+
+    // Extract caller phone — try multiple locations
+    let callerPhone = payload.caller_id
+      || (dynVars.system__caller_id ? `+${String(dynVars.system__caller_id).replace(/^\+/, "")}` : undefined)
+      || undefined
+    // Ensure E.164 format
+    if (callerPhone && !callerPhone.startsWith("+")) {
+      callerPhone = callerPhone.length <= 9 ? `+34${callerPhone}` : `+${callerPhone}`
+    }
+
     const agentName = payload.agent_name || "Agente IA"
 
     // Extract data collected during the call (name, email, etc.)
-    const collectedData = payload.analysis?.data_collection_results as Record<string, { value?: string }> | undefined
-    const callerName = collectedData?.nombre?.value || collectedData?.name?.value || undefined
-    const callerEmail = collectedData?.email?.value || undefined
+    const collectedList = payload.analysis?.data_collection_results_list || []
+    const collectedMap = payload.analysis?.data_collection_results as Record<string, { value?: string }> | undefined
+    const callerName = collectedList.find(d => d.name === "nombre")?.value
+      || collectedMap?.nombre?.value
+      || collectedMap?.name?.value
+      || undefined
+    const callerEmail = collectedList.find(d => d.name === "email")?.value
+      || collectedMap?.email?.value
+      || undefined
 
     // Build transcript text
     const transcript = payload.transcript || []
     const transcriptText = transcript
       .map((entry) => {
         const speaker = entry.role === "agent" ? `🤖 ${agentName}` : "👤 Cliente"
-        const time = entry.time_in_call_secs
+        const time = entry.time_in_call_secs != null
           ? `[${Math.floor(entry.time_in_call_secs / 60)}:${String(Math.floor(entry.time_in_call_secs % 60)).padStart(2, "0")}]`
           : ""
         return `${time} ${speaker}: ${entry.message}`
       })
       .join("\n")
 
-    // Build summary
+    // Build summary — check multiple locations for duration
     const summary = payload.analysis?.transcript_summary || ""
-    const duration = payload.call_duration_secs
-      ? `${Math.floor(payload.call_duration_secs / 60)}m ${Math.floor(payload.call_duration_secs % 60)}s`
+    const durationSecs = payload.call_duration_secs
+      || payload.metadata?.call_duration_secs
+      || (dynVars.system__call_duration_secs as number)
+      || 0
+    const duration = durationSecs > 0
+      ? `${Math.floor(durationSecs / 60)}m ${Math.floor(durationSecs % 60)}s`
       : "N/A"
-    const successful = payload.analysis?.call_successful || "N/A"
+    const successful = payload.analysis?.call_successful || payload.status || "N/A"
 
     // Build message for Chatwoot
     const messageContent = `📞 Llamada telefonica IA — ${agentName}
