@@ -13,6 +13,8 @@ import { formatDate, stripHtml, getFeaturedImageUrl } from "@/lib/wordpress"
 interface BlogContentProps {
   initialCategories: WPCategory[]
   initialContentTypes?: WPContentType[]
+  initialPosts?: WPPost[]
+  initialTotalPages?: number
 }
 
 // Content type display configuration
@@ -25,12 +27,15 @@ const contentTypeConfig: Record<string, { label: string; icon: React.ComponentTy
   tutorial: { label: "Tutoriales", icon: BookOpen, color: "bg-cyan-500/20 text-cyan-400 border-cyan-500/30" },
 }
 
-export function BlogContent({ initialCategories, initialContentTypes = [] }: BlogContentProps) {
-  const [posts, setPosts] = useState<WPPost[]>([])
-  const [loading, setLoading] = useState(true)
+export function BlogContent({ initialCategories, initialContentTypes = [], initialPosts = [], initialTotalPages = 1 }: BlogContentProps) {
+  const hasInitialData = initialPosts.length > 0
+  const [posts, setPosts] = useState<WPPost[]>(initialPosts)
+  const [loading, setLoading] = useState(!hasInitialData)
   const [error, setError] = useState<string | null>(null)
-  const [totalPages, setTotalPages] = useState(1)
+  const [totalPages, setTotalPages] = useState(initialTotalPages)
   const [currentPage, setCurrentPage] = useState(1)
+  // Track whether user has interacted (changed filters/page) — skip initial fetch if we have SSR data
+  const [userInteracted, setUserInteracted] = useState(false)
   const [selectedCategory, setSelectedCategory] = useState<string | undefined>(undefined)
   const [selectedContentType, setSelectedContentType] = useState<string | undefined>(undefined)
   const [searchQuery, setSearchQuery] = useState("")
@@ -98,8 +103,10 @@ export function BlogContent({ initialCategories, initialContentTypes = [] }: Blo
   }, [currentPage, debouncedSearch, selectedContentType, contentTypes])
 
   useEffect(() => {
+    // Skip first fetch if we have SSR data and user hasn't interacted
+    if (hasInitialData && !userInteracted) return
     fetchPosts()
-  }, [fetchPosts])
+  }, [fetchPosts, hasInitialData, userInteracted])
 
   // Filter posts by category (client-side)
   const filteredPosts = selectedCategory
@@ -112,11 +119,13 @@ export function BlogContent({ initialCategories, initialContentTypes = [] }: Blo
   const handleCategoryChange = (categorySlug: string | undefined) => {
     setSelectedCategory(categorySlug)
     setCurrentPage(1)
+    setUserInteracted(true)
   }
 
   const handleContentTypeChange = (typeSlug: string | undefined) => {
     setSelectedContentType(typeSlug)
     setCurrentPage(1)
+    setUserInteracted(true)
   }
 
   return (
@@ -167,6 +176,7 @@ export function BlogContent({ initialCategories, initialContentTypes = [] }: Blo
             onChange={(e) => {
               setSearchQuery(e.target.value)
               setCurrentPage(1)
+              setUserInteracted(true)
             }}
             className="pl-10 bg-background/50 border-border"
           />

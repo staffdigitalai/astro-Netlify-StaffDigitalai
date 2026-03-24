@@ -3,26 +3,35 @@ import { Suspense } from "react"
 import { GlassmorphismNav } from "@/components/glassmorphism-nav"
 import { Footer } from "@/components/footer"
 import { BlogContent } from "./blog-content"
-import { getCategories, getContentTypes } from "@/lib/wordpress"
+import { getCategories, getContentTypes, getPosts } from "@/lib/wordpress"
+import type { WPPost } from "@/lib/wordpress"
 
 export const metadata: Metadata = {
   title: "Blog - StaffDigital AI",
   description: "Articulos, guias, comparativas y recursos sobre automatizacion con IA para empresas.",
 }
 
+// Revalidate every 5 minutes for ISR
+export const revalidate = 300
+
 export default async function BlogPage() {
   let categories: Awaited<ReturnType<typeof getCategories>> = []
   let contentTypes: Awaited<ReturnType<typeof getContentTypes>> = []
-  
+  let initialPosts: WPPost[] = []
+  let initialTotalPages = 1
+
   try {
-    const [cats, types] = await Promise.all([
+    const [cats, types, postsResult] = await Promise.all([
       getCategories("es"),
       getContentTypes("es"),
+      getPosts({ page: 1, perPage: 9 }),
     ])
     categories = cats
     contentTypes = types
+    initialPosts = postsResult.posts
+    initialTotalPages = postsResult.totalPages
   } catch (error) {
-    console.error("Error fetching categories/content types:", error)
+    console.error("Error fetching blog data:", error)
   }
 
   return (
@@ -63,7 +72,12 @@ export default async function BlogPage() {
               </div>
             }
           >
-            <BlogContent initialCategories={categories} initialContentTypes={contentTypes} />
+            <BlogContent
+              initialCategories={categories}
+              initialContentTypes={contentTypes}
+              initialPosts={initialPosts}
+              initialTotalPages={initialTotalPages}
+            />
           </Suspense>
         </div>
       </div>

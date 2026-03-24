@@ -6,8 +6,21 @@ import { GlassmorphismNav } from "@/components/glassmorphism-nav"
 import { Footer } from "@/components/footer"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { getPost, getFeaturedImageUrl, stripHtml, formatDate } from "@/lib/wordpress"
+import { getPost, getPosts, getFeaturedImageUrl, stripHtml, formatDate } from "@/lib/wordpress"
 import type { WPPost } from "@/lib/wordpress"
+
+// ISR: revalidate every 5 minutes so new posts appear without redeploy
+export const revalidate = 300
+
+// Pre-generate known post slugs at build time
+export async function generateStaticParams() {
+  try {
+    const { posts } = await getPosts({ perPage: 100 })
+    return posts.map((post) => ({ slug: post.slug }))
+  } catch {
+    return []
+  }
+}
 
 interface BlogPostPageProps {
   params: Promise<{ slug: string }>
