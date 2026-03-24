@@ -4,11 +4,11 @@ const CHATWOOT_URL = "https://chat.staffdigital.eu"
 const ACCOUNT_ID = "2"
 const INBOX_ID = "2"
 const API_TOKEN = process.env.CHATWOOT_API_TOKEN
+const ELEVENLABS_API_KEY = process.env.ELEVENLABS_API_KEY
 const ELEVENLABS_WEBHOOK_SECRET = process.env.ELEVENLABS_WEBHOOK_SECRET
 
 // ---------- Chatwoot helpers ----------
 
-// Search contact by phone number (E.164 format)
 async function searchContactByPhone(phone: string) {
   const response = await fetch(
     `${CHATWOOT_URL}/api/v1/accounts/${ACCOUNT_ID}/contacts/search?q=${encodeURIComponent(phone)}`,
@@ -19,12 +19,11 @@ async function searchContactByPhone(phone: string) {
   return (
     data.payload?.find(
       (c: { phone_number?: string }) =>
-        c.phone_number?.replace(/\s/g, "") === phone.replace(/\s/g, "")
+        c.phone_number?.replace(/[\s\-]/g, "") === phone.replace(/[\s\-]/g, "")
     ) || null
   )
 }
 
-// Search contact by email
 async function searchContactByEmail(email: string) {
   const response = await fetch(
     `${CHATWOOT_URL}/api/v1/accounts/${ACCOUNT_ID}/contacts/search?q=${encodeURIComponent(email)}`,
@@ -34,13 +33,11 @@ async function searchContactByEmail(email: string) {
   const data = await response.json()
   return (
     data.payload?.find(
-      (c: { email?: string }) =>
-        c.email?.toLowerCase() === email.toLowerCase()
+      (c: { email?: string }) => c.email?.toLowerCase() === email.toLowerCase()
     ) || null
   )
 }
 
-// Create a new contact
 async function createContact(data: {
   name: string
   phone_number?: string
@@ -51,10 +48,7 @@ async function createContact(data: {
     `${CHATWOOT_URL}/api/v1/accounts/${ACCOUNT_ID}/contacts`,
     {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        api_access_token: API_TOKEN!,
-      },
+      headers: { "Content-Type": "application/json", api_access_token: API_TOKEN! },
       body: JSON.stringify(data),
     }
   )
@@ -62,28 +56,20 @@ async function createContact(data: {
   return response.json()
 }
 
-// Get or create contact — searches by phone first, then email, then creates
 async function getOrCreateContact(phone?: string, email?: string, name?: string) {
-  // 1. Search by phone
   if (phone) {
     const byPhone = await searchContactByPhone(phone)
     if (byPhone) return byPhone
   }
-
-  // 2. Search by email
   if (email) {
     const byEmail = await searchContactByEmail(email)
     if (byEmail) {
-      // Update phone if contact exists but doesn't have one
       if (phone && !byEmail.phone_number) {
         await fetch(
           `${CHATWOOT_URL}/api/v1/accounts/${ACCOUNT_ID}/contacts/${byEmail.id}`,
           {
             method: "PUT",
-            headers: {
-              "Content-Type": "application/json",
-              api_access_token: API_TOKEN!,
-            },
+            headers: { "Content-Type": "application/json", api_access_token: API_TOKEN! },
             body: JSON.stringify({ phone_number: phone }),
           }
         )
@@ -91,20 +77,15 @@ async function getOrCreateContact(phone?: string, email?: string, name?: string)
       return byEmail
     }
   }
-
-  // 3. Create new
-  const contactData: Record<string, unknown> = {
+  const result = await createContact({
     name: name || phone || "Llamada telefonica",
+    ...(phone ? { phone_number: phone } : {}),
+    ...(email ? { email } : {}),
     custom_attributes: { source: "elevenlabs-phone" },
-  }
-  if (phone) contactData.phone_number = phone
-  if (email) contactData.email = email
-
-  const result = await createContact(contactData as Parameters<typeof createContact>[0])
+  })
   return result?.payload?.contact || null
 }
 
-// Create conversation with transcript
 async function createConversation(
   contactId: number,
   messageContent: string,
@@ -115,10 +96,7 @@ async function createConversation(
     `${CHATWOOT_URL}/api/v1/accounts/${ACCOUNT_ID}/conversations`,
     {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        api_access_token: API_TOKEN!,
-      },
+      headers: { "Content-Type": "application/json", api_access_token: API_TOKEN! },
       body: JSON.stringify({
         contact_id: contactId,
         inbox_id: parseInt(INBOX_ID),
@@ -129,76 +107,209 @@ async function createConversation(
   )
   if (!response.ok) return null
   const conv = await response.json()
-
-  // Add labels
   if (conv.id && labels.length > 0) {
     await fetch(
       `${CHATWOOT_URL}/api/v1/accounts/${ACCOUNT_ID}/conversations/${conv.id}/labels`,
       {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          api_access_token: API_TOKEN!,
-        },
+        headers: { "Content-Type": "application/json", api_access_token: API_TOKEN! },
         body: JSON.stringify({ labels }),
       }
     )
   }
-
   return conv
 }
 
-// ---------- ElevenLabs webhook types ----------
+// ---------- ElevenLabs API ----------
 
-interface ElevenLabsTranscriptEntry {
-  role: "agent" | "user"
-  message: string
-  time_in_call_secs?: number
-}
-
-interface ElevenLabsWebhookPayload {
-  // Top-level fields
-  type?: string
-  event_type?: string
-  conversation_id?: string
-  agent_id?: string
-  agent_name?: string
-  status?: string
-  call_duration_secs?: number
-  caller_id?: string
-  phone_number?: string
-  // Transcript
-  transcript?: ElevenLabsTranscriptEntry[]
-  // Metadata — contains call_duration_secs, start_time, cost
-  metadata?: {
-    start_time_unix_secs?: number
-    call_duration_secs?: number
-    [key: string]: unknown
+interface ElevenLabsConversation {
+  conversation_id: string
+  agent_id: string
+  agent_name: string
+  status: string
+  transcript: Array<{ role: "agent" | "user"; message: string; time_in_call_secs?: number }>
+  metadata: {
+    start_time_unix_secs: number
+    call_duration_secs: number
+    cost: number
   }
-  // Analysis — summary, success, data collection
-  analysis?: {
-    call_successful?: string
-    transcript_summary?: string
-    evaluation_criteria_results?: Record<string, unknown>
-    data_collection_results?: Record<string, unknown>
-    data_collection_results_list?: Array<{ name?: string; value?: string }>
-    [key: string]: unknown
+  analysis: {
+    call_successful: string
+    transcript_summary: string
+    data_collection_results: Record<string, { value?: string }>
+    data_collection_results_list: Array<{ name: string; value: string }>
   }
-  recording_url?: string
-  // Client data — contains dynamic_variables with system__caller_id
-  conversation_initiation_client_data?: {
-    dynamic_variables?: {
+  conversation_initiation_client_data: {
+    dynamic_variables: {
       system__caller_id?: string
       system__called_number?: string
       system__call_duration_secs?: number
-      system__conversation_id?: string
       [key: string]: unknown
     }
-    [key: string]: unknown
   }
 }
 
-// ---------- Main handler ----------
+async function fetchConversationFromElevenLabs(conversationId: string): Promise<ElevenLabsConversation | null> {
+  if (!ELEVENLABS_API_KEY) {
+    console.error("ELEVENLABS_API_KEY not set — cannot fetch conversation details")
+    return null
+  }
+
+  // Retry up to 3 times with delay (transcript may not be ready immediately)
+  for (let attempt = 0; attempt < 3; attempt++) {
+    try {
+      const response = await fetch(
+        `https://api.elevenlabs.io/v1/convai/conversations/${conversationId}`,
+        { headers: { "xi-api-key": ELEVENLABS_API_KEY } }
+      )
+
+      if (!response.ok) {
+        console.error(`ElevenLabs API error (attempt ${attempt + 1}):`, response.status, await response.text())
+        if (attempt < 2) {
+          await new Promise(r => setTimeout(r, 3000 * (attempt + 1))) // 3s, 6s
+          continue
+        }
+        return null
+      }
+
+      const data = await response.json()
+
+      // Check if transcript is available
+      if (data.transcript && data.transcript.length > 0) {
+        return data as ElevenLabsConversation
+      }
+
+      // Transcript might not be ready yet — wait and retry
+      if (attempt < 2) {
+        console.log(`Transcript empty on attempt ${attempt + 1}, retrying in ${3 * (attempt + 1)}s...`)
+        await new Promise(r => setTimeout(r, 3000 * (attempt + 1)))
+      } else {
+        // Return what we have even without transcript
+        return data as ElevenLabsConversation
+      }
+    } catch (err) {
+      console.error(`ElevenLabs API fetch error (attempt ${attempt + 1}):`, err)
+      if (attempt < 2) await new Promise(r => setTimeout(r, 3000 * (attempt + 1)))
+    }
+  }
+  return null
+}
+
+// ---------- Process call and create Chatwoot record ----------
+
+async function processCall(conversationId: string, agentIdFromWebhook?: string) {
+  // 1. Fetch full conversation details from ElevenLabs API
+  const conv = await fetchConversationFromElevenLabs(conversationId)
+
+  if (!conv) {
+    console.error("Could not fetch conversation from ElevenLabs:", conversationId)
+    // Create a minimal record so we don't lose track
+    const contact = await getOrCreateContact(undefined, undefined, "Llamada sin datos")
+    if (contact) {
+      await createConversation(
+        contact.id,
+        `📞 Llamada telefonica IA\n\n⚠️ No se pudieron obtener los datos de la conversacion ${conversationId} desde ElevenLabs.`,
+        ["llamada-ia", "elevenlabs", "error"],
+        { source: "elevenlabs", conversation_id: conversationId }
+      )
+    }
+    return
+  }
+
+  // 2. Extract caller phone from dynamic_variables
+  const dynVars = conv.conversation_initiation_client_data?.dynamic_variables || {}
+  let callerPhone: string | undefined
+  const rawCallerId = dynVars.system__caller_id
+  if (rawCallerId) {
+    const cleaned = String(rawCallerId).replace(/[^\d+]/g, "")
+    callerPhone = cleaned.startsWith("+") ? cleaned
+      : cleaned.length <= 9 ? `+34${cleaned}`
+      : `+${cleaned}`
+  }
+
+  // 3. Extract collected data (name, email from agent data collection)
+  const collected = conv.analysis?.data_collection_results || {}
+  const collectedList = conv.analysis?.data_collection_results_list || []
+  const callerName = collectedList.find(d => d.name === "nombre")?.value
+    || collected.nombre?.value
+    || collected.name?.value
+    || undefined
+  const callerEmail = collectedList.find(d => d.name === "email")?.value
+    || collected.email?.value
+    || undefined
+
+  // 4. Build transcript
+  const agentName = conv.agent_name || "Agente IA"
+  const transcript = conv.transcript || []
+  const transcriptText = transcript
+    .map((entry) => {
+      const speaker = entry.role === "agent" ? `🤖 ${agentName}` : "👤 Cliente"
+      const time = entry.time_in_call_secs != null
+        ? `[${Math.floor(entry.time_in_call_secs / 60)}:${String(Math.floor(entry.time_in_call_secs % 60)).padStart(2, "0")}]`
+        : ""
+      return `${time} ${speaker}: ${entry.message}`
+    })
+    .join("\n")
+
+  // 5. Build summary
+  const durationSecs = conv.metadata?.call_duration_secs || 0
+  const duration = durationSecs > 0
+    ? `${Math.floor(durationSecs / 60)}m ${Math.floor(durationSecs % 60)}s`
+    : "N/A"
+  const successful = conv.analysis?.call_successful || conv.status || "N/A"
+  const summary = conv.analysis?.transcript_summary || ""
+
+  // 6. Build Chatwoot message
+  const messageContent = `📞 Llamada telefonica IA — ${agentName}
+
+📊 Resumen:
+• Duracion: ${duration}
+• Estado: ${successful}
+• Agente: ${agentName}
+• Telefono cliente: ${callerPhone || "Desconocido"}
+${callerName ? `• Nombre: ${callerName}` : ""}
+${callerEmail ? `• Email: ${callerEmail}` : ""}
+${summary ? `\n📝 Resumen IA: ${summary}` : ""}
+
+💬 Transcripcion:
+${transcriptText || "Sin transcripcion disponible"}`
+
+  // 7. Get or create contact (merges with existing chat/WhatsApp contacts)
+  const contact = await getOrCreateContact(
+    callerPhone,
+    callerEmail,
+    callerName || (callerPhone ? `Llamada ${callerPhone}` : undefined)
+  )
+
+  if (!contact) {
+    console.error("Failed to get or create contact for", callerPhone, callerEmail)
+    return
+  }
+
+  // 8. Create conversation with transcript
+  const chatwootConv = await createConversation(
+    contact.id,
+    messageContent,
+    ["llamada-ia", "elevenlabs"],
+    {
+      form_type: "llamada-ia",
+      source: "elevenlabs",
+      agent_name: agentName,
+      conversation_id: conversationId,
+      call_duration: duration,
+      call_successful: String(successful),
+    }
+  )
+
+  console.log(
+    "Chatwoot conversation created:", chatwootConv?.id,
+    "for contact:", contact.id,
+    "phone:", callerPhone,
+    "ElevenLabs conv:", conversationId
+  )
+}
+
+// ---------- Main webhook handler ----------
 
 export async function POST(request: NextRequest) {
   try {
@@ -218,9 +329,9 @@ export async function POST(request: NextRequest) {
     }
 
     const rawBody = await request.text()
-    console.log("ElevenLabs webhook RAW payload:", rawBody.substring(0, 2000))
+    console.log("ElevenLabs webhook received:", rawBody.substring(0, 500))
 
-    let payload: ElevenLabsWebhookPayload
+    let payload: Record<string, unknown>
     try {
       payload = JSON.parse(rawBody)
     } catch {
@@ -228,122 +339,39 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "Invalid JSON" }, { status: 400 })
     }
 
-    // DEBUG: Log all top-level keys and their types
-    const debugKeys = Object.entries(payload).map(([k, v]) => {
-      if (v === null || v === undefined) return `${k}=null`
-      if (Array.isArray(v)) return `${k}=array(${v.length})`
-      if (typeof v === "object") return `${k}=object(${Object.keys(v as Record<string, unknown>).join(",")})`
-      return `${k}=${String(v).substring(0, 50)}`
-    }).join(" | ")
-    console.log("ElevenLabs webhook KEYS:", debugKeys)
-
-    // Extract dynamic variables (where ElevenLabs puts phone data for SIP/Telnyx calls)
-    const dynVars = payload.conversation_initiation_client_data?.dynamic_variables || {}
-
-    // Extract caller phone — try multiple locations
-    let callerPhone = payload.caller_id
-      || (dynVars.system__caller_id ? `+${String(dynVars.system__caller_id).replace(/^\+/, "")}` : undefined)
+    // Extract conversation_id — the key piece we need
+    const conversationId = (payload.conversation_id as string)
+      || (payload.data as Record<string, unknown>)?.conversation_id as string
       || undefined
-    // Ensure E.164 format
-    if (callerPhone && !callerPhone.startsWith("+")) {
-      callerPhone = callerPhone.length <= 9 ? `+34${callerPhone}` : `+${callerPhone}`
+    const agentId = (payload.agent_id as string) || undefined
+
+    console.log("Webhook event — conversation_id:", conversationId, "agent_id:", agentId,
+      "type:", payload.type || payload.event_type || "unknown")
+
+    if (!conversationId) {
+      console.error("No conversation_id in webhook payload. Keys:", Object.keys(payload).join(", "))
+      // Still return 200 so ElevenLabs doesn't disable the webhook
+      return NextResponse.json({ received: true, error: "no conversation_id" })
     }
 
-    const agentName = payload.agent_name || "Agente IA"
+    // IMPORTANT: Respond 200 immediately, process async
+    // ElevenLabs requires fast response to keep webhook active
+    // Use waitUntil pattern for Vercel Edge/Serverless
+    const processPromise = processCall(conversationId, agentId)
 
-    // Extract data collected during the call (name, email, etc.)
-    const collectedList = payload.analysis?.data_collection_results_list || []
-    const collectedMap = payload.analysis?.data_collection_results as Record<string, { value?: string }> | undefined
-    const callerName = collectedList.find(d => d.name === "nombre")?.value
-      || collectedMap?.nombre?.value
-      || collectedMap?.name?.value
-      || undefined
-    const callerEmail = collectedList.find(d => d.name === "email")?.value
-      || collectedMap?.email?.value
-      || undefined
+    // In Vercel serverless, we can't use waitUntil easily,
+    // so we await but with a timeout safety net
+    const timeoutPromise = new Promise<void>(resolve => setTimeout(resolve, 25000))
+    await Promise.race([processPromise, timeoutPromise])
 
-    // Build transcript text
-    const transcript = payload.transcript || []
-    const transcriptText = transcript
-      .map((entry) => {
-        const speaker = entry.role === "agent" ? `🤖 ${agentName}` : "👤 Cliente"
-        const time = entry.time_in_call_secs != null
-          ? `[${Math.floor(entry.time_in_call_secs / 60)}:${String(Math.floor(entry.time_in_call_secs % 60)).padStart(2, "0")}]`
-          : ""
-        return `${time} ${speaker}: ${entry.message}`
-      })
-      .join("\n")
-
-    // Build summary — check multiple locations for duration
-    const summary = payload.analysis?.transcript_summary || ""
-    const durationSecs = payload.call_duration_secs
-      || payload.metadata?.call_duration_secs
-      || (dynVars.system__call_duration_secs as number)
-      || 0
-    const duration = durationSecs > 0
-      ? `${Math.floor(durationSecs / 60)}m ${Math.floor(durationSecs % 60)}s`
-      : "N/A"
-    const successful = payload.analysis?.call_successful || payload.status || "N/A"
-
-    // Build message for Chatwoot
-    const messageContent = `📞 Llamada telefonica IA — ${agentName}
-
-📊 Resumen:
-• Duracion: ${duration}
-• Estado: ${successful}
-• Agente: ${agentName}
-• Telefono cliente: ${callerPhone || "Desconocido"}
-${summary ? `• Resumen IA: ${summary}` : ""}
-
-💬 Transcripcion:
-${transcriptText || "Sin transcripcion disponible"}
-${payload.recording_url ? `\n🎙️ Grabacion: ${payload.recording_url}` : ""}
-
-🔧 DEBUG — Raw payload keys: ${debugKeys}
-🔧 DEBUG — Raw payload (first 1500 chars): ${rawBody.substring(0, 1500)}`
-
-    // Get or create contact (merges with existing chat/WhatsApp contacts)
-    const contact = await getOrCreateContact(
-      callerPhone,
-      callerEmail,
-      callerName || (callerPhone ? `Llamada ${callerPhone}` : undefined)
-    )
-
-    if (!contact) {
-      console.error("Failed to get or create contact for", callerPhone)
-      return NextResponse.json({ error: "Contact creation failed" }, { status: 500 })
-    }
-
-    const contactId = contact.id
-
-    // Create conversation with transcript
-    const conv = await createConversation(
-      contactId,
-      messageContent,
-      ["llamada-ia", "elevenlabs"],
-      {
-        form_type: "llamada-ia",
-        source: "elevenlabs",
-        agent_name: agentName,
-        conversation_id: payload.conversation_id || "",
-        call_duration: duration,
-        call_successful: String(successful),
-      }
-    )
-
-    console.log("Chatwoot conversation created:", conv?.id, "for contact:", contactId)
-
-    return NextResponse.json({
-      success: true,
-      contactId,
-      conversationId: conv?.id,
-    })
+    return NextResponse.json({ success: true, conversation_id: conversationId })
   } catch (error) {
     console.error("ElevenLabs webhook error:", error)
-    return NextResponse.json(
-      { error: error instanceof Error ? error.message : "Unknown error" },
-      { status: 500 }
-    )
+    // Always return 200 to prevent webhook deactivation
+    return NextResponse.json({
+      received: true,
+      error: error instanceof Error ? error.message : "Unknown error",
+    })
   }
 }
 
