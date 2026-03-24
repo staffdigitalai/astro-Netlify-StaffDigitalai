@@ -3,7 +3,7 @@
 import { useState, useEffect, useCallback } from "react"
 import Link from "next/link"
 import Image from "next/image"
-import { Calendar, ArrowRight, ChevronLeft, ChevronRight, Search, BookOpen, Scale, HelpCircle, FileText } from "lucide-react"
+import { Calendar, ArrowRight, ChevronLeft, ChevronRight, Search, BookOpen, Scale, HelpCircle, FileText, AlertCircle } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Badge } from "@/components/ui/badge"
@@ -21,93 +21,23 @@ const contentTypeConfig: Record<string, { label: string; icon: React.ComponentTy
   comparativa: { label: "Comparativas", icon: Scale, color: "bg-purple-500/20 text-purple-400 border-purple-500/30" },
   "pregunta-seo": { label: "Preguntas SEO", icon: HelpCircle, color: "bg-green-500/20 text-green-400 border-green-500/30" },
   articulo: { label: "Articulos", icon: FileText, color: "bg-orange-500/20 text-orange-400 border-orange-500/30" },
+  "caso-estudio": { label: "Casos de Estudio", icon: FileText, color: "bg-amber-500/20 text-amber-400 border-amber-500/30" },
+  tutorial: { label: "Tutoriales", icon: BookOpen, color: "bg-cyan-500/20 text-cyan-400 border-cyan-500/30" },
 }
-
-// Sample blog posts for when WordPress is not configured
-const samplePosts: WPPost[] = [
-  {
-    id: 1,
-    slug: "como-implementar-ia-en-tu-empresa",
-    title: { rendered: "Como Implementar IA en tu Empresa: Guia Completa 2024" },
-    content: { rendered: "<p>Guia detallada sobre implementacion de inteligencia artificial.</p>" },
-    excerpt: { rendered: "Descubre los pasos esenciales para integrar soluciones de IA en tu negocio y maximizar el retorno de inversion." },
-    date: new Date().toISOString(),
-    _embedded: { "wp:term": [[{ name: "Tecnologia" }]] }
-  },
-  {
-    id: 2,
-    slug: "automatizacion-atencion-cliente",
-    title: { rendered: "5 Beneficios de Automatizar tu Atencion al Cliente" },
-    content: { rendered: "<p>Los beneficios de la automatizacion en servicio al cliente.</p>" },
-    excerpt: { rendered: "La automatizacion del servicio al cliente puede transformar completamente la experiencia de tus usuarios." },
-    date: new Date(Date.now() - 86400000).toISOString(),
-    _embedded: { "wp:term": [[{ name: "Automatizacion" }]] }
-  },
-  {
-    id: 3,
-    slug: "chatbots-inteligentes-2024",
-    title: { rendered: "Chatbots Inteligentes: El Futuro de la Comunicacion Empresarial" },
-    content: { rendered: "<p>Como los chatbots estan revolucionando la comunicacion.</p>" },
-    excerpt: { rendered: "Los chatbots con IA estan redefiniendo como las empresas se comunican con sus clientes." },
-    date: new Date(Date.now() - 172800000).toISOString(),
-    _embedded: { "wp:term": [[{ name: "Chatbots" }]] }
-  },
-  {
-    id: 4,
-    slug: "roi-automatizacion-procesos",
-    title: { rendered: "Calculando el ROI de la Automatizacion de Procesos" },
-    content: { rendered: "<p>Metodologia para calcular el retorno de inversion.</p>" },
-    excerpt: { rendered: "Aprende a medir el impacto financiero real de las soluciones de automatizacion en tu empresa." },
-    date: new Date(Date.now() - 259200000).toISOString(),
-    _embedded: { "wp:term": [[{ name: "Negocios" }]] }
-  },
-  {
-    id: 5,
-    slug: "tendencias-ia-2024",
-    title: { rendered: "Las 10 Tendencias de IA que Dominaran 2024" },
-    content: { rendered: "<p>Principales tendencias en inteligencia artificial.</p>" },
-    excerpt: { rendered: "Mantente actualizado con las ultimas innovaciones en inteligencia artificial y machine learning." },
-    date: new Date(Date.now() - 345600000).toISOString(),
-    _embedded: { "wp:term": [[{ name: "Tendencias" }]] }
-  },
-  {
-    id: 6,
-    slug: "integracion-crm-ia",
-    title: { rendered: "Integrando IA con tu CRM: Mejores Practicas" },
-    content: { rendered: "<p>Como integrar inteligencia artificial con sistemas CRM.</p>" },
-    excerpt: { rendered: "Descubre como potenciar tu CRM existente con capacidades de inteligencia artificial." },
-    date: new Date(Date.now() - 432000000).toISOString(),
-    _embedded: { "wp:term": [[{ name: "CRM" }]] }
-  }
-]
-
-const sampleCategories: WPCategory[] = [
-  { id: 1, name: "Tecnologia", slug: "tecnologia" },
-  { id: 2, name: "Automatizacion", slug: "automatizacion" },
-  { id: 3, name: "Negocios", slug: "negocios" },
-  { id: 4, name: "Tendencias", slug: "tendencias" },
-]
-
-// Sample content types
-const sampleContentTypes: WPContentType[] = [
-  { id: 1, name: "Guias", slug: "guia", count: 10 },
-  { id: 2, name: "Comparativas", slug: "comparativa", count: 5 },
-  { id: 3, name: "Preguntas SEO", slug: "pregunta-seo", count: 20 },
-]
 
 export function BlogContent({ initialCategories, initialContentTypes = [] }: BlogContentProps) {
   const [posts, setPosts] = useState<WPPost[]>([])
   const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
   const [totalPages, setTotalPages] = useState(1)
   const [currentPage, setCurrentPage] = useState(1)
   const [selectedCategory, setSelectedCategory] = useState<string | undefined>(undefined)
   const [selectedContentType, setSelectedContentType] = useState<string | undefined>(undefined)
   const [searchQuery, setSearchQuery] = useState("")
   const [debouncedSearch, setDebouncedSearch] = useState("")
-  const [usingSampleData, setUsingSampleData] = useState(false)
 
-  const categories = initialCategories.length > 0 ? initialCategories : sampleCategories
-  const contentTypes = initialContentTypes.length > 0 ? initialContentTypes : sampleContentTypes
+  const categories = initialCategories
+  const contentTypes = initialContentTypes
 
   // Debounce search
   useEffect(() => {
@@ -117,16 +47,17 @@ export function BlogContent({ initialCategories, initialContentTypes = [] }: Blo
     return () => clearTimeout(timer)
   }, [searchQuery])
 
-  // Fetch posts from WordPress or use sample data
+  // Fetch posts from WordPress
   const fetchPosts = useCallback(async () => {
     setLoading(true)
+    setError(null)
     try {
       const params = new URLSearchParams()
       params.append("page", String(currentPage))
       params.append("per_page", "9")
       params.append("_embed", "1")
       if (debouncedSearch) params.append("search", debouncedSearch)
-      
+
       // Add content type filter if selected
       if (selectedContentType) {
         const contentType = contentTypes.find(ct => ct.slug === selectedContentType)
@@ -139,26 +70,28 @@ export function BlogContent({ initialCategories, initialContentTypes = [] }: Blo
       const url = `${apiUrl}/posts?${params.toString()}`
 
       const controller = new AbortController()
-      const timeoutId = setTimeout(() => controller.abort(), 8000)
+      const timeoutId = setTimeout(() => controller.abort(), 15000)
 
       const response = await fetch(url, { signal: controller.signal })
       clearTimeout(timeoutId)
 
       if (response.ok) {
         const data = await response.json()
-        if (Array.isArray(data) && data.length > 0) {
+        if (Array.isArray(data)) {
           setPosts(data)
           setTotalPages(parseInt(response.headers.get("X-WP-TotalPages") || "1", 10))
-          setUsingSampleData(false)
           return
         }
       }
-      // API returned empty or non-ok — fall through to sample data
-      setPosts(samplePosts)
-      setUsingSampleData(true)
-    } catch {
-      setPosts(samplePosts)
-      setUsingSampleData(true)
+      setError("No se pudieron cargar los articulos.")
+      setPosts([])
+    } catch (err) {
+      if (err instanceof DOMException && err.name === "AbortError") {
+        setError("La conexion con el servidor tardo demasiado. Intenta de nuevo.")
+      } else {
+        setError("Error al conectar con el blog. Intenta de nuevo mas tarde.")
+      }
+      setPosts([])
     } finally {
       setLoading(false)
     }
@@ -168,7 +101,7 @@ export function BlogContent({ initialCategories, initialContentTypes = [] }: Blo
     fetchPosts()
   }, [fetchPosts])
 
-  // Filter posts (client-side for sample data)
+  // Filter posts by category (client-side)
   const filteredPosts = selectedCategory
     ? posts.filter((p) => {
         const categoryNames = p._embedded?.["wp:term"]?.[0]?.map((t) => t.name.toLowerCase()) || []
@@ -189,36 +122,38 @@ export function BlogContent({ initialCategories, initialContentTypes = [] }: Blo
   return (
     <div className="space-y-8">
       {/* Content Type Tabs */}
-      <div className="flex flex-wrap justify-center gap-2 p-4 rounded-2xl border border-border bg-card/50 backdrop-blur-sm">
-        <Button
-          variant={!selectedContentType ? "default" : "outline"}
-          size="sm"
-          onClick={() => handleContentTypeChange(undefined)}
-          className="rounded-full gap-2"
-        >
-          <FileText className="h-4 w-4" />
-          Todos
-        </Button>
-        {contentTypes.map((type) => {
-          const config = contentTypeConfig[type.slug] || { label: type.name, icon: FileText, color: "" }
-          const Icon = config.icon
-          return (
-            <Button
-              key={type.id}
-              variant={selectedContentType === type.slug ? "default" : "outline"}
-              size="sm"
-              onClick={() => handleContentTypeChange(type.slug)}
-              className={`rounded-full gap-2 ${selectedContentType === type.slug ? "" : config.color}`}
-            >
-              <Icon className="h-4 w-4" />
-              {config.label}
-              {type.count > 0 && (
-                <span className="ml-1 text-xs opacity-60">({type.count})</span>
-              )}
-            </Button>
-          )
-        })}
-      </div>
+      {contentTypes.length > 0 && (
+        <div className="flex flex-wrap justify-center gap-2 p-4 rounded-2xl border border-border bg-card/50 backdrop-blur-sm">
+          <Button
+            variant={!selectedContentType ? "default" : "outline"}
+            size="sm"
+            onClick={() => handleContentTypeChange(undefined)}
+            className="rounded-full gap-2"
+          >
+            <FileText className="h-4 w-4" />
+            Todos
+          </Button>
+          {contentTypes.map((type) => {
+            const config = contentTypeConfig[type.slug] || { label: type.name, icon: FileText, color: "" }
+            const Icon = config.icon
+            return (
+              <Button
+                key={type.id}
+                variant={selectedContentType === type.slug ? "default" : "outline"}
+                size="sm"
+                onClick={() => handleContentTypeChange(type.slug)}
+                className={`rounded-full gap-2 ${selectedContentType === type.slug ? "" : config.color}`}
+              >
+                <Icon className="h-4 w-4" />
+                {config.label}
+                {type.count > 0 && (
+                  <span className="ml-1 text-xs opacity-60">({type.count})</span>
+                )}
+              </Button>
+            )
+          })}
+        </div>
+      )}
 
       {/* Filters */}
       <div className="flex flex-col lg:flex-row gap-4 items-start lg:items-center justify-between p-4 rounded-2xl border border-border bg-card/50 backdrop-blur-sm">
@@ -238,41 +173,70 @@ export function BlogContent({ initialCategories, initialContentTypes = [] }: Blo
         </div>
 
         {/* Categories */}
-        <div className="flex flex-wrap gap-2">
-          <Button
-            variant={!selectedCategory ? "default" : "outline"}
-            size="sm"
-            onClick={() => handleCategoryChange(undefined)}
-            className="rounded-full"
-          >
-            Todas las categorias
-          </Button>
-          {categories.map((category) => (
+        {categories.length > 0 && (
+          <div className="flex flex-wrap gap-2">
             <Button
-              key={category.id}
-              variant={selectedCategory === category.name ? "default" : "outline"}
+              variant={!selectedCategory ? "default" : "outline"}
               size="sm"
-              onClick={() => handleCategoryChange(category.name)}
+              onClick={() => handleCategoryChange(undefined)}
               className="rounded-full"
             >
-              {category.name}
+              Todas las categorias
             </Button>
-          ))}
-        </div>
+            {categories.map((category) => (
+              <Button
+                key={category.id}
+                variant={selectedCategory === category.name ? "default" : "outline"}
+                size="sm"
+                onClick={() => handleCategoryChange(category.name)}
+                className="rounded-full"
+              >
+                {category.name}
+              </Button>
+            ))}
+          </div>
+        )}
       </div>
 
+      {/* Error State */}
+      {error && (
+        <div className="flex flex-col items-center justify-center py-16 text-center space-y-4">
+          <div className="w-16 h-16 rounded-full bg-destructive/10 flex items-center justify-center">
+            <AlertCircle className="h-8 w-8 text-destructive" />
+          </div>
+          <p className="text-muted-foreground text-lg">{error}</p>
+          <Button variant="outline" onClick={fetchPosts} className="rounded-full">
+            Reintentar
+          </Button>
+        </div>
+      )}
+
       {/* Posts Grid */}
-      {loading ? (
+      {!error && loading ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {[...Array(6)].map((_, i) => (
             <div key={i} className="rounded-2xl border border-border bg-card animate-pulse h-[400px]" />
           ))}
         </div>
-      ) : filteredPosts.length === 0 ? (
-        <div className="text-center py-20">
+      ) : !error && filteredPosts.length === 0 ? (
+        <div className="text-center py-20 space-y-4">
           <p className="text-muted-foreground text-lg">No se encontraron articulos.</p>
+          {(selectedContentType || selectedCategory || debouncedSearch) && (
+            <Button
+              variant="outline"
+              onClick={() => {
+                setSelectedContentType(undefined)
+                setSelectedCategory(undefined)
+                setSearchQuery("")
+                setCurrentPage(1)
+              }}
+              className="rounded-full"
+            >
+              Limpiar filtros
+            </Button>
+          )}
         </div>
-      ) : (
+      ) : !error && (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredPosts.map((post) => {
             const imageUrl = getFeaturedImageUrl(post, "large")
@@ -290,7 +254,7 @@ export function BlogContent({ initialCategories, initialContentTypes = [] }: Blo
                     {imageUrl ? (
                       <Image
                         src={imageUrl}
-                        alt={post.title.rendered}
+                        alt={stripHtml(post.title.rendered)}
                         fill
                         className="object-cover group-hover:scale-105 transition-transform duration-500"
                       />
@@ -344,7 +308,7 @@ export function BlogContent({ initialCategories, initialContentTypes = [] }: Blo
       )}
 
       {/* Pagination */}
-      {totalPages > 1 && !usingSampleData && (
+      {totalPages > 1 && !error && (
         <div className="flex items-center justify-center gap-2 pt-8">
           <Button
             variant="outline"
