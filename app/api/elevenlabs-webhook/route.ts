@@ -217,8 +217,25 @@ export async function POST(request: NextRequest) {
       }
     }
 
-    const payload: ElevenLabsWebhookPayload = await request.json()
-    console.log("ElevenLabs webhook received:", JSON.stringify(payload).substring(0, 500))
+    const rawBody = await request.text()
+    console.log("ElevenLabs webhook RAW payload:", rawBody.substring(0, 2000))
+
+    let payload: ElevenLabsWebhookPayload
+    try {
+      payload = JSON.parse(rawBody)
+    } catch {
+      console.error("Failed to parse webhook payload:", rawBody.substring(0, 500))
+      return NextResponse.json({ error: "Invalid JSON" }, { status: 400 })
+    }
+
+    // DEBUG: Log all top-level keys and their types
+    const debugKeys = Object.entries(payload).map(([k, v]) => {
+      if (v === null || v === undefined) return `${k}=null`
+      if (Array.isArray(v)) return `${k}=array(${v.length})`
+      if (typeof v === "object") return `${k}=object(${Object.keys(v as Record<string, unknown>).join(",")})`
+      return `${k}=${String(v).substring(0, 50)}`
+    }).join(" | ")
+    console.log("ElevenLabs webhook KEYS:", debugKeys)
 
     // Extract dynamic variables (where ElevenLabs puts phone data for SIP/Telnyx calls)
     const dynVars = payload.conversation_initiation_client_data?.dynamic_variables || {}
@@ -280,7 +297,10 @@ ${summary ? `• Resumen IA: ${summary}` : ""}
 
 💬 Transcripcion:
 ${transcriptText || "Sin transcripcion disponible"}
-${payload.recording_url ? `\n🎙️ Grabacion: ${payload.recording_url}` : ""}`
+${payload.recording_url ? `\n🎙️ Grabacion: ${payload.recording_url}` : ""}
+
+🔧 DEBUG — Raw payload keys: ${debugKeys}
+🔧 DEBUG — Raw payload (first 1500 chars): ${rawBody.substring(0, 1500)}`
 
     // Get or create contact (merges with existing chat/WhatsApp contacts)
     const contact = await getOrCreateContact(
