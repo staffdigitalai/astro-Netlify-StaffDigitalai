@@ -142,6 +142,35 @@ export function DynamicServiceClient({ service }: DynamicServiceClientProps) {
               Pedir Presupuesto
             </Button>
           </div>
+
+          {/* Live AI Phone Demo CTA — only on atencion-telefonica-ia */}
+          {service.slug === "atencion-telefonica-ia" && (
+            <div className="mt-10 animate-fade-in-buttons">
+              <a
+                href="tel:+34931229129"
+                className="group inline-flex flex-col items-center gap-3 px-8 py-6 rounded-2xl border-2 border-green-500/30 bg-green-500/10 backdrop-blur-sm hover:bg-green-500/20 hover:border-green-500/50 hover:scale-105 transition-all duration-300"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="relative">
+                    <Phone size={24} className="text-green-400 group-hover:animate-bounce" />
+                    <span className="absolute -top-1 -right-1 w-3 h-3 bg-green-400 rounded-full animate-ping" />
+                    <span className="absolute -top-1 -right-1 w-3 h-3 bg-green-400 rounded-full" />
+                  </div>
+                  <span className="text-xl font-bold text-white">
+                    Prueba nuestro sistema ahora
+                  </span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="text-2xl font-mono font-bold text-green-400 tracking-wider">
+                    +34 931 229 129
+                  </span>
+                </div>
+                <span className="text-sm text-white/50">
+                  Llama gratis y habla con nuestra IA en tiempo real
+                </span>
+              </a>
+            </div>
+          )}
         </div>
       </section>
 
