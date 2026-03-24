@@ -77,6 +77,14 @@ export default function RootLayout({
   return (
     <html lang="es" className="dark">
       <head>
+        {/* Cookiebot CMP — must load BEFORE any tracking scripts */}
+        <script
+          id="Cookiebot"
+          src="https://consent.cookiebot.com/uc.js"
+          data-cbid="53835036-9914-4249-a422-05644e8eb2c8"
+          data-blockingmode="auto"
+          type="text/javascript"
+        />
         {/* Google Tag Manager */}
         <script
           dangerouslySetInnerHTML={{
