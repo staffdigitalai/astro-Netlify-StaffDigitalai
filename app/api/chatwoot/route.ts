@@ -25,13 +25,52 @@ interface ConversationPayload {
   custom_attributes?: Record<string, string>
 }
 
-// Create a contact in Chatwoot
-async function createContact(data: ContactPayload) {
+// Normalize phone to E.164 format (+34600000000)
+function normalizePhone(phone?: string): string | undefined {
+  if (!phone) return undefined
+  // Remove spaces, dashes, parentheses
+  let cleaned = phone.replace(/[\s\-\(\)\.]/g, "")
+  // If starts with 00, replace with +
+  if (cleaned.startsWith("00")) cleaned = "+" + cleaned.slice(2)
+  // If no + prefix, assume Spain (+34)
+  if (!cleaned.startsWith("+")) cleaned = "+34" + cleaned
+  // Validate: must be + followed by digits only, 8-15 digits
+  const digits = cleaned.slice(1)
+  if (!/^\d{8,15}$/.test(digits)) return undefined
+  return cleaned
+}
+
+// Search for existing contact by email
+async function searchContact(email: string) {
+  const response = await fetch(
+    `${CHATWOOT_URL}/api/v1/accounts/${ACCOUNT_ID}/contacts/search?q=${encodeURIComponent(email)}`,
+    {
+      headers: { "api_access_token": API_TOKEN! },
+    }
+  )
+  if (!response.ok) return null
+  const data = await response.json()
+  // Find exact email match
+  const contact = data.payload?.find(
+    (c: { email?: string }) => c.email?.toLowerCase() === email.toLowerCase()
+  )
+  return contact || null
+}
+
+// Create or find existing contact in Chatwoot
+async function getOrCreateContact(data: ContactPayload) {
+  // 1. Try to find existing contact
+  const existing = await searchContact(data.email)
+  if (existing) {
+    return { payload: { contact: existing } }
+  }
+
+  // 2. Create new contact
   const response = await fetch(`${CHATWOOT_URL}/api/v1/accounts/${ACCOUNT_ID}/contacts`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      "api_access_token": API_TOKEN,
+      "api_access_token": API_TOKEN!,
     },
     body: JSON.stringify(data),
   })
@@ -149,18 +188,19 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    // 1. Create contact
-    const contactResponse = await createContact({
+    // 1. Get or create contact (handles duplicates gracefully)
+    const phone = normalizePhone(formData.telefono || formData.phone)
+    const contactResponse = await getOrCreateContact({
       name: formData.nombre || formData.name,
       email: formData.email,
-      phone_number: formData.telefono || formData.phone,
+      ...(phone ? { phone_number: phone } : {}),
       custom_attributes: {
         empresa: formData.empresa || formData.company || "",
         source: "staffdigital.ai",
       },
     })
 
-    const contactId = contactResponse.payload?.contact?.id
+    const contactId = contactResponse.payload?.contact?.id || contactResponse.payload?.id
 
     if (!contactId) {
       throw new Error("Failed to get contact ID")
