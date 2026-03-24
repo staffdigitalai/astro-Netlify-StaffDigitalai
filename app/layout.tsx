@@ -77,6 +77,10 @@ export default function RootLayout({
   return (
     <html lang="es" className="dark">
       <head>
+        {/* Google Search Console verification */}
+        <meta name="google-site-verification" content="Uw0vYKoZylDM8S2GioiNZbwGdoWYgeywihU5jNrgnvc" />
+        {/* Cookiebot domain verification */}
+        <meta name="cookiebot-domain-verify" content="53835036-9914-4249-a422-05644e8eb2c8" />
         {/* Cookiebot CMP — must load BEFORE any tracking scripts */}
         <script
           id="Cookiebot"
