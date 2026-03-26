@@ -22,7 +22,7 @@ const contentTypeConfig: Record<string, { label: string; icon: React.ComponentTy
   guia: { label: "Guias", icon: BookOpen, color: "bg-blue-500/20 text-blue-400 border-blue-500/30" },
   comparativa: { label: "Comparativas", icon: Scale, color: "bg-purple-500/20 text-purple-400 border-purple-500/30" },
   "pregunta-seo": { label: "Preguntas SEO", icon: HelpCircle, color: "bg-green-500/20 text-green-400 border-green-500/30" },
-  articulo: { label: "Articulos", icon: FileText, color: "bg-orange-500/20 text-orange-400 border-orange-500/30" },
+  articulo: { label: "Artículos", icon: FileText, color: "bg-orange-500/20 text-orange-400 border-orange-500/30" },
   "caso-estudio": { label: "Casos de Estudio", icon: FileText, color: "bg-amber-500/20 text-amber-400 border-amber-500/30" },
   tutorial: { label: "Tutoriales", icon: BookOpen, color: "bg-cyan-500/20 text-cyan-400 border-cyan-500/30" },
 }
@@ -88,13 +88,13 @@ export function BlogContent({ initialCategories, initialContentTypes = [], initi
           return
         }
       }
-      setError("No se pudieron cargar los articulos.")
+      setError("No se pudieron cargar los artículos.")
       setPosts([])
     } catch (err) {
       if (err instanceof DOMException && err.name === "AbortError") {
         setError("La conexion con el servidor tardo demasiado. Intenta de nuevo.")
       } else {
-        setError("Error al conectar con el blog. Intenta de nuevo mas tarde.")
+        setError("Error al conectar con el blog. Intenta de nuevomás tarde.")
       }
       setPosts([])
     } finally {
@@ -171,7 +171,7 @@ export function BlogContent({ initialCategories, initialContentTypes = [], initi
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
           <Input
             type="text"
-            placeholder="Buscar articulos..."
+            placeholder="Buscar artículos..."
             value={searchQuery}
             onChange={(e) => {
               setSearchQuery(e.target.value)
@@ -230,7 +230,7 @@ export function BlogContent({ initialCategories, initialContentTypes = [], initi
         </div>
       ) : !error && filteredPosts.length === 0 ? (
         <div className="text-center py-20 space-y-4">
-          <p className="text-muted-foreground text-lg">No se encontraron articulos.</p>
+          <p className="text-muted-foreground text-lg">No se encontraron artículos.</p>
           {(selectedContentType || selectedCategory || debouncedSearch) && (
             <Button
               variant="outline"

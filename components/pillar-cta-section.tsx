@@ -37,12 +37,12 @@ export function PillarCTASection() {
           <h3 className="text-2xl md:text-3xl lg:text-4xl font-light text-white mb-6 text-balance leading-tight">
             Listo para transformar la{" "}
             <span className="font-medium italic bg-gradient-to-r from-white to-slate-200 bg-clip-text text-transparent">
-              atencion al cliente
+              atención al cliente
             </span>
             {" "}de tu negocio?
           </h3>
           <p className="text-lg text-white/70 mb-8 max-w-2xl mx-auto leading-relaxed">
-            Unete a cientos de empresas que ya utilizan IA para captar mas leads y aumentar ventas.
+            Unete a cientos de empresas que ya utilizan IA para captarmás leads y aumentar ventas.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6">

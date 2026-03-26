@@ -237,8 +237,8 @@ export function SplitScreenBeforeAfter() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
                     <p className="text-slate-700 leading-relaxed">
-                      Captura informacion completa del cliente incluyendo preferencias de vehiculo, rango de presupuesto,
-                      detalles de permuta e informacion de contacto. Cada conversacion se registra con historial completo para que tu equipo
+                      Captura información completa del cliente incluyendo preferencias de vehiculo, rango de presupuesto,
+                      detalles de permuta e información de contacto. Cada conversacion se registra con historial completo para que tu equipo
                       de ventas siempre tenga contexto.
                     </p>
                   </div>
@@ -704,7 +704,7 @@ export function SplitScreenBeforeAfter() {
                   </h2>
 
                   <p className="text-slate-600 text-lg mb-8 leading-relaxed">
-                    No pierdas ni un lead con la automatizacion telefonica inteligente que gestiona llamadas ilimitadas las 24 horas.
+                    No pierdas ni un lead con la automatización telefonica inteligente que gestiona llamadas ilimitadas las 24 horas.
                     Reserva pruebas de conduccion, responde preguntas y cualifica leads automaticamente.
                   </p>
 
@@ -720,7 +720,7 @@ export function SplitScreenBeforeAfter() {
                       </svg>
                       <p className="text-slate-700 leading-relaxed">
                         Responde cada llamada al instante con conversaciones naturales que conocen tu inventario,
-                        precios y disponibilidad. No pierdas mas clientes por el buzon de voz.
+                        precios y disponibilidad. No pierdasmás clientes por el buzon de voz.
                       </p>
                     </div>
 
@@ -749,7 +749,7 @@ export function SplitScreenBeforeAfter() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                       </svg>
                       <p className="text-slate-700 leading-relaxed">
-                        Obtiene informacion en tiempo real de cada llamada incluyendo intencion del cliente, rango de presupuesto y preferencias
+                        Obtiene información en tiempo real de cada llamada incluyendo intencion del cliente, rango de presupuesto y preferencias
                         de vehiculo. Tu equipo comercial recibe leads calientes listos para cerrar.
                       </p>
                     </div>
@@ -846,7 +846,7 @@ export function SplitScreenBeforeAfter() {
                             />
                           </svg>
                         </div>
-                        <h3 className="font-bold text-slate-900 text-lg">Gestion de Pedidos</h3>
+                        <h3 className="font-bold text-slate-900 text-lg">Gestión de Pedidos</h3>
                       </div>
                       <p className="text-slate-600 text-sm leading-relaxed ml-12">
                         Procesa pedidos de recambios y proporciona actualizaciones de seguimiento sin intervencion humana en cada
@@ -1107,7 +1107,7 @@ export function SplitScreenBeforeAfter() {
                         <h3 className="font-bold text-slate-900 text-lg">Respuestas Instantaneas</h3>
                       </div>
                       <p className="text-slate-600 text-sm leading-relaxed ml-12">
-                        StaffDigital AI responde a mas de 50 preguntas comunes sobre ITV, kilometraje, permutas y precios
+                        StaffDigital AI responde amás de 50 preguntas comunes sobre ITV, kilometraje, permutas y precios
                         al instante en tu web, telefono y canales sociales
                       </p>
                     </div>

@@ -62,12 +62,12 @@ const data: ServicePageData = {
       icon: Camera, 
       title: "Fotografia y Video Profesional", 
       description: "Sesion fotografica HDR de alta calidad, tour virtual 360°, video walkthrough cinematografico y fotos aereas con dron para presentaciones impactantes.",
-      highlight: "+300% mas visitas"
+      highlight: "+300%más visitas"
     },
     { 
       icon: LayoutTemplate, 
       title: "Landing Pages Personalizadas", 
-      description: "Microsite exclusivo para cada propiedad con galeria interactiva, planos, informacion de la zona, calculadora de hipoteca y formulario de contacto optimizado.",
+      description: "Microsite exclusivo para cada propiedad con galeria interactiva, planos, información de la zona, calculadora de hipoteca y formulario de contacto optimizado.",
     },
     { 
       icon: MessageSquare, 
@@ -83,7 +83,7 @@ const data: ServicePageData = {
     { 
       icon: Globe, 
       title: "Marketing Multi-portal", 
-      description: "Publicacion automatica en Idealista, Fotocasa, Habitaclia y mas portales con textos SEO optimizados y sincronizacion de cambios en tiempo real.",
+      description: "Publicacion automatica en Idealista, Fotocasa, Habitaclia ymás portales con textos SEO optimizados y sincronizacion de cambios en tiempo real.",
     },
   ],
 
@@ -119,7 +119,7 @@ const data: ServicePageData = {
     { 
       icon: Eye, 
       title: "Visibilidad Maximizada", 
-      description: "Fotos profesionales y landing pages optimizadas generan hasta 3x mas visitas online a tus propiedades." 
+      description: "Fotos profesionales y landing pages optimizadas generan hasta 3xmás visitas online a tus propiedades." 
     },
   ],
 
@@ -141,7 +141,7 @@ const data: ServicePageData = {
       useCases: [
         "Visualizacion de pisos sobre plano con staging virtual",
         "Landing pages para cada promocion con configurador",
-        "Gestion de listas de espera con IA",
+        "Gestión de listas de espera con IA",
         "Cualificacion de compradores para priorizar entregas",
       ]
     },
@@ -151,7 +151,7 @@ const data: ServicePageData = {
       useCases: [
         "Preparacion express de viviendas para alquiler o venta",
         "Maximizacion del precio con presentacion profesional",
-        "Gestion de consultas sin dedicar tiempo personal",
+        "Gestión de consultas sin dedicar tiempo personal",
         "Seguimiento automatico de interesados",
       ]
     },
@@ -162,7 +162,7 @@ const data: ServicePageData = {
         "Fotos profesionales para Airbnb, Booking, etc.",
         "Landing page propia para reservas directas",
         "Agente IA para consultas de huespedes potenciales",
-        "Automatizacion de check-in/check-out virtual",
+        "Automatización de check-in/check-out virtual",
       ]
     },
     { 
@@ -181,7 +181,7 @@ const data: ServicePageData = {
       useCases: [
         "Visualizacion de diferentes usos comerciales con staging",
         "Landing pages orientadas a inversores y empresas",
-        "Informacion automatica sobre licencias y normativa",
+        "Información automatica sobre licencias y normativa",
         "Cualificacion de potencial inquilino o comprador",
       ]
     },
@@ -205,7 +205,7 @@ const data: ServicePageData = {
     { 
       title: "IA Conversacional Omnicanal",
       description: "Unifica todos tus canales en una bandeja inteligente.",
-      href: "/soluciones/automatizacion-omnicanal"
+      href: "/soluciones/automatización-omnicanal"
     },
     { 
       title: "Seguridad IA", 

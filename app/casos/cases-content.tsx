@@ -17,16 +17,16 @@ interface CasesContentProps {
 const sampleCases: WPCaseStudy[] = [
   {
     id: 1,
-    slug: "automatizacion-retail",
-    title: { rendered: "Automatizacion de Atencion al Cliente para Retail" },
-    content: { rendered: "<p>Caso de estudio detallado sobre como implementamos automatizacion IA.</p>" },
+    slug: "automatización-retail",
+    title: { rendered: "Automatización de Atencion al Cliente para Retail" },
+    content: { rendered: "<p>Caso de estudio detallado sobre como implementamos automatización IA.</p>" },
     excerpt: { rendered: "Reduccion del 70% en tiempos de respuesta." },
     date: new Date().toISOString(),
     acf: {
       cliente: "RetailMax",
       sector: "Retail",
       resultado: "70% reduccion en tiempos de respuesta, 45% ahorro en costes operativos",
-      testimonio: "La solucion de StaffDigital transformo completamente nuestra atencion al cliente."
+      testimonio: "La solución de StaffDigital transformo completamente nuestra atención al cliente."
     }
   },
   {
@@ -39,7 +39,7 @@ const sampleCases: WPCaseStudy[] = [
     acf: {
       cliente: "DentalCare Plus",
       sector: "Salud",
-      resultado: "50% mas eficiencia en gestion de citas, 30% reduccion de no-shows",
+      resultado: "50%más eficiencia en gestión de citas, 30% reducción de no-shows",
       testimonio: "Ahora nuestro equipo puede enfocarse en lo que realmente importa: los pacientes."
     }
   },
@@ -53,14 +53,14 @@ const sampleCases: WPCaseStudy[] = [
     acf: {
       cliente: "LogiTech Solutions",
       sector: "Logistica",
-      resultado: "35% mejora en precision de inventario, 20% reduccion de costes de almacen",
+      resultado: "35% mejora en precision de inventario, 20% reducción de costes de almacen",
       testimonio: "La IA nos permite anticipar la demanda con una precision que nunca imaginamos."
     }
   },
   {
     id: 4,
     slug: "finanzas-automatizadas",
-    title: { rendered: "Automatizacion de Procesos Financieros" },
+    title: { rendered: "Automatización de Procesos Financieros" },
     content: { rendered: "<p>Transformacion digital del departamento financiero.</p>" },
     excerpt: { rendered: "80% reduccion en errores de facturacion." },
     date: new Date().toISOString(),

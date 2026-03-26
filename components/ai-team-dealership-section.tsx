@@ -198,7 +198,7 @@ export function AiTeamDealershipSection() {
                       </div>
                     </div>
                     <div>
-                      <h3 className="text-lg font-bold text-slate-900">Recepcionista Telefonica IA</h3>
+                      <h3 className="text-lg font-bold text-slate-900">Recepcionista Telefónica IA</h3>
                       <p className="text-xs text-slate-500">Asistente de voz</p>
                     </div>
                   </div>

@@ -40,7 +40,7 @@ const categorias = [
   {
     nombre: "E-commerce",
     integraciones: [
-      { nombre: "Shopify", descripcion: "Atencion al cliente automatizada" },
+      { nombre: "Shopify", descripcion: "Atención al cliente automatizada" },
       { nombre: "WooCommerce", descripcion: "Soporte para tu tienda" },
       { nombre: "Prestashop", descripcion: "Automatiza pedidos y consultas" },
       { nombre: "Magento", descripcion: "Escala tu atencion" },
@@ -56,12 +56,12 @@ const categorias = [
     ],
   },
   {
-    nombre: "Automatizacion",
+    nombre: "Automatización",
     integraciones: [
       { nombre: "Zapier", descripcion: "Conecta +5000 apps" },
       { nombre: "Make (Integromat)", descripcion: "Workflows complejos" },
-      { nombre: "n8n", descripcion: "Automatizacion open source" },
-      { nombre: "API REST", descripcion: "Integracion personalizada" },
+      { nombre: "n8n", descripcion: "Automatización open source" },
+      { nombre: "API REST", descripcion: "Integración personalizada" },
     ],
   },
 ]
@@ -95,7 +95,7 @@ export function IntegracionesContent({ page }: IntegracionesContentProps) {
       <div className="grid grid-cols-3 gap-6 max-w-3xl mx-auto">
         <div className="text-center p-6 rounded-xl border border-border bg-card/50">
           <div className="text-3xl font-bold text-primary mb-1">100+</div>
-          <div className="text-sm text-muted-foreground">Integraciones nativas</div>
+          <div className="text-sm text-muted-foreground">Integraciónes nativas</div>
         </div>
         <div className="text-center p-6 rounded-xl border border-border bg-card/50">
           <div className="text-3xl font-bold text-primary mb-1">5min</div>
@@ -113,13 +113,13 @@ export function IntegracionesContent({ page }: IntegracionesContentProps) {
           <div key={i} className="space-y-6">
             <h2 className="text-2xl font-bold">{categoria.nombre}</h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
-              {categoria.integraciones.map((integracion, j) => (
+              {categoria.integraciones.map((integración, j) => (
                 <div key={j} className="p-4 rounded-xl border border-border bg-card/50 space-y-2">
                   <div className="flex items-center gap-2">
                     <Check className="h-4 w-4 text-primary" />
-                    <span className="font-semibold">{integracion.nombre}</span>
+                    <span className="font-semibold">{integración.nombre}</span>
                   </div>
-                  <p className="text-sm text-muted-foreground">{integracion.descripcion}</p>
+                  <p className="text-sm text-muted-foreground">{integración.descripcion}</p>
                 </div>
               ))}
             </div>
@@ -129,7 +129,7 @@ export function IntegracionesContent({ page }: IntegracionesContentProps) {
 
       {/* Custom Integration */}
       <div className="max-w-3xl mx-auto p-8 rounded-2xl border border-border bg-card/50 text-center space-y-4">
-        <h2 className="text-2xl font-bold">No encuentras tu integracion?</h2>
+        <h2 className="text-2xl font-bold">No encuentras tu integración?</h2>
         <p className="text-muted-foreground">
           Nuestra API abierta te permite conectar cualquier sistema. Ademas, podemos desarrollar
           integraciones personalizadas para tu negocio.

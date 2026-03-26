@@ -49,7 +49,7 @@ const certificaciones = [
   },
   {
     nombre: "ISO 27001",
-    descripcion: "Certificacion internacional en gestion de seguridad de la informacion.",
+    descripcion: "Certificacion internacional en gestión de seguridad de la información.",
   },
   {
     nombre: "SOC 2 Type II",
@@ -83,7 +83,7 @@ export function SeguridadContent({ page }: SeguridadContentProps) {
         </h1>
         <p className="text-lg md:text-xl text-muted-foreground text-pretty">
           {page?.acf?.subtitulo ||
-            "La seguridad de tus datos es nuestra maxima prioridad. Cumplimos con los estandares mas exigentes del mercado."}
+            "La seguridad de tus datos es nuestra maxima prioridad. Cumplimos con los estandaresmás exigentes del mercado."}
         </p>
       </div>
 
@@ -146,7 +146,7 @@ export function SeguridadContent({ page }: SeguridadContentProps) {
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Button asChild size="lg">
             <Link href="/demo">
-              Solicitar informacion
+              Solicitar información
               <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
           </Button>

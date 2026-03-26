@@ -7,7 +7,7 @@ import { MessageSquare, ArrowRight, CheckCircle2, Smartphone } from "lucide-reac
 const features = [
   "Respuesta instantanea <5 segundos",
   "Disponible 24/7, festivos incluidos",
-  "Integracion con tu CRM existente",
+  "Integración con tu CRM existente",
   "Sin instalacion de apps",
 ]
 

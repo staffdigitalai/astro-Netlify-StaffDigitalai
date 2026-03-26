@@ -167,10 +167,10 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           {/* Footer CTA */}
           <div className="mt-16 p-8 rounded-3xl border border-border bg-card/50 backdrop-blur-sm text-center">
             <h3 className="text-2xl font-bold text-foreground mb-4">
-              Quieres saber mas sobre IA para tu negocio?
+              Quieres sabermás sobre IA para tu negocio?
             </h3>
             <p className="text-muted-foreground mb-6 max-w-xl mx-auto">
-              Descubre como StaffDigital AI puede transformar tu empresa con soluciones de automatizacion inteligente.
+              Descubre como StaffDigital AI puede transformar tu empresa con soluciones de automatización inteligente.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Button asChild size="lg" className="rounded-full">
@@ -180,7 +180,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               </Button>
               <Button asChild variant="outline" size="lg" className="rounded-full">
                 <Link href="/blog">
-                  Ver mas articulos
+                  Vermás artículos
                 </Link>
               </Button>
             </div>

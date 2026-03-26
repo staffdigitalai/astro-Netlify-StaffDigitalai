@@ -92,7 +92,7 @@ function generateFallbackSector(slug: string): WPSectorPage | null {
         ],
         soluciones: [
           { titulo: "Conserje Virtual 24/7", descripcion: "Atiende consultas de huespedes en cualquier idioma y a cualquier hora.", icono: "MessageSquare" },
-          { titulo: "Gestion de Reservas", descripcion: "Reserva, modifica y cancela automaticamente por cualquier canal.", icono: "Calendar" },
+          { titulo: "Gestión de Reservas", descripcion: "Reserva, modifica y cancela automaticamente por cualquier canal.", icono: "Calendar" },
           { titulo: "Upselling Inteligente", descripcion: "Sugiere servicios adicionales basados en preferencias del huesped.", icono: "TrendingUp" },
         ],
         metricas: [
@@ -113,11 +113,11 @@ function generateFallbackSector(slug: string): WPSectorPage | null {
       },
       acf: {
         icono: "Home",
-        subtitulo: "Vende propiedades mas rapido",
+        subtitulo: "Vende propiedadesmás rapido",
         problemas_sector: [
           { problema: "Propiedades vacias sin interes", descripcion: "Los compradores no visualizan el potencial del espacio." },
           { problema: "Coste alto del staging fisico", descripcion: "Amuelar temporalmente es caro y logisticamente complejo." },
-          { problema: "Tiempo de venta prolongado", descripcion: "Propiedades tardan mas en venderse sin presentacion adecuada." },
+          { problema: "Tiempo de venta prolongado", descripcion: "Propiedades tardanmás en venderse sin presentacion adecuada." },
         ],
         soluciones: [
           { titulo: "Home Staging Virtual", descripcion: "Amuebla digitalmente cualquier espacio en 24-48 horas.", icono: "Image" },

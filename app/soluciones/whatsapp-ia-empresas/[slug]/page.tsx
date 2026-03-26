@@ -9,7 +9,7 @@ const validSlugs = [
   "agente-ventas-whatsapp",
   "citas-reservas-whatsapp",
   "lead-qualification-whatsapp",
-  "integracion-crm-whatsapp",
+  "integración-crm-whatsapp",
 ]
 
 // Page metadata mapping
@@ -20,7 +20,7 @@ const pageMetadata: Record<string, { title: string; description: string }> = {
   },
   "atencion-cliente-whatsapp": {
     title: "Atencion al Cliente WhatsApp 24/7 - Agente IA | StaffDigital",
-    description: "Automatiza tu atencion al cliente en WhatsApp. Resuelve consultas, gestiona incidencias y da soporte instantaneo sin esperas.",
+    description: "Automatiza tu atención al cliente en WhatsApp. Resuelve consultas, gestiona incidencias y da soporte instantaneo sin esperas.",
   },
   "agente-ventas-whatsapp": {
     title: "Agente de Ventas WhatsApp IA - Cierra Ventas Automatico | StaffDigital",
@@ -28,14 +28,14 @@ const pageMetadata: Record<string, { title: string; description: string }> = {
   },
   "citas-reservas-whatsapp": {
     title: "Citas y Reservas WhatsApp IA - Agenda Automatica | StaffDigital",
-    description: "Automatiza la gestion de citas por WhatsApp. Agenda, confirma, envia recordatorios y reduce no-shows hasta un 80%.",
+    description: "Automatiza la gestión de citas por WhatsApp. Agenda, confirma, envia recordatorios y reduce no-shows hasta un 80%.",
   },
   "lead-qualification-whatsapp": {
     title: "Cualificacion de Leads WhatsApp IA - Scoring Automatico | StaffDigital",
     description: "Cualifica leads automaticamente por WhatsApp. Scoring inteligente, preguntas estrategicas y priorizacion para tu equipo de ventas.",
   },
-  "integracion-crm-whatsapp": {
-    title: "Integracion CRM WhatsApp - HubSpot, Salesforce, Pipedrive | StaffDigital",
+  "integración-crm-whatsapp": {
+    title: "Integración CRM WhatsApp - HubSpot, Salesforce, Pipedrive | StaffDigital",
     description: "Conecta WhatsApp con tu CRM. Sincronizacion en tiempo real con HubSpot, Salesforce, Pipedrive y +50 herramientas.",
   },
 }

@@ -20,13 +20,13 @@ const channels = [
     icon: MessageSquare,
     name: "Messenger",
     color: "from-blue-600 to-blue-700",
-    description: "Integracion con Facebook",
+    description: "Integración con Facebook",
   },
   {
     icon: Share2,
     name: "Instagram",
     color: "from-purple-500 via-pink-500 to-orange-500",
-    description: "Automatizacion de DMs",
+    description: "Automatización de DMs",
   },
   {
     icon: Mail,

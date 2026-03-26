@@ -8,7 +8,7 @@ export async function generateMetadata(): Promise<Metadata> {
     if (service?.acf?.meta_title) {
       return {
         title: service.acf.meta_title,
-        description: service.acf.meta_description || "Automatiza tu atencion al cliente en WhatsApp con IA. Agentes inteligentes 24/7, integracion CRM, y respuestas instantaneas.",
+        description: service.acf.meta_description || "Automatiza tu atención al cliente en WhatsApp con IA. Agentes inteligentes 24/7, integración CRM, y respuestas instantaneas.",
       }
     }
   } catch (error) {
@@ -17,7 +17,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
   return {
     title: "WhatsApp IA para Empresas - Agentes Inteligentes 24/7 | StaffDigital",
-    description: "Automatiza tu atencion al cliente en WhatsApp con IA. Agentes de voz, ventas, citas y soporte 24/7. +90% penetracion WhatsApp en Espana. Respuesta <5s.",
+    description: "Automatiza tu atención al cliente en WhatsApp con IA. Agentes de voz, ventas, citas y soporte 24/7. +90% penetracion WhatsApp en Espana. Respuesta <5s.",
     keywords: ["whatsapp ia", "whatsapp business ia", "agente ia whatsapp", "agente whatsapp", "agente voz whatsapp"],
   }
 }

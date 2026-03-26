@@ -25,13 +25,13 @@ const data: SectorPageData = {
     { icon: Clock, title: "Recepcion saturada", description: "Personal administrativo dedicando horas a tareas repetitivas en lugar de atencion al paciente." },
     { icon: FileText, title: "Gestion manual de citas", description: "Agendas desorganizadas, dobles reservas y huecos sin rellenar que reducen la facturacion." },
     { icon: Users, title: "Listas de espera ineficientes", description: "Pacientes en lista de espera que no se contactan cuando surgen cancelaciones." },
-    { icon: AlertTriangle, title: "Informacion inconsistente", description: "Pacientes reciben informacion diferente segun quien conteste el telefono." },
+    { icon: AlertTriangle, title: "Información inconsistente", description: "Pacientes reciben información diferente segun quien conteste el telefono." },
   ],
   features: [
     { icon: CalendarCheck, title: "Gestion Inteligente de Citas", description: "Reserva, modifica y cancela citas automaticamente por telefono, WhatsApp o web. Rellena huecos contactando pacientes en lista de espera.", highlight: "Reduccion del 80% en no-shows" },
     { icon: MessageSquare, title: "Atencion al Paciente 24/7", description: "Responde preguntas sobre servicios, precios, preparacion para consultas y horarios a cualquier hora del dia o la noche." },
     { icon: Stethoscope, title: "Triaje Inicial Automatizado", description: "Recoge sintomas y motivo de consulta antes de la cita para que el medico tenga contexto previo. Deriva urgencias al personal adecuado." },
-    { icon: BarChart3, title: "Dashboard de Rendimiento", description: "Visualiza tasas de ocupacion, motivos de consulta mas frecuentes y satisfaccion del paciente en tiempo real.", highlight: "+35% de ocupacion de agenda" },
+    { icon: BarChart3, title: "Dashboard de Rendimiento", description: "Visualiza tasas de ocupacion, motivos de consultamás frecuentes y satisfaccion del paciente en tiempo real.", highlight: "+35% de ocupacion de agenda" },
   ],
   stats: [
     { value: "-80%", label: "Reduccion de no-shows" },

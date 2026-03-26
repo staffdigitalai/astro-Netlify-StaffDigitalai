@@ -39,34 +39,40 @@ export function HeroSection() {
       <div className="max-w-4xl mx-auto text-center relative z-10 animate-fade-in-hero">
         {/* Badge */}
         <div className="inline-flex items-center px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-sm font-medium mb-8 mt-12 animate-fade-in-badge">
-          <span className="w-2 h-2 bg-white/60 rounded-full mr-2 animate-pulse"></span>
-          Automatizacion IA para Empresas
+          <span className="w-2 h-2 bg-emerald-400 rounded-full mr-2 animate-pulse"></span>
+          Agentes IA con Voz Humana
         </div>
 
-        {/* Main Heading */}
+        {/* Main Heading — fixed text for SEO, no animation on H1 */}
         <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-balance mb-6 animate-fade-in-heading">
-          <span className="text-foreground">Impulsa tu</span>
+          <span className="text-foreground">Tus Clientes Hablan con</span>
           <br />
-          <span className="inline-flex items-center justify-center flex-wrap gap-2 mt-4 sm:mt-6 md:mt-8">
-            <span className="text-foreground">Negocio</span>
-            <RotatingText
-              texts={["Crecimiento", "Innovacion", "Eficiencia", "Exito", "Rendimiento"]}
-              mainClassName="px-2 sm:px-2 md:px-3 bg-white text-black overflow-hidden py-1 sm:py-1 md:py-2 justify-center rounded-lg shadow-lg"
-              staggerFrom={"last"}
-              initial={{ y: "100%" }}
-              animate={{ y: 0 }}
-              exit={{ y: "-120%" }}
-              staggerDuration={0.025}
-              splitLevelClassName="overflow-hidden pb-1 sm:pb-1 md:pb-1"
-              transition={{ type: "spring", damping: 30, stiffness: 400 }}
-              rotationInterval={2000}
-            />
+          <span className="bg-gradient-to-r from-white via-blue-200 to-white bg-clip-text text-transparent mt-2 inline-block">
+            una Voz Humana, no un Robot
           </span>
         </h1>
 
+        {/* Rotating words — decorative, outside H1 */}
+        <div className="flex items-center justify-center gap-2 mb-6 animate-fade-in-heading">
+          <span className="text-lg sm:text-xl md:text-2xl text-white/70 font-light">Atención</span>
+          <RotatingText
+            texts={["Telefónica", "por WhatsApp", "en tu Web", "Omnicanal", "24/7"]}
+            mainClassName="px-2 sm:px-3 bg-white text-black overflow-hidden py-1 sm:py-2 justify-center rounded-lg shadow-lg text-lg sm:text-xl md:text-2xl font-semibold"
+            staggerFrom={"last"}
+            initial={{ y: "100%" }}
+            animate={{ y: 0 }}
+            exit={{ y: "-120%" }}
+            staggerDuration={0.025}
+            splitLevelClassName="overflow-hidden pb-1"
+            transition={{ type: "spring", damping: 30, stiffness: 400 }}
+            rotationInterval={2500}
+          />
+          <span className="text-lg sm:text-xl md:text-2xl text-white/70 font-light">con IA</span>
+        </div>
+
         {/* Subheading */}
-        <p className="text-base sm:text-xl md:text-2xl text-white text-balance max-w-sm sm:max-w-3xl mx-auto mb-8 sm:mb-12 leading-relaxed px-4 sm:px-0 animate-fade-in-subheading font-light">
-          StaffDigital AI impulsa el crecimiento de las empresas con inteligencia artificial aplicada a atencion al cliente, automatizacion, seguridad inteligente y Home Staging AI. Todo, totalmente gestionado para ti.
+        <p className="text-base sm:text-xl md:text-2xl text-white/90 text-balance max-w-sm sm:max-w-3xl mx-auto mb-8 sm:mb-12 leading-relaxed px-4 sm:px-0 animate-fade-in-subheading font-light">
+          Agentes IA con voces indistinguibles de personas reales. Atienden llamadas, WhatsApp y chat web con el trato humano que tus clientes merecen. Tú decides si voz masculina o femenina.
         </p>
 
         {/* CTA Buttons */}
@@ -92,7 +98,7 @@ export function HeroSection() {
 
         {/* Technology Partners */}
         <div className="text-center px-4 hidden sm:block overflow-hidden animate-fade-in-trust">
-          <p className="text-sm text-white/70 mb-6">Nuestros Socios Tecnologicos</p>
+          <p className="text-sm text-white/70 mb-6">Nuestros Socios Tecnológicos</p>
           <div className="relative overflow-hidden w-full max-w-5xl mx-auto">
             {/* Left blur fade */}
             <div className="absolute left-0 top-0 w-16 h-full bg-gradient-to-r from-black to-transparent z-10 pointer-events-none"></div>
@@ -154,7 +160,7 @@ export function HeroSection() {
 
         {/* Mobile Technology Partners */}
         <div className="text-center px-4 mb-8 sm:hidden overflow-hidden animate-fade-in-trust">
-          <p className="text-sm text-white/70 mb-6">Nuestros Socios Tecnologicos</p>
+          <p className="text-sm text-white/70 mb-6">Nuestros Socios Tecnológicos</p>
           <div className="relative overflow-hidden w-full max-w-sm mx-auto">
             {/* Left blur fade */}
             <div className="absolute left-0 top-0 w-8 h-full bg-gradient-to-r from-black to-transparent z-10 pointer-events-none"></div>

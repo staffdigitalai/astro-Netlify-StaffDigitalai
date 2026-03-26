@@ -38,11 +38,11 @@ const beneficios = [
 ]
 
 const queIncluye = [
-  "Analisis de tu situacion actual",
+  "Análisis de tu situación actual",
   "Demo en vivo de nuestras soluciones",
-  "Resolucion de todas tus dudas",
+  "Resolución de todas tus dudas",
   "Recomendaciones personalizadas",
-  "Propuesta economica sin compromiso",
+  "Propuesta económica sin compromiso",
 ]
 
 export function DemoContent({ page }: DemoContentProps) {
@@ -102,7 +102,7 @@ export function DemoContent({ page }: DemoContentProps) {
         </h1>
         <p className="text-lg md:text-xl text-muted-foreground text-pretty">
           {page?.acf?.subtitulo ||
-            "Descubre en 30 minutos como StaffDigital AI puede transformar la atencion al cliente de tu negocio."}
+            "Descubre en 30 minutos como StaffDigital AI puede transformar la atención al cliente de tu negocio."}
         </p>
       </div>
 
@@ -172,7 +172,7 @@ export function DemoContent({ page }: DemoContentProps) {
             <p className="text-xs text-muted-foreground text-center">
               Al enviar este formulario, aceptas nuestra{" "}
               <Link href="/privacidad" className="underline hover:text-foreground">
-                politica de privacidad
+                política de privacidad
               </Link>
               .
             </p>

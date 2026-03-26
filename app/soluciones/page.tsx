@@ -5,7 +5,7 @@ import { ServicesListClient } from "./services-list-client"
 export const metadata: Metadata = {
   title: "Soluciones de IA para Empresas | StaffDigital AI",
   description:
-    "Descubre nuestras soluciones de inteligencia artificial: atencion telefonica IA, agentes IA con voz humana, IA conversacional omnicanal, seguridad y mas. Transforma tu negocio con IA.",
+    "Descubre nuestras soluciones de inteligencia artificial: atención telefónica IA, agentes IA con voz humana, IA conversacional omnicanal, seguridad y mas. Transforma tu negocio con IA.",
   openGraph: {
     title: "Soluciones de IA para Empresas | StaffDigital AI",
     description:
@@ -19,7 +19,7 @@ const fallbackServices: WPService[] = [
     id: 1,
     date: new Date().toISOString(),
     slug: "atencion-telefonica-ia",
-    title: { rendered: "Atencion Telefonica IA" },
+    title: { rendered: "Atención Telefónica IA" },
     excerpt: {
       rendered:
         "<p>Agentes de voz IA que responden llamadas 24/7, cualifican leads y gestionan citas automaticamente.</p>",
@@ -57,11 +57,11 @@ const fallbackServices: WPService[] = [
   {
     id: 3,
     date: new Date().toISOString(),
-    slug: "automatizacion-omnicanal",
+    slug: "automatización-omnicanal",
     title: { rendered: "IA Conversacional Omnicanal" },
     excerpt: {
       rendered:
-        "<p>Unifica WhatsApp, email, redes sociales y mas en una bandeja inteligente con respuestas automaticas.</p>",
+        "<p>Unifica WhatsApp, email, redes sociales ymás en una bandeja inteligente con respuestas automaticas.</p>",
     },
     content: { rendered: "" },
     featured_media: 0,
@@ -70,7 +70,7 @@ const fallbackServices: WPService[] = [
       icono: "Globe",
       subtitulo: "Todos tus canales en uno",
       cta_texto: "Ver Mas",
-      cta_link: "/soluciones/automatizacion-omnicanal",
+      cta_link: "/soluciones/automatización-omnicanal",
     },
   },
   {
@@ -115,7 +115,7 @@ const fallbackServices: WPService[] = [
     id: 6,
     date: new Date().toISOString(),
     slug: "analisis-datos-ia",
-    title: { rendered: "Analisis de Datos IA" },
+    title: { rendered: "Análisis de Datos IA" },
     excerpt: {
       rendered:
         "<p>Dashboards inteligentes, predicciones y reportes automaticos para tomar mejores decisiones.</p>",
@@ -133,8 +133,8 @@ const fallbackServices: WPService[] = [
   {
     id: 7,
     date: new Date().toISOString(),
-    slug: "automatizacion-documentos",
-    title: { rendered: "Automatizacion de Documentos" },
+    slug: "automatización-documentos",
+    title: { rendered: "Automatización de Documentos" },
     excerpt: {
       rendered:
         "<p>Extraccion de datos, clasificacion y procesamiento automatico de facturas, contratos y mas.</p>",
@@ -146,7 +146,7 @@ const fallbackServices: WPService[] = [
       icono: "FileText",
       subtitulo: "Documentos procesados en segundos",
       cta_texto: "Ver Mas",
-      cta_link: "/soluciones/automatizacion-documentos",
+      cta_link: "/soluciones/automatización-documentos",
     },
   },
   {

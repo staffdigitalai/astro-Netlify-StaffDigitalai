@@ -19,7 +19,7 @@ export async function generateMetadata(): Promise<Metadata> {
     title: page?.acf?.meta_title || "Metodologia - StaffDigital AI",
     description:
       page?.acf?.meta_description ||
-      "Descubre nuestro proceso de implementacion de IA. Metodologia probada en mas de 500 proyectos exitosos.",
+      "Descubre nuestro proceso de implementacion de IA. Metodologia probada enmás de 500 proyectos exitosos.",
   }
 }
 

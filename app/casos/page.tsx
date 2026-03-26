@@ -7,7 +7,7 @@ import { getSectors } from "@/lib/wordpress"
 
 export const metadata: Metadata = {
   title: "Casos de Exito - StaffDigital AI",
-  description: "Descubre como hemos ayudado a empresas a transformar sus operaciones con automatizacion IA.",
+  description: "Descubre como hemos ayudado a empresas a transformar sus operaciones con automatización IA.",
 }
 
 export default async function CasosPage() {

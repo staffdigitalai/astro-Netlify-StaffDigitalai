@@ -16,7 +16,7 @@ export function InstagramServiceSection() {
         "Responde preguntas sobre disponibilidad de recambios, precios y plazos de entrega basandose en tu inventario en tiempo real, ya sea por telefono, web o redes sociales",
     },
     {
-      title: "Gestion de Pedidos",
+      title: "Gestión de Pedidos",
       description:
         "Procesa pedidos de recambios y proporciona actualizaciones de seguimiento sin intervencion humana en cada punto de contacto con el cliente, adaptado a tus sistemas",
     },

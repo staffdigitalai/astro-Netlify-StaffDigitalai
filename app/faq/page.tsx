@@ -5,7 +5,7 @@ import { DynamicFaqSection } from "@/components/dynamic-faq-section"
 
 export const metadata: Metadata = {
   title: "Preguntas Frecuentes",
-  description: "Preguntas frecuentes sobre agentes IA con voz humana. Precios, integracion, seguridad y mas.",
+  description: "Preguntas frecuentes sobre agentes IA con voz humana. Precios, integración, seguridad y mas.",
 }
 
 export default function FaqPage() {

@@ -32,7 +32,7 @@ const fallbackFaqs: WPFaq[] = [
     title: { rendered: "Que es StaffDigital AI?" },
     acf: {
       pregunta: "Que es StaffDigital AI y como puede ayudar a mi negocio?",
-      respuesta: "StaffDigital AI es una plataforma de inteligencia artificial que automatiza procesos clave de tu negocio, incluyendo atencion telefonica, agentes IA con voz humana, gestion de citas y mas. Ayudamos a empresas a reducir costes, mejorar la atencion al cliente y escalar sus operaciones sin aumentar personal.",
+      respuesta: "StaffDigital AI es una plataforma de inteligencia artificial que automatiza procesos clave de tu negocio, incluyendo atención telefónica, agentes IA con voz humana, gestión de citas y mas. Ayudamos a empresas a reducir costes, mejorar la atención al cliente y escalar sus operaciones sin aumentar personal.",
       sector: "General",
     },
   },
@@ -51,15 +51,15 @@ const fallbackFaqs: WPFaq[] = [
     slug: "tiempo-implementacion",
     title: { rendered: "Tiempo de implementacion" },
     acf: {
-      pregunta: "Cuanto tiempo tarda en implementarse una solucion de IA?",
-      respuesta: "La implementacion tipica tarda entre 2 y 4 semanas, dependiendo de la complejidad del proyecto y las integraciones necesarias. Proyectos mas simples como agentes IA basicos pueden estar operativos en pocos dias.",
+      pregunta: "Cuanto tiempo tarda en implementarse una solución de IA?",
+      respuesta: "La implementacion tipica tarda entre 2 y 4 semanas, dependiendo de la complejidad del proyecto y las integraciones necesarias. Proyectosmás simples como agentes IA basicos pueden estar operativos en pocos dias.",
       sector: "General",
     },
   },
   {
     id: 4,
     slug: "integraciones-crm",
-    title: { rendered: "Integraciones con CRM" },
+    title: { rendered: "Integraciónes con CRM" },
     acf: {
       pregunta: "Se integra con mi CRM y otros sistemas existentes?",
       respuesta: "Si, nuestras soluciones se integran con los principales CRMs del mercado (Salesforce, HubSpot, Pipedrive, etc.) y con multiples herramientas de gestion. Tambien ofrecemos API abierta para integraciones personalizadas.",
@@ -82,7 +82,7 @@ const fallbackFaqs: WPFaq[] = [
     title: { rendered: "Idiomas soportados" },
     acf: {
       pregunta: "En que idiomas funcionan las soluciones de IA?",
-      respuesta: "Nuestras soluciones soportan mas de 50 idiomas, incluyendo espanol, portugues, ingles, catalan, frances, aleman e italiano. El sistema detecta automaticamente el idioma del usuario y responde en consecuencia.",
+      respuesta: "Nuestras soluciones soportanmás de 50 idiomas, incluyendo espanol, portugues, ingles, catalan, frances, aleman e italiano. El sistema detecta automaticamente el idioma del usuario y responde en consecuencia.",
       sector: "General",
     },
   },
@@ -92,7 +92,7 @@ const fallbackFaqs: WPFaq[] = [
     title: { rendered: "Seguridad de datos" },
     acf: {
       pregunta: "Como protegeis los datos de mis clientes?",
-      respuesta: "Cumplimos con RGPD y las normativas de proteccion de datos mas estrictas. Todos los datos se almacenan de forma encriptada en servidores europeos certificados. Realizamos auditorias de seguridad periodicas y contamos con certificacion ISO 27001.",
+      respuesta: "Cumplimos con RGPD y las normativas de proteccion de datosmás estrictas. Todos los datos se almacenan de forma encriptada en servidores europeos certificados. Realizamos auditorias de seguridad periodicas y contamos con certificacion ISO 27001.",
       sector: "Seguridad",
     },
   },
@@ -216,7 +216,7 @@ export function DynamicFaqSection({
             </span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Encuentra respuestas a las preguntas mas comunes sobre nuestras soluciones de IA.
+            Encuentra respuestas a las preguntasmás comunes sobre nuestras soluciones de IA.
           </p>
         </div>
 

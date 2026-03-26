@@ -66,7 +66,7 @@ const data: ServicePageData = {
     },
     { 
       icon: Lock, 
-      title: "Integracion con Alarmas", 
+      title: "Integración con Alarmas", 
       description: "Conecta con tu sistema de alarmas existente para activacion automatica basada en detecciones de IA. Compatible con los principales proveedores.",
     },
     { 
@@ -152,7 +152,7 @@ const data: ServicePageData = {
         "Control de acceso inteligente por reconocimiento",
         "Deteccion de presencia fuera de horario",
         "Alertas de puertas abiertas en zonas seguras",
-        "Gestion de visitantes y contratistas",
+        "Gestión de visitantes y contratistas",
       ]
     },
     { 
@@ -205,7 +205,7 @@ const data: ServicePageData = {
     { 
       title: "IA Conversacional Omnicanal",
       description: "Unifica todos tus canales en una bandeja inteligente.",
-      href: "/soluciones/automatizacion-omnicanal"
+      href: "/soluciones/automatización-omnicanal"
     },
     { 
       title: "Home Staging IA", 

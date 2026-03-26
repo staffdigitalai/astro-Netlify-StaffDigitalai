@@ -96,7 +96,7 @@ export function ServicesListClient({ services }: ServicesListClientProps) {
           </h1>
 
           <p className="text-lg md:text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed animate-fade-in-subheading">
-            Descubre nuestras soluciones de IA disenadas para automatizar procesos, mejorar la atencion al cliente y escalar tu negocio sin aumentar costes.
+            Descubre nuestras soluciones de IA disenadas para automatizar procesos, mejorar la atención al cliente y escalar tu negocio sin aumentar costes.
           </p>
         </div>
       </section>

@@ -30,7 +30,7 @@ const data: SectorPageData = {
   features: [
     { icon: CalendarCheck, title: "Reservas Inteligentes 24/7", description: "Acepta reservas por telefono, WhatsApp, Instagram y web automaticamente. Gestiona listas de espera y confirma con el cliente.", highlight: "+50% reservas fuera de horario" },
     { icon: MessageSquare, title: "Asistente de Menu y Alergenos", description: "Responde preguntas sobre platos, ingredientes, alergenos y opciones especiales de forma precisa e inmediata en cualquier canal." },
-    { icon: Star, title: "Gestion de Reputacion", description: "Solicita resenas a clientes satisfechos automaticamente y alerta sobre opiniones negativas para responder rapidamente." },
+    { icon: Star, title: "Gestión de Reputacion", description: "Solicita resenas a clientes satisfechos automaticamente y alerta sobre opiniones negativas para responder rapidamente." },
     { icon: BarChart3, title: "Optimizacion de Ocupacion", description: "Analiza patrones de reserva, horas punta y preferencias de clientes para maximizar la rotacion de mesas.", highlight: "95% ocupacion en servicio" },
   ],
   stats: [

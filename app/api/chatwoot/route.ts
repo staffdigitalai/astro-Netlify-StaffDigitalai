@@ -235,7 +235,7 @@ Telefono: ${formData.telefono || formData.phone || "No proporcionado"}
 Empresa: ${formData.empresa || formData.company || "No proporcionada"}
 Servicio: ${formData.servicio || formData.service || "No especificado"}
 Presupuesto estimado: ${formData.presupuesto || formData.budget || "No especificado"}
-Descripcion: ${formData.descripcion || formData.description || "Sin descripcion"}`
+Descripcion: ${formData.descripcion || formData.description || "Sin descripción"}`
         labels = ["presupuesto"]
         customAttributes.servicio = formData.servicio || formData.service || ""
         break

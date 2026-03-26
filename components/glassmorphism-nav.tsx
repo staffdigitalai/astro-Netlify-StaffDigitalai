@@ -7,11 +7,11 @@ import { usePathname } from "next/navigation"
 import { StaffDigitalLogo } from "@/components/staffdigital-logo"
 
 const services = [
-  { name: "Atencion Telefonica IA", href: "/soluciones/atencion-telefonica-ia", icon: MessageSquare, description: "Agentes de voz inteligentes 24/7", featured: true },
+  { name: "Atención Telefónica IA", href: "/soluciones/atencion-telefonica-ia", icon: MessageSquare, description: "Agentes de voz inteligentes 24/7", featured: true },
   { name: "WhatsApp IA Empresas", href: "/soluciones/whatsapp-ia-empresas", icon: MessageSquare, description: "Automatiza WhatsApp Business", featured: true },
   { name: "IA Conversacional", href: "/soluciones/ia-conversacional", icon: MessageSquare, description: "Agentes IA y cualificacion de leads" },
-  { name: "IA Conversacional Omnicanal", href: "/soluciones/automatizacion-omnicanal", icon: Layers, description: "Bandeja unificada y workflows" },
-  { name: "Gestion de Citas IA", href: "/soluciones/gestion-citas-ia", icon: GraduationCap, description: "Reservas automatizadas" },
+  { name: "IA Conversacional Omnicanal", href: "/soluciones/automatización-omnicanal", icon: Layers, description: "Bandeja unificada y workflows" },
+  { name: "Gestión de Citas IA", href: "/soluciones/gestion-citas-ia", icon: GraduationCap, description: "Reservas automatizadas" },
   { name: "Cualificacion de Leads", href: "/soluciones/cualificacion-leads", icon: BriefcaseMedical, description: "Scoring y nurturing automatico" },
   { name: "Seguridad IA", href: "/soluciones/seguridad-ia", icon: Shield, description: "Videovigilancia inteligente" },
   { name: "Home Staging IA", href: "/soluciones/home-staging-ia", icon: Home, description: "Marketing inmobiliario con IA" },

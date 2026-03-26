@@ -12,19 +12,19 @@ import type { WPCaseStudy } from "@/lib/wordpress"
 const sampleCases: WPCaseStudy[] = [
   {
     id: 1,
-    slug: "automatizacion-retail",
-    title: { rendered: "Automatizacion de Atencion al Cliente para Retail" },
+    slug: "automatización-retail",
+    title: { rendered: "Automatización de Atencion al Cliente para Retail" },
     content: { rendered: `
-      <p>RetailMax, una cadena de tiendas con mas de 50 sucursales, enfrentaba el desafio de gestionar miles de consultas diarias de clientes sobre disponibilidad de productos, horarios y promociones.</p>
+      <p>RetailMax, una cadena de tiendas conmás de 50 sucursales, enfrentaba el desafio de gestionar miles de consultas diarias de clientes sobre disponibilidad de productos, horarios y promociones.</p>
       
       <h2>El Desafio</h2>
-      <p>El equipo de atencion al cliente estaba sobrecargado, con tiempos de respuesta que superaban las 4 horas en promedio. Esto generaba frustracion en los clientes y perdida de ventas potenciales.</p>
+      <p>El equipo de atención al cliente estaba sobrecargado, con tiempos de respuesta que superaban las 4 horas en promedio. Esto generaba frustracion en los clientes y perdida de ventas potenciales.</p>
       
       <h2>La Solucion</h2>
       <p>Implementamos un asistente virtual inteligente capaz de:</p>
       <ul>
         <li>Responder consultas sobre disponibilidad de productos en tiempo real</li>
-        <li>Proporcionar informacion de horarios y ubicaciones</li>
+        <li>Proporcionar información de horarios y ubicaciones</li>
         <li>Gestionar quejas y redirigir casos complejos a agentes humanos</li>
         <li>Ofrecer recomendaciones personalizadas basadas en el historial de compras</li>
       </ul>
@@ -39,7 +39,7 @@ const sampleCases: WPCaseStudy[] = [
       cliente: "RetailMax",
       sector: "Retail",
       resultado: "70% reduccion en tiempos de respuesta, 45% ahorro en costes operativos",
-      testimonio: "La solucion de StaffDigital transformo completamente nuestra atencion al cliente. Ahora podemos atender a mas clientes con mejor calidad."
+      testimonio: "La solución de StaffDigital transformo completamente nuestra atención al cliente. Ahora podemos atender amás clientes con mejor calidad."
     }
   },
   {
@@ -47,7 +47,7 @@ const sampleCases: WPCaseStudy[] = [
     slug: "clinica-dental-automation",
     title: { rendered: "Gestion Inteligente de Citas para Clinica Dental" },
     content: { rendered: `
-      <p>DentalCare Plus, una red de clinicas dentales, necesitaba optimizar su proceso de gestion de citas que consumia gran parte del tiempo del personal administrativo.</p>
+      <p>DentalCare Plus, una red de clinicas dentales, necesitaba optimizar su proceso de gestión de citas que consumia gran parte del tiempo del personal administrativo.</p>
       
       <h2>El Desafio</h2>
       <p>La clinica recibia cientos de llamadas diarias para agendar, modificar o cancelar citas. El proceso manual generaba errores, citas duplicadas y un alto indice de no-shows.</p>
@@ -70,7 +70,7 @@ const sampleCases: WPCaseStudy[] = [
     acf: {
       cliente: "DentalCare Plus",
       sector: "Salud",
-      resultado: "50% mas eficiencia en gestion de citas, 30% reduccion de no-shows",
+      resultado: "50%más eficiencia en gestión de citas, 30% reducción de no-shows",
       testimonio: "Ahora nuestro equipo puede enfocarse en lo que realmente importa: los pacientes. El sistema de citas funciona perfectamente."
     }
   },
@@ -79,7 +79,7 @@ const sampleCases: WPCaseStudy[] = [
     slug: "logistica-predictiva",
     title: { rendered: "Optimizacion Logistica con IA Predictiva" },
     content: { rendered: `
-      <p>LogiTech Solutions, empresa de distribucion con operaciones en 5 paises, enfrentaba desafios significativos en la prediccion de demanda y gestion de inventario.</p>
+      <p>LogiTech Solutions, empresa de distribucion con operaciones en 5 paises, enfrentaba desafios significativos en la prediccion de demanda y gestión de inventario.</p>
       
       <h2>El Desafio</h2>
       <p>La falta de precision en las predicciones generaba exceso de inventario en algunos productos y escasez en otros, impactando tanto los costes como la satisfaccion del cliente.</p>
@@ -102,14 +102,14 @@ const sampleCases: WPCaseStudy[] = [
     acf: {
       cliente: "LogiTech Solutions",
       sector: "Logistica",
-      resultado: "35% mejora en precision de inventario, 20% reduccion de costes de almacen",
+      resultado: "35% mejora en precision de inventario, 20% reducción de costes de almacen",
       testimonio: "La IA nos permite anticipar la demanda con una precision que nunca imaginamos. Ha transformado completamente nuestra operacion."
     }
   },
   {
     id: 4,
     slug: "finanzas-automatizadas",
-    title: { rendered: "Automatizacion de Procesos Financieros" },
+    title: { rendered: "Automatización de Procesos Financieros" },
     content: { rendered: `
       <p>FinanceGroup, firma de servicios financieros, necesitaba modernizar sus procesos de conciliacion y facturacion que consumian cientos de horas mensuales.</p>
       
@@ -117,7 +117,7 @@ const sampleCases: WPCaseStudy[] = [
       <p>Los procesos manuales de conciliacion bancaria y facturacion generaban errores frecuentes, retrasos en los cierres mensuales y alto consumo de recursos humanos.</p>
       
       <h2>La Solucion</h2>
-      <p>Desarrollamos una plataforma de automatizacion financiera que incluye:</p>
+      <p>Desarrollamos una plataforma de automatización financiera que incluye:</p>
       <ul>
         <li>Conciliacion bancaria automatica con deteccion de discrepancias</li>
         <li>Generacion y envio automatico de facturas</li>
@@ -330,7 +330,7 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
             <div className="grid sm:grid-cols-2 gap-4">
               {[
                 "Implementacion rapida y personalizada",
-                "Integracion con sistemas existentes",
+                "Integración con sistemas existentes",
                 "Soporte continuo 24/7",
                 "ROI demostrable desde el primer mes"
               ].map((benefit, i) => (
@@ -359,7 +359,7 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
               </Button>
               <Button asChild variant="outline" size="lg" className="rounded-full">
                 <Link href="/casos">
-                  Ver mas casos
+                  Vermás casos
                 </Link>
               </Button>
             </div>

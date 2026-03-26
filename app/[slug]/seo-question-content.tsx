@@ -81,7 +81,7 @@ export function SeoQuestionContent({
 
       {/* Related Questions CTA */}
       <div className="p-8 rounded-2xl border border-border bg-card/50 space-y-4">
-        <h3 className="text-xl font-bold">Tienes mas preguntas?</h3>
+        <h3 className="text-xl font-bold">Tienesmás preguntas?</h3>
         <p className="text-muted-foreground">
           Explora nuestras FAQs o contacta con nuestro equipo para resolver cualquier duda.
         </p>
@@ -104,7 +104,7 @@ export function SeoQuestionContent({
           Listo para automatizar tu negocio?
         </h2>
         <p className="text-muted-foreground max-w-xl mx-auto">
-          Descubre como StaffDigital AI puede ayudarte a mejorar la atencion al cliente
+          Descubre como StaffDigital AI puede ayudarte a mejorar la atención al cliente
           y reducir costes operativos.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">

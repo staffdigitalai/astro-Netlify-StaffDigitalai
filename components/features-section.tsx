@@ -36,8 +36,8 @@ const AnimatedChatDemo = ({ isActive }: { isActive: boolean }) => {
       ],
       [
         { text: "Buenas tardes! En que puedo ayudarte?", isBot: true },
-        { text: "Necesito informacion sobre precios", isBot: false },
-        { text: "Encantado de proporcionarte informacion de precios ahora mismo!", isBot: true },
+        { text: "Necesito información sobre precios", isBot: false },
+        { text: "Encantado de proporcionarte información de precios ahora mismo!", isBot: true },
       ],
     ]
 
@@ -369,7 +369,7 @@ const features = [
     size: "large",
   },
   {
-    title: "Recepcionista Telefonica IA",
+    title: "Recepcionista Telefónica IA",
     description:
       "Asistente de voz IA profesional que responde llamadas, toma mensajes y agenda citas cuando estas ocupado o cerrado.",
     demo: AnimatedPhoneDemo,
@@ -383,23 +383,23 @@ const features = [
     size: "medium",
   },
   {
-    title: "Automatizacion de Respuesta por Email",
+    title: "Automatización de Respuesta por Email",
     description:
-      "Asistente de email con IA que responde consultas, proporciona informacion y redirige consultas complejas a tu equipo.",
+      "Asistente de email con IA que responde consultas, proporciona información y redirige consultas complejas a tu equipo.",
     demo: AnimatedEmailDemo,
     size: "large",
   },
   {
     title: "Cualificacion y Traspaso de Leads",
     description:
-      "Sistema inteligente que cualifica prospectos, recopila informacion clave y traspasa leads calientes a tu equipo comercial de forma fluida.",
+      "Sistema inteligente que cualifica prospectos, recopila información clave y traspasa leads calientes a tu equipo comercial de forma fluida.",
     demo: AnimatedLeadsDemo,
     size: "medium",
   },
   {
-    title: "Integracion Multiplataforma",
+    title: "Integración Multiplataforma",
     description:
-      "Conecta con tus herramientas existentes incluyendo CRM, calendario, WhatsApp, SMS y mas para una experiencia de cliente unificada.",
+      "Conecta con tus herramientas existentes incluyendo CRM, calendario, WhatsApp, SMS ymás para una experiencia de cliente unificada.",
     demo: AnimatedIntegrationsDemo,
     size: "medium",
   },

@@ -25,13 +25,13 @@ const data: SectorPageData = {
     { icon: MapPin, title: "Rutas ineficientes", description: "Tecnicos desplazandose sin una planificacion optimizada de rutas y prioridades." },
     { icon: FileText, title: "Partes de trabajo en papel", description: "Documentacion manual que se pierde, se retrasa y genera errores de facturacion." },
     { icon: AlertTriangle, title: "Falta de seguimiento", description: "Clientes que no saben el estado de su reparacion y llaman repetidamente para preguntar." },
-    { icon: Wrench, title: "Diagnostico lento", description: "Tecnicos que llegan sin contexto sobre el problema y necesitan mas tiempo para resolverlo." },
+    { icon: Wrench, title: "Diagnostico lento", description: "Tecnicos que llegan sin contexto sobre el problema y necesitanmás tiempo para resolverlo." },
   ],
   features: [
     { icon: Headphones, title: "Recepcion de Avisos IA", description: "Recoge datos del aviso por telefono, WhatsApp o web: tipo de averia, urgencia, ubicacion y disponibilidad del cliente. Sin colas de espera.", highlight: "-85% tiempo de registro" },
-    { icon: CalendarCheck, title: "Asignacion Inteligente", description: "Asigna automaticamente el tecnico mas adecuado segun especialidad, ubicacion y carga de trabajo. Optimiza rutas para maximizar intervenciones diarias." },
+    { icon: CalendarCheck, title: "Asignacion Inteligente", description: "Asigna automaticamente el tecnicomás adecuado segun especialidad, ubicacion y carga de trabajo. Optimiza rutas para maximizar intervenciones diarias." },
     { icon: MessageSquare, title: "Actualizaciones Proactivas", description: "El cliente recibe notificaciones automaticas: confirmacion del aviso, hora estimada de llegada, y estado de la reparacion en tiempo real." },
-    { icon: BarChart3, title: "Analisis de Rendimiento", description: "Metricas de tiempo de respuesta, tasa de resolucion en primera visita y satisfaccion del cliente para optimizar tu operacion.", highlight: "+45% productividad tecnicos" },
+    { icon: BarChart3, title: "Análisis de Rendimiento", description: "Metricas de tiempo de respuesta, tasa de resolucion en primera visita y satisfaccion del cliente para optimizar tu operacion.", highlight: "+45% productividad tecnicos" },
   ],
   stats: [
     { value: "-85%", label: "Tiempo de registro" },

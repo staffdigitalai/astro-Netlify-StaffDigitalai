@@ -32,7 +32,7 @@ export function ProblemSolutionComparison() {
   const comparisons = [
     {
       icon: Phone,
-      channel: "Llamadas Telefonicas",
+      channel: "Llamadas Telefónicas",
       problem: "El 70% de las llamadas van al buzon de voz",
       solution: "El 95% de las llamadas respondidas al instante",
     },

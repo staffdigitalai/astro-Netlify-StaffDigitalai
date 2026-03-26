@@ -16,14 +16,14 @@ export async function generateMetadata(): Promise<Metadata> {
   }
 
   return {
-    title: page?.acf?.meta_title || "Integraciones - StaffDigital AI",
+    title: page?.acf?.meta_title || "Integraciónes - StaffDigital AI",
     description:
       page?.acf?.meta_description ||
-      "Conecta StaffDigital AI con tus herramientas favoritas. Salesforce, HubSpot, Google Calendar y mas de 100 integraciones.",
+      "Conecta StaffDigital AI con tus herramientas favoritas. Salesforce, HubSpot, Google Calendar ymás de 100 integraciones.",
   }
 }
 
-export default async function IntegracionesPage() {
+export default async function IntegraciónesPage() {
   let page = null
   try {
     page = await getPage("integraciones")
@@ -38,7 +38,7 @@ export default async function IntegracionesPage() {
         <PageWrapper
           breadcrumbs={[
             { label: "Inicio", href: "/" },
-            { label: "Integraciones" },
+            { label: "Integraciónes" },
           ]}
         >
           <IntegracionesContent page={page} />

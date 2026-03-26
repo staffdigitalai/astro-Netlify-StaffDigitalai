@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     siteName: "StaffDigital AI",
     title: "StaffDigital AI - Agentes IA con Voz Humana para Empresas",
     description:
-      "Agentes IA con voz humana para llamadas, WhatsApp y chat web. Atencion personalizada 24/7 para tu empresa.",
+      "Agentes IA con voz humana para llamadas, WhatsApp y chat web. Atención personalizada 24/7 para tu empresa.",
     images: [
       {
         url: "/og-image.jpg",
@@ -53,7 +53,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "StaffDigital AI - Agentes IA con Voz Humana",
     description:
-      "Agentes IA con voz humana para llamadas, WhatsApp y chat web. Atencion personalizada 24/7.",
+      "Agentes IA con voz humana para llamadas, WhatsApp y chat web. Atención personalizada 24/7.",
     images: ["/og-image.jpg"],
   },
   robots: {

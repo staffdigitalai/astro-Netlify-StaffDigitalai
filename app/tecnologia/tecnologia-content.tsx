@@ -13,7 +13,7 @@ const tecnologias = [
   {
     icon: Brain,
     title: "Large Language Models (LLMs)",
-    descripcion: "Utilizamos los modelos de lenguaje mas avanzados del mercado para garantizar conversaciones naturales y precisas.",
+    descripcion: "Utilizamos los modelos de lenguajemás avanzados del mercado para garantizar conversaciones naturales y precisas.",
     detalles: ["GPT-4, Claude, Gemini", "Fine-tuning personalizado", "Contexto extendido"],
   },
   {
@@ -26,7 +26,7 @@ const tecnologias = [
     icon: MessageSquare,
     title: "NLP y Comprension Semantica",
     descripcion: "Procesamiento de lenguaje natural avanzado que entiende el contexto y la intencion del usuario.",
-    detalles: ["Analisis de sentimiento", "Extraccion de entidades", "Resolucion de ambiguedades"],
+    detalles: ["Análisis de sentimiento", "Extraccion de entidades", "Resolución de ambiguedades"],
   },
   {
     icon: Network,
@@ -37,14 +37,14 @@ const tecnologias = [
   {
     icon: Database,
     title: "RAG y Base de Conocimiento",
-    descripcion: "Sistema de Retrieval-Augmented Generation que conecta la IA con tu informacion empresarial.",
+    descripcion: "Sistema de Retrieval-Augmented Generation que conecta la IA con tu información empresarial.",
     detalles: ["Documentos, FAQs, Manuales", "Actualizacion en tiempo real", "Busqueda semantica"],
   },
   {
     icon: Cpu,
     title: "Agentes Autonomos",
     descripcion: "IAs que pueden tomar decisiones y ejecutar acciones de forma autonoma siguiendo tus protocolos.",
-    detalles: ["Automatizacion de tareas", "Integraciones activas", "Escalado automatico"],
+    detalles: ["Automatización de tareas", "Integraciónes activas", "Escalado automatico"],
   },
 ]
 
@@ -139,7 +139,7 @@ export function TecnologiaContent({ page }: TecnologiaContentProps) {
             <div className="text-muted-foreground text-xs">LLMs, NLP, Agentes, RAG</div>
           </div>
           <div className="p-4 rounded-lg bg-muted/50">
-            <div className="font-semibold mb-2">Integraciones</div>
+            <div className="font-semibold mb-2">Integraciónes</div>
             <div className="text-muted-foreground text-xs">CRM, ERP, Calendarios, APIs</div>
           </div>
         </div>

@@ -64,8 +64,8 @@ const whatsappSubPages = [
     borderColor: "border-cyan-500/30",
   },
   {
-    slug: "integracion-crm-whatsapp",
-    title: "Integracion CRM",
+    slug: "integración-crm-whatsapp",
+    title: "Integración CRM",
     description: "Sincroniza con HubSpot, Salesforce, Pipedrive y +50 herramientas.",
     icon: Link2,
     color: "from-pink-500/20 to-pink-600/10",
@@ -121,7 +121,7 @@ export function WhatsAppHubClient() {
 
               {/* Subtitle */}
               <p className="text-lg md:text-xl text-white/70 max-w-3xl mx-auto mb-8 leading-relaxed">
-                Automatiza tu atencion al cliente en el canal que todos usan. 
+                Automatiza tu atención al cliente en el canal que todos usan. 
                 Agentes IA que responden, venden y agendan citas 24/7.
               </p>
 
@@ -210,7 +210,7 @@ export function WhatsAppHubClient() {
           {/* Conversation Simulator */}
           <ConversationSimulator
             title="Tu Agente WhatsApp en Accion"
-            subtitle="Mira como nuestra IA gestiona atencion al cliente, ventas y reservas en tiempo real."
+            subtitle="Mira como nuestra IA gestiona atención al cliente, ventas y reservas en tiempo real."
             badge="Simulacion WhatsApp"
             badgeIcon="whatsapp"
             simulations={conversations}
@@ -254,7 +254,7 @@ export function WhatsAppHubClient() {
                       <span className="text-green-400 font-medium">2-4 horas</span>
                     </div>
                     <div className="flex items-center justify-between py-3 border-b border-white/10">
-                      <span className="text-white/70">Integracion CRM</span>
+                      <span className="text-white/70">Integración CRM</span>
                       <span className="text-green-400 font-medium">1 dia</span>
                     </div>
                     <div className="flex items-center justify-between py-3 border-b border-white/10">

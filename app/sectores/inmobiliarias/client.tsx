@@ -25,14 +25,14 @@ const data: SectorPageData = {
     { icon: Clock, title: "Consultas repetitivas", description: "Tu equipo responde las mismas preguntas sobre ubicacion, precio y caracteristicas cientos de veces." },
     { icon: FileText, title: "Cualificacion manual", description: "Agentes dedicando horas a filtrar leads que no estan listos para comprar o no cumplen requisitos." },
     { icon: Users, title: "Seguimiento inconsistente", description: "Leads prometedores que se enfrian porque nadie hace seguimiento oportuno y personalizado." },
-    { icon: AlertTriangle, title: "Informacion desactualizada", description: "Propiedades vendidas que siguen recibiendo consultas o precios no actualizados en portales." },
+    { icon: AlertTriangle, title: "Información desactualizada", description: "Propiedades vendidas que siguen recibiendo consultas o precios no actualizados en portales." },
   ],
   features: [
-    { icon: MessageSquare, title: "Cualificacion Automatica de Leads", description: "El asistente IA identifica presupuesto, zona preferida, numero de habitaciones y urgencia de compra antes de pasar el lead a un agente.", highlight: "3x mas leads cualificados" },
+    { icon: MessageSquare, title: "Cualificacion Automatica de Leads", description: "El asistente IA identifica presupuesto, zona preferida, numero de habitaciones y urgencia de compra antes de pasar el lead a un agente.", highlight: "3xmás leads cualificados" },
     { icon: CalendarCheck, title: "Gestion Inteligente de Visitas", description: "Agenda, confirma y reagenda visitas automaticamente. Envia recordatorios con direccion y detalles de la propiedad.", highlight: "-70% cancelaciones" },
     { icon: Home, title: "Asistente Virtual de Propiedades", description: "Responde preguntas sobre cada inmueble: metros cuadrados, gastos de comunidad, orientacion, reformas y mas. 24 horas, 7 dias." },
-    { icon: BarChart3, title: "Dashboard de Rendimiento", description: "Visualiza conversion de leads, propiedades mas demandadas, tiempo medio de venta y rendimiento por agente en tiempo real." },
-    { icon: Camera, title: "Integracion con Home Staging IA", description: "Conecta con nuestro servicio de preparacion de propiedades para fotos profesionales y landing pages optimizadas." },
+    { icon: BarChart3, title: "Dashboard de Rendimiento", description: "Visualiza conversion de leads, propiedadesmás demandadas, tiempo medio de venta y rendimiento por agente en tiempo real." },
+    { icon: Camera, title: "Integración con Home Staging IA", description: "Conecta con nuestro servicio de preparacion de propiedades para fotos profesionales y landing pages optimizadas." },
     { icon: MapPin, title: "Respuestas Contextuales por Zona", description: "El asistente conoce cada barrio: colegios cercanos, transporte, comercios y tendencias de precios para convencer a compradores." },
   ],
   stats: [

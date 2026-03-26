@@ -52,16 +52,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 // Fallback case study data
 const fallbackCaseStudies: Record<string, WPCaseStudy> = {
-  "automatizacion-retail": {
+  "automatización-retail": {
     id: 1,
     date: new Date().toISOString(),
-    slug: "automatizacion-retail",
-    title: { rendered: "Automatizacion de Atencion al Cliente para Retail" },
+    slug: "automatización-retail",
+    title: { rendered: "Automatización de Atencion al Cliente para Retail" },
     excerpt: { rendered: "<p>Reduccion del 70% en tiempos de respuesta.</p>" },
     content: {
       rendered: `
         <h2>El Reto</h2>
-        <p>RetailMax, una cadena de tiendas con mas de 50 locales, enfrentaba un desafio significativo en su atencion al cliente. Con un volumen de mas de 10,000 consultas mensuales y un equipo limitado, los tiempos de respuesta se habian disparado, afectando la satisfaccion del cliente.</p>
+        <p>RetailMax, una cadena de tiendas conmás de 50 locales, enfrentaba un desafio significativo en su atención al cliente. Con un volumen demás de 10,000 consultas mensuales y un equipo limitado, los tiempos de respuesta se habian disparado, afectando la satisfaccion del cliente.</p>
         
         <h2>La Solucion</h2>
         <p>Implementamos un sistema de IA conversacional multicanal que integra WhatsApp, email y chat web. El sistema incluye:</p>
@@ -73,7 +73,7 @@ const fallbackCaseStudies: Record<string, WPCaseStudy> = {
         </ul>
         
         <h2>Resultados</h2>
-        <p>En solo 3 meses de implementacion, RetailMax logro una transformacion radical en su operacion de atencion al cliente.</p>
+        <p>En solo 3 meses de implementacion, RetailMax logro una transformacion radical en su operacion de atención al cliente.</p>
       `,
     },
     featured_media: 0,
@@ -82,7 +82,7 @@ const fallbackCaseStudies: Record<string, WPCaseStudy> = {
       sector: "Retail",
       resultado_principal: "70% reduccion en tiempos de respuesta",
       resultado: "70% reduccion en tiempos de respuesta, 45% ahorro en costes operativos",
-      testimonio: "La solucion de StaffDigital transformo completamente nuestra atencion al cliente. Ahora podemos gestionar el triple de consultas con el mismo equipo.",
+      testimonio: "La solución de StaffDigital transformo completamente nuestra atención al cliente. Ahora podemos gestionar el triple de consultas con el mismo equipo.",
       metricas: [
         { valor: "-70%", etiqueta: "Tiempo de respuesta" },
         { valor: "-45%", etiqueta: "Costes operativos" },
@@ -103,12 +103,12 @@ const fallbackCaseStudies: Record<string, WPCaseStudy> = {
         <p>DentalCare Plus, una clinica dental con 5 consultorios, perdia hasta un 25% de sus citas por no-shows y tenia una recepcion sobrecargada gestionando llamadas y reservas manualmente.</p>
         
         <h2>La Solucion</h2>
-        <p>Desarrollamos un sistema integral de gestion de citas con:</p>
+        <p>Desarrollamos un sistema integral de gestión de citas con:</p>
         <ul>
           <li>Reserva automatica 24/7 por WhatsApp y web</li>
           <li>Recordatorios inteligentes con confirmacion</li>
           <li>Relleno automatico de cancelaciones</li>
-          <li>Integracion con software de gestion clinica</li>
+          <li>Integración con software de gestion clinica</li>
         </ul>
         
         <h2>Resultados</h2>
@@ -119,9 +119,9 @@ const fallbackCaseStudies: Record<string, WPCaseStudy> = {
     acf: {
       cliente: "DentalCare Plus",
       sector: "Salud",
-      resultado_principal: "50% mas eficiencia en gestion de citas",
-      resultado: "50% mas eficiencia en gestion de citas, 30% reduccion de no-shows",
-      testimonio: "Ahora nuestro equipo puede enfocarse en lo que realmente importa: los pacientes. La gestion de citas se hace sola.",
+      resultado_principal: "50%más eficiencia en gestión de citas",
+      resultado: "50%más eficiencia en gestión de citas, 30% reducción de no-shows",
+      testimonio: "Ahora nuestro equipo puede enfocarse en lo que realmente importa: los pacientes. La gestión de citas se hace sola.",
       metricas: [
         { valor: "+50%", etiqueta: "Eficiencia agenda" },
         { valor: "-30%", etiqueta: "No-shows" },

@@ -28,7 +28,7 @@ const data: SectorPageData = {
     { icon: AlertTriangle, title: "Recordatorios manuales", description: "Personal dedicando tiempo a llamar pacientes uno por uno para confirmar citas del dia siguiente." },
   ],
   features: [
-    { icon: CalendarCheck, title: "Gestion de Citas Inteligente", description: "Reserva, modifica y cancela citas por telefono, WhatsApp o web. Rellena huecos automaticamente contactando pacientes en lista de espera.", highlight: "Reduccion del 80% en no-shows" },
+    { icon: CalendarCheck, title: "Gestión de Citas Inteligente", description: "Reserva, modifica y cancela citas por telefono, WhatsApp o web. Rellena huecos automaticamente contactando pacientes en lista de espera.", highlight: "Reduccion del 80% en no-shows" },
     { icon: MessageSquare, title: "Consultas sobre Tratamientos", description: "Responde preguntas frecuentes sobre ortodoncia, implantes, blanqueamiento, precios y seguros de forma natural y personalizada." },
     { icon: Stethoscope, title: "Seguimiento Post-Tratamiento", description: "Envia instrucciones de cuidado tras intervenciones, recoge feedback del paciente y programa revisiones automaticamente." },
     { icon: BarChart3, title: "Conversion de Presupuestos", description: "Seguimiento automatico de presupuestos pendientes con recordatorios personalizados que aumentan la tasa de aceptacion.", highlight: "+30% conversion de presupuestos" },

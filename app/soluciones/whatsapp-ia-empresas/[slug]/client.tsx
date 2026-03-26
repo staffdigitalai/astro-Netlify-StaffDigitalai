@@ -46,7 +46,7 @@ const pageContent: Record<string, {
       "Transcripcion automatica de notas de voz",
       "Respuestas por audio con voz natural",
       "Deteccion de idioma automatica",
-      "Analisis de sentimiento en tiempo real",
+      "Análisis de sentimiento en tiempo real",
       "Escalado a humano cuando es necesario",
       "Historial completo de conversaciones",
     ],
@@ -70,15 +70,15 @@ const pageContent: Record<string, {
     features: [
       "Respuestas instantaneas 24/7",
       "Base de conocimiento personalizada",
-      "Gestion de incidencias automatica",
+      "Gestión de incidencias automatica",
       "Escalado inteligente a humanos",
       "Multiidioma (ES, PT, EN, CA)",
-      "Integracion con sistemas de tickets",
+      "Integración con sistemas de tickets",
     ],
     useCases: [
       { title: "Consultas frecuentes", description: "Horarios, precios, disponibilidad... respuestas inmediatas sin saturar tu equipo." },
       { title: "Seguimiento de pedidos", description: "Los clientes consultan estado de envios y la IA responde con datos en tiempo real." },
-      { title: "Gestion de devoluciones", description: "Inicia procesos de devolucion automaticamente siguiendo tu politica." },
+      { title: "Gestión de devoluciones", description: "Inicia procesos de devolucion automaticamente siguiendo tu politica." },
     ],
     stats: [
       { value: "24/7", label: "Disponible" },
@@ -121,13 +121,13 @@ const pageContent: Record<string, {
       "Reservas 24/7 automaticas",
       "Sincronizacion con Google Calendar",
       "Recordatorios SMS y WhatsApp",
-      "Gestion de cancelaciones",
+      "Gestión de cancelaciones",
       "Lista de espera automatica",
       "Confirmacion de asistencia",
     ],
     useCases: [
       { title: "Clinicas y consultas", description: "Pacientes reservan cita sin llamar. Recordatorio 24h antes reduce faltas." },
-      { title: "Restaurantes", description: "Reservas de mesa automaticas con confirmacion y gestion de no-shows." },
+      { title: "Restaurantes", description: "Reservas de mesa automaticas con confirmacion y gestión de no-shows." },
       { title: "Servicios a domicilio", description: "Clientes eligen dia, hora y direccion. Tecnico recibe notificacion." },
     ],
     stats: [
@@ -161,8 +161,8 @@ const pageContent: Record<string, {
       { value: "100%", label: "Cualificados" },
     ],
   },
-  "integracion-crm-whatsapp": {
-    title: "Integracion CRM",
+  "integración-crm-whatsapp": {
+    title: "Integración CRM",
     subtitle: "Sincronizacion en tiempo real",
     description: "Conecta WhatsApp con tu CRM favorito. Cada conversacion, lead y venta sincronizada automaticamente. Cero entrada manual de datos.",
     icon: Link2,
@@ -182,7 +182,7 @@ const pageContent: Record<string, {
     ],
     stats: [
       { value: "Real-time", label: "Sync" },
-      { value: "50+", label: "Integraciones" },
+      { value: "50+", label: "Integraciónes" },
       { value: "0", label: "Datos perdidos" },
     ],
   },
@@ -195,7 +195,7 @@ const relatedPages = [
   { slug: "agente-ventas-whatsapp", title: "Agente de Ventas", icon: TrendingUp },
   { slug: "citas-reservas-whatsapp", title: "Citas y Reservas", icon: Calendar },
   { slug: "lead-qualification-whatsapp", title: "Cualificacion Leads", icon: Users },
-  { slug: "integracion-crm-whatsapp", title: "Integracion CRM", icon: Link2 },
+  { slug: "integración-crm-whatsapp", title: "Integración CRM", icon: Link2 },
 ]
 
 export function WhatsAppSubPageClient({ slug }: WhatsAppSubPageClientProps) {

@@ -62,7 +62,7 @@ export function TestimonialsSection() {
       role: "Directora de Tienda",
     },
     {
-      text: "Las consultas inmobiliarias se gestionan al instante. Hemos cerrado 3 veces mas acuerdos desde que implementamos el asistente IA de StaffDigital AI.",
+      text: "Las consultas inmobiliarias se gestionan al instante. Hemos cerrado 3 vecesmás acuerdos desde que implementamos el asistente IA de StaffDigital AI.",
       name: "Javier Lopez",
       role: "Agente Inmobiliario",
     },
@@ -101,7 +101,7 @@ export function TestimonialsSection() {
             Las empresas que <span className="font-medium italic">impulsamos</span>
           </h2>
           <p className="fade-in-element opacity-0 translate-y-8 transition-all duration-1000 ease-out text-xl text-white/70 max-w-2xl mx-auto leading-relaxed">
-            Descubre como empresas lideres estan transformando su atencion al cliente con soluciones de chat impulsadas por IA
+            Descubre como empresas lideres estan transformando su atención al cliente con soluciones de chat impulsadas por IA
           </p>
         </div>
 

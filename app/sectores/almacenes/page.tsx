@@ -3,7 +3,7 @@ import { SectorPageClient } from "./client"
 
 export const metadata: Metadata = {
   title: "IA para Almacenes y Logistica | StaffDigital AI",
-  description: "Optimiza la gestion de pedidos, coordina entregas y automatiza la comunicacion en tu almacen con IA 24/7.",
+  description: "Optimiza la gestión de pedidos, coordina entregas y automatiza la comunicacion en tu almacen con IA 24/7.",
 }
 
 export default function AlmacenesPage() {

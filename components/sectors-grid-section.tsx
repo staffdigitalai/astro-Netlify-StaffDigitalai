@@ -10,7 +10,7 @@ const sectors = [
     icon: Car,
     title: "Concesionarios",
     subtitle: "Venta y posventa de vehiculos",
-    description: "Venta de vehiculos, posventa, talleres y recambios con atencion 24/7 y gestion de citas automatizada.",
+    description: "Venta de vehiculos, posventa, talleres y recambios con atencion 24/7 y gestión de citas automatizada.",
     href: "/sectores/concesionarios",
     gradient: "from-slate-500 to-zinc-500",
     bgGradient: "from-slate-500/20 to-zinc-500/20",
@@ -21,7 +21,7 @@ const sectors = [
     icon: Stethoscope,
     title: "Clinicas Medicas",
     subtitle: "Centros medicos y especializados",
-    description: "Centros medicos, clinicas especializadas y consultas con gestion de pacientes y recordatorios.",
+    description: "Centros medicos, clinicas especializadas y consultas con gestión de pacientes y recordatorios.",
     href: "/sectores/clinicas",
     gradient: "from-blue-500 to-cyan-500",
     bgGradient: "from-blue-500/20 to-cyan-500/20",
@@ -54,7 +54,7 @@ const sectors = [
     icon: ShoppingBag,
     title: "Comercio Minorista",
     subtitle: "Tiendas fisicas y online",
-    description: "Tiendas fisicas y online con atencion al cliente, stock y promociones automatizadas.",
+    description: "Tiendas fisicas y online con atención al cliente, stock y promociones automatizadas.",
     href: "/sectores/retail",
     gradient: "from-emerald-500 to-teal-500",
     bgGradient: "from-emerald-500/20 to-teal-500/20",
@@ -87,7 +87,7 @@ const sectors = [
     icon: Wrench,
     title: "Servicios Tecnicos",
     subtitle: "SAT, instaladores y reparaciones",
-    description: "SAT, instaladores, mantenimiento y reparaciones con gestion de tickets y agenda.",
+    description: "SAT, instaladores, mantenimiento y reparaciones con gestión de tickets y agenda.",
     href: "/sectores/servicios-tecnicos",
     gradient: "from-red-500 to-orange-500",
     bgGradient: "from-red-500/20 to-orange-500/20",
@@ -97,8 +97,8 @@ const sectors = [
     id: "inmobiliarias",
     icon: Home,
     title: "Inmobiliarias",
-    subtitle: "Agencias y gestion de propiedades",
-    description: "Agencias inmobiliarias con cualificacion de leads, visitas virtuales y gestion de propiedades.",
+    subtitle: "Agencias y gestión de propiedades",
+    description: "Agencias inmobiliarias con cualificacion de leads, visitas virtuales y gestión de propiedades.",
     href: "/sectores/inmobiliarias",
     gradient: "from-purple-500 to-pink-500",
     bgGradient: "from-purple-500/20 to-pink-500/20",
@@ -120,7 +120,7 @@ const sectors = [
     icon: Dumbbell,
     title: "Gimnasios",
     subtitle: "Centros deportivos y clubes",
-    description: "Centros deportivos, gimnasios y clubes con gestion de socios, clases y reservas.",
+    description: "Centros deportivos, gimnasios y clubes con gestión de socios, clases y reservas.",
     href: "/sectores/gimnasios",
     gradient: "from-lime-500 to-green-500",
     bgGradient: "from-lime-500/20 to-green-500/20",
@@ -176,7 +176,7 @@ export function SectorsGridSection() {
             </span>
           </h2>
           <p className="text-lg md:text-xl text-white/60 max-w-3xl mx-auto leading-relaxed">
-            Automatizacion inteligente adaptada a las necesidades especificas de cada industria. 
+            Automatización inteligente adaptada a las necesidades especificas de cada industria. 
             Descubre como podemos transformar tu negocio.
           </p>
         </div>

@@ -28,12 +28,12 @@ const valores = [
   {
     icon: Award,
     title: "Excelencia",
-    description: "Nos comprometemos con los mas altos estandares de calidad en todo lo que hacemos.",
+    description: "Nos comprometemos con losmás altos estandares de calidad en todo lo que hacemos.",
   },
   {
     icon: Globe,
     title: "Alcance global",
-    description: "Nuestras soluciones funcionan en mas de 50 idiomas, adaptandose a cualquier mercado.",
+    description: "Nuestras soluciones funcionan enmás de 50 idiomas, adaptandose a cualquier mercado.",
   },
   {
     icon: Heart,
@@ -62,7 +62,7 @@ export function NosotrosContent({ page }: NosotrosContentProps) {
         </h1>
         <p className="text-lg md:text-xl text-muted-foreground text-pretty">
           {page?.acf?.subtitulo ||
-            "Somos un equipo de expertos en IA dedicados a hacer que la automatizacion sea accesible para todas las empresas."}
+            "Somos un equipo de expertos en IA dedicados a hacer que la automatización sea accesible para todas las empresas."}
         </p>
       </div>
 
@@ -89,7 +89,7 @@ export function NosotrosContent({ page }: NosotrosContentProps) {
         <h2 className="text-2xl md:text-3xl font-bold">Nuestra Mision</h2>
         <p className="text-lg text-muted-foreground">
           Democratizar el acceso a la inteligencia artificial para que cualquier empresa, 
-          sin importar su tamano, pueda beneficiarse de la automatizacion inteligente 
+          sin importar su tamano, pueda beneficiarse de la automatización inteligente 
           y competir en igualdad de condiciones.
         </p>
       </div>
@@ -118,7 +118,7 @@ export function NosotrosContent({ page }: NosotrosContentProps) {
           Quieres formar parte del cambio?
         </h2>
         <p className="text-muted-foreground max-w-xl mx-auto">
-          Descubre como podemos ayudar a tu empresa a dar el salto hacia la automatizacion inteligente.
+          Descubre como podemos ayudar a tu empresa a dar el salto hacia la automatización inteligente.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Button asChild size="lg">

@@ -124,7 +124,7 @@ export interface WPSectorPage {
     metricas?: Array<{
       valor: string;
       etiqueta: string;
-      descripcion?: string;
+      descripción?: string;
     }>;
     testimonios?: Array<{
       nombre: string;

@@ -22,7 +22,7 @@ const data: SectorPageData = {
   painPoints: [
     { icon: Phone, title: "Recepcion desbordada", description: "Llamadas constantes para reservar salas, preguntar por servicios o reportar incidencias." },
     { icon: Calendar, title: "Reservas conflictivas", description: "Dobles reservas de salas de reuniones, conflictos de horarios y espacios infrautilizados." },
-    { icon: Users, title: "Gestion de visitas manual", description: "Control de accesos y registro de visitantes ineficiente que compromete la seguridad." },
+    { icon: Users, title: "Gestión de visitas manual", description: "Control de accesos y registro de visitantes ineficiente que compromete la seguridad." },
     { icon: Mail, title: "Comunicacion fragmentada", description: "Avisos importantes que no llegan a todos los inquilinos o empleados a tiempo." },
     { icon: AlertTriangle, title: "Incidencias sin seguimiento", description: "Reportes de mantenimiento que se pierden y no se resuelven a tiempo." },
     { icon: Building, title: "Servicios descoordinados", description: "Limpieza, mantenimiento y seguridad sin coordinacion eficiente entre ellos." },
@@ -31,7 +31,7 @@ const data: SectorPageData = {
     { icon: Headphones, title: "Recepcion Virtual IA", description: "Atiende llamadas y mensajes de inquilinos, visitantes y proveedores. Gestiona el registro de visitas y control de accesos automaticamente.", highlight: "-70% carga en recepcion" },
     { icon: Calendar, title: "Reservas Inteligentes de Espacios", description: "Sistema automatizado de reserva de salas, puestos de trabajo y espacios comunes que optimiza la ocupacion y evita conflictos." },
     { icon: MessageSquare, title: "Comunicacion Centralizada", description: "Envia avisos, notificaciones de mantenimiento y comunicados a todos los inquilinos por el canal que prefieran." },
-    { icon: Shield, title: "Gestion de Incidencias", description: "Los inquilinos reportan problemas por chat o voz, la IA los clasifica, prioriza y asigna al equipo correspondiente.", highlight: "Resolucion 3x mas rapida" },
+    { icon: Shield, title: "Gestión de Incidencias", description: "Los inquilinos reportan problemas por chat o voz, la IA los clasifica, prioriza y asigna al equipo correspondiente.", highlight: "Resolucion 3xmás rapida" },
   ],
   stats: [
     { value: "-70%", label: "Carga en recepcion" },

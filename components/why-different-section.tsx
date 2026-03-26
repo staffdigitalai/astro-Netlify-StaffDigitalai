@@ -6,9 +6,9 @@ import { Button } from "@/components/ui/button"
 
 const othersProblems = [
   "Implementan herramientas aisladas sin una estrategia global",
-  "Se centran solo en agentes IA basicos o automatizaciones simples",
-  "No integran atencion, automatizacion, seguridad y presentacion visual",
-  "Requieren mas gestion interna por parte de tu equipo",
+  "Se centran solo en agentes IA basicos o automatizaciónes simples",
+  "No integran atencion, automatización, seguridad y presentacion visual",
+  "Requierenmás gestion interna por parte de tu equipo",
 ]
 
 const ourSolutions = [
@@ -138,7 +138,7 @@ export function WhyDifferentSection() {
               Transforma tu Negocio con IA
             </h3>
             <p className="text-white/60 text-base sm:text-lg max-w-2xl mx-auto mb-6">
-              Descubre como podemos ayudarte a captar mas clientes, automatizar procesos y hacer crecer tu empresa.
+              Descubre como podemos ayudarte a captarmás clientes, automatizar procesos y hacer crecer tu empresa.
             </p>
             <Button
               size="lg"

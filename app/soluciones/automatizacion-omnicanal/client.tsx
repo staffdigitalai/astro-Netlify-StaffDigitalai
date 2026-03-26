@@ -63,12 +63,12 @@ const data: ServicePageData = {
     { 
       icon: Inbox, 
       title: "Bandeja Unificada Inteligente", 
-      description: "Todos tus mensajes de WhatsApp, email, Instagram, Facebook y mas en un solo lugar, con priorizacion automatica por IA segun urgencia y valor del cliente.",
+      description: "Todos tus mensajes de WhatsApp, email, Instagram, Facebook ymás en un solo lugar, con priorizacion automatica por IA segun urgencia y valor del cliente.",
       highlight: "Vista 360° del cliente"
     },
     { 
       icon: Mail, 
-      title: "Automatizacion de Email", 
+      title: "Automatización de Email", 
       description: "Respuestas automaticas personalizadas, seguimientos programados, campanas de nurturing y secuencias de onboarding gestionadas por IA.",
       highlight: "+50% tasa de apertura"
     },
@@ -85,8 +85,8 @@ const data: ServicePageData = {
     },
     { 
       icon: Link2, 
-      title: "Integraciones Nativas", 
-      description: "Conecta con mas de 100 herramientas incluyendo Zapier, Make, Google Sheets, Calendly y APIs personalizadas para automatizar cualquier proceso.",
+      title: "Integraciónes Nativas", 
+      description: "Conecta conmás de 100 herramientas incluyendo Zapier, Make, Google Sheets, Calendly y APIs personalizadas para automatizar cualquier proceso.",
     },
     { 
       icon: BarChart3, 
@@ -107,7 +107,7 @@ const data: ServicePageData = {
     { 
       icon: PiggyBank, 
       title: "Optimizacion de Recursos", 
-      description: "Un equipo pequeno puede gestionar el volumen de comunicaciones de uno grande gracias a la automatizacion." 
+      description: "Un equipo pequeno puede gestionar el volumen de comunicaciones de uno grande gracias a la automatización." 
     },
     { 
       icon: TrendingUp, 
@@ -140,7 +140,7 @@ const data: ServicePageData = {
         "Confirmacion automatica de citas por WhatsApp y email",
         "Seguimiento post-consulta con encuestas de satisfaccion",
         "Recordatorios de medicacion y proximas citas",
-        "Gestion de urgencias con priorizacion automatica",
+        "Gestión de urgencias con priorizacion automatica",
       ]
     },
     { 
@@ -148,7 +148,7 @@ const data: ServicePageData = {
       sectorIcon: ShoppingBag,
       useCases: [
         "Seguimiento de pedidos automatico en todos los canales",
-        "Gestion de devoluciones y reclamaciones centralizada",
+        "Gestión de devoluciones y reclamaciones centralizada",
         "Campanas de recuperacion de carritos abandonados",
         "Notificaciones de stock y ofertas personalizadas",
       ]
@@ -159,7 +159,7 @@ const data: ServicePageData = {
       useCases: [
         "Seguimiento automatico de leads de campanas",
         "Recordatorios de revisiones y mantenimientos",
-        "Gestion de citas de taller por multiples canales",
+        "Gestión de citas de taller por multiples canales",
         "Nurturing de prospectos hasta la compra",
       ]
     },
@@ -167,7 +167,7 @@ const data: ServicePageData = {
       sector: "Oficinas y Servicios", 
       sectorIcon: Building2,
       useCases: [
-        "Gestion de solicitudes de soporte centralizadas",
+        "Gestión de solicitudes de soporte centralizadas",
         "Asignacion automatica segun tipo de consulta",
         "Escalado inteligente de incidencias",
         "Informes de SLA y tiempos de respuesta",
@@ -178,7 +178,7 @@ const data: ServicePageData = {
       sectorIcon: UtensilsCrossed,
       useCases: [
         "Confirmacion de reservas por WhatsApp y email",
-        "Gestion de resenas y feedback post-visita",
+        "Gestión de resenas y feedback post-visita",
         "Comunicacion de eventos y promociones",
         "Atencion de pedidos delivery desde multiples apps",
       ]
@@ -187,7 +187,7 @@ const data: ServicePageData = {
       sector: "Servicios Tecnicos", 
       sectorIcon: Wrench,
       useCases: [
-        "Gestion de tickets de soporte unificada",
+        "Gestión de tickets de soporte unificada",
         "Asignacion automatica a tecnicos por zona/especialidad",
         "Seguimiento de reparaciones con actualizaciones",
         "Encuestas de satisfaccion post-servicio",
@@ -199,8 +199,8 @@ const data: ServicePageData = {
   stats: [
     { value: "-90%", label: "Tiempo respuesta" },
     { value: "+50%", label: "Productividad" },
-    { value: "100+", label: "Integraciones" },
-    { value: "24/7", label: "Automatizacion" },
+    { value: "100+", label: "Integraciónes" },
+    { value: "24/7", label: "Automatización" },
   ],
 
   // Related services
@@ -230,7 +230,7 @@ const data: ServicePageData = {
 }
 
 export function OmnichannelClient() {
-  const conversations = getConversationsForService("automatizacion-omnicanal")
+  const conversations = getConversationsForService("automatización-omnicanal")
 
   return (
     <div className="min-h-screen bg-black overflow-hidden">

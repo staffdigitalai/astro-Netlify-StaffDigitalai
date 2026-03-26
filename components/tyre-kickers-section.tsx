@@ -8,7 +8,7 @@ export function TyreKickersSection() {
     {
       title: "Respuestas Instantaneas",
       description:
-        "StaffDigital AI responde a mas de 50 preguntas comunes sobre ITV, kilometraje, permutas y precios al instante en tu web, telefono y canales sociales",
+        "StaffDigital AI responde amás de 50 preguntas comunes sobre ITV, kilometraje, permutas y precios al instante en tu web, telefono y canales sociales",
     },
     {
       title: "Cualifica Leads",

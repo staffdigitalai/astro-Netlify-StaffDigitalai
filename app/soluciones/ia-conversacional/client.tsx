@@ -50,7 +50,7 @@ const data: ServicePageData = {
   overviewPoints: [
     "Respuestas instantaneas y personalizadas basadas en el contexto del cliente y su historial",
     "Capacidad de aprender y mejorar continuamente con cada interaccion",
-    "Integracion perfecta con tus sistemas existentes (CRM, calendario, bases de datos)",
+    "Integración perfecta con tus sistemas existentes (CRM, calendario, bases de datos)",
     "Transferencia inteligente a agentes humanos cuando la situacion lo requiere",
   ],
 
@@ -71,7 +71,7 @@ const data: ServicePageData = {
     { 
       icon: Users, 
       title: "Cualificacion Automatica de Leads", 
-      description: "Sistema inteligente que cualifica prospectos haciendo las preguntas correctas, evaluando su interes y priorizando los leads mas calientes para tu equipo comercial.",
+      description: "Sistema inteligente que cualifica prospectos haciendo las preguntas correctas, evaluando su interes y priorizando los leadsmás calientes para tu equipo comercial.",
       highlight: "+60% leads cualificados"
     },
     { 
@@ -82,7 +82,7 @@ const data: ServicePageData = {
     { 
       icon: Globe, 
       title: "Soporte Multiidioma", 
-      description: "Atiende clientes en espanol, portugues, ingles, catalan y mas de 50 idiomas automaticamente, detectando el idioma del usuario y respondiendo en consecuencia.",
+      description: "Atiende clientes en espanol, portugues, ingles, catalan ymás de 50 idiomas automaticamente, detectando el idioma del usuario y respondiendo en consecuencia.",
     },
     { 
       icon: Bot, 
@@ -143,7 +143,7 @@ const data: ServicePageData = {
       sector: "Peluquerias y Estetica", 
       sectorIcon: Scissors,
       useCases: [
-        "Gestion de reservas por WhatsApp o web",
+        "Gestión de reservas por WhatsApp o web",
         "Sugerencia de servicios basada en historial",
         "Confirmacion y reprogramacion de citas",
         "Promocion de tratamientos complementarios",
@@ -155,7 +155,7 @@ const data: ServicePageData = {
       useCases: [
         "Reservas de mesa con preferencias (terraza, zona tranquila)",
         "Respuesta a preguntas sobre menu y alergenos",
-        "Gestion de pedidos a domicilio",
+        "Gestión de pedidos a domicilio",
         "Recordatorio de reservas y solicitud de resenas",
       ]
     },
@@ -165,7 +165,7 @@ const data: ServicePageData = {
       useCases: [
         "Cualificacion de compradores potenciales",
         "Programacion de pruebas de conduccion",
-        "Informacion sobre financiacion y stock",
+        "Información sobre financiacion y stock",
         "Seguimiento de leads de campanas",
       ]
     },
@@ -185,7 +185,7 @@ const data: ServicePageData = {
       useCases: [
         "Cualificacion de compradores (presupuesto, ubicacion)",
         "Programacion de visitas a propiedades",
-        "Informacion sobre inmuebles disponibles",
+        "Información sobre inmuebles disponibles",
         "Seguimiento automatico de interesados",
       ]
     },
@@ -204,7 +204,7 @@ const data: ServicePageData = {
     { 
       title: "IA Conversacional Omnicanal",
       description: "Integra todos tus canales en una bandeja unificada con respuestas automaticas.",
-      href: "/soluciones/automatizacion-omnicanal"
+      href: "/soluciones/automatización-omnicanal"
     },
     { 
       title: "Seguridad IA", 
@@ -220,7 +220,7 @@ const data: ServicePageData = {
 
   // CTA
   ctaTitle: "Listo para automatizar tu",
-  ctaAccent: "atencion al cliente?",
+  ctaAccent: "atención al cliente?",
   ctaDescription: "Descubre como la IA conversacional puede transformar la experiencia de tus clientes y aumentar tus ventas.",
   accentColor: "orange",
 }

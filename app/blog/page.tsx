@@ -8,7 +8,7 @@ import type { WPPost } from "@/lib/wordpress"
 
 export const metadata: Metadata = {
   title: "Blog",
-  description: "Articulos y guias sobre agentes IA con voz humana. WhatsApp, telefono, chat web y mas.",
+  description: "Artículos y guias sobre agentes IA con voz humana. WhatsApp, telefono, chat web y mas.",
 }
 
 // Revalidate every 5 minutes for ISR
@@ -58,7 +58,7 @@ export default async function BlogPage() {
               </span>
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed animate-fade-in-subheading">
-              Mantente al dia con las ultimas tendencias en automatizacion e inteligencia artificial para empresas.
+              Mantente al dia con las ultimas tendencias en automatización e inteligencia artificial para empresas.
             </p>
           </div>
 

@@ -20,7 +20,7 @@ const staticPages: { path: string; priority: number; changeFrequency: MetadataRo
   { path: "/soluciones", priority: 0.8, changeFrequency: "monthly" },
   { path: "/soluciones/whatsapp-ia-empresas", priority: 0.8, changeFrequency: "monthly" },
   { path: "/soluciones/ia-conversacional", priority: 0.8, changeFrequency: "monthly" },
-  { path: "/soluciones/automatizacion-omnicanal", priority: 0.8, changeFrequency: "monthly" },
+  { path: "/soluciones/automatización-omnicanal", priority: 0.8, changeFrequency: "monthly" },
   { path: "/soluciones/seguridad-ia", priority: 0.8, changeFrequency: "monthly" },
   { path: "/soluciones/home-staging-ia", priority: 0.8, changeFrequency: "monthly" },
   // Sectores

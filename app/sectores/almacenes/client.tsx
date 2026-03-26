@@ -25,11 +25,11 @@ const data: SectorPageData = {
     { icon: AlertTriangle, title: "Incidencias sin gestionar", description: "Retrasos, danos y errores de envio que se comunican tarde y generan insatisfaccion." },
     { icon: Package, title: "Control de inventario reactivo", description: "Falta de visibilidad en tiempo real del stock que causa roturas y sobrecostes." },
     { icon: FileText, title: "Documentacion dispersa", description: "Albaranes, facturas y ordenes repartidas entre email, telefono y papel." },
-    { icon: Truck, title: "Entregas descoordinadas", description: "Conductores sin informacion actualizada y clientes sin saber cuando recibiran su pedido." },
+    { icon: Truck, title: "Entregas descoordinadas", description: "Conductores sin información actualizada y clientes sin saber cuando recibiran su pedido." },
   ],
   features: [
     { icon: MapPin, title: "Tracking Automatico de Pedidos", description: "Los clientes reciben actualizaciones proactivas sobre el estado de sus envios por WhatsApp, SMS o email sin necesidad de llamar.", highlight: "-75% llamadas de seguimiento" },
-    { icon: MessageSquare, title: "Coordinacion IA con Proveedores", description: "Automatiza la comunicacion de ordenes de compra, confirmaciones de entrega y gestion de incidencias con proveedores." },
+    { icon: MessageSquare, title: "Coordinacion IA con Proveedores", description: "Automatiza la comunicacion de ordenes de compra, confirmaciones de entrega y gestión de incidencias con proveedores." },
     { icon: Bell, title: "Alertas Inteligentes", description: "Notificaciones automaticas de stock bajo, retrasos en entregas y anomalias operativas antes de que se conviertan en problemas." },
     { icon: BarChart3, title: "Dashboard Operativo", description: "Visibilidad total de pedidos, entregas, incidencias y rendimiento del equipo en un panel centralizado.", highlight: "+40% eficiencia operativa" },
   ],

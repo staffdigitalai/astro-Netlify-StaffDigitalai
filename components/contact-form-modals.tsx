@@ -375,7 +375,7 @@ function BudgetFormModal({
               >
                 <option value="" className="bg-slate-900">Selecciona un servicio</option>
                 <option value="ia-conversacional" className="bg-slate-900">IA Conversacional</option>
-                <option value="automatizacion-omnicanal" className="bg-slate-900">Automatizacion Omnicanal</option>
+                <option value="automatización-omnicanal" className="bg-slate-900">Automatización Omnicanal</option>
                 <option value="seguridad-ia" className="bg-slate-900">Seguridad IA</option>
                 <option value="home-staging-ia" className="bg-slate-900">Home Staging IA</option>
                 <option value="otro" className="bg-slate-900">Otro</option>
@@ -404,11 +404,11 @@ function BudgetFormModal({
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="budget-descripcion" className="text-white/80">
+            <Label htmlFor="budget-descripción" className="text-white/80">
               Descripcion del proyecto
             </Label>
             <Textarea
-              id="budget-descripcion"
+              id="budget-descripción"
               value={formData.descripcion}
               onChange={(e) =>
                 setFormData({ ...formData, descripcion: e.target.value })

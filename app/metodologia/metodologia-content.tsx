@@ -14,7 +14,7 @@ const pasos = [
     numero: "01",
     icon: Search,
     title: "Analisis y Diagnostico",
-    descripcion: "Estudiamos tu negocio en profundidad para identificar las oportunidades de automatizacion mas impactantes.",
+    descripcion: "Estudiamos tu negocio en profundidad para identificar las oportunidades de automatizaciónmás impactantes.",
     duracion: "1-2 semanas",
     entregables: ["Informe de diagnostico", "Mapa de procesos", "Plan de accion"],
   },
@@ -30,9 +30,9 @@ const pasos = [
     numero: "03",
     icon: Rocket,
     title: "Implementacion y Lanzamiento",
-    descripcion: "Desplegamos la solucion de forma gradual, asegurando una transicion suave y sin interrupciones.",
+    descripcion: "Desplegamos la solución de forma gradual, asegurando una transicion suave y sin interrupciones.",
     duracion: "1 semana",
-    entregables: ["Sistema en produccion", "Integraciones activas", "Formacion al equipo"],
+    entregables: ["Sistema en produccion", "Integraciónes activas", "Formacion al equipo"],
   },
   {
     numero: "04",
@@ -48,7 +48,7 @@ const pasos = [
     title: "Escalado y Evolucion",
     descripcion: "Expandimos la solucion a nuevos canales y procesos segun crece tu negocio.",
     duracion: "Segun necesidad",
-    entregables: ["Nuevas funcionalidades", "Mas canales", "Mayor automatizacion"],
+    entregables: ["Nuevas funcionalidades", "Mas canales", "Mayor automatización"],
   },
 ]
 
@@ -65,7 +65,7 @@ export function MetodologiaContent({ page }: MetodologiaContentProps) {
         </h1>
         <p className="text-lg md:text-xl text-muted-foreground text-pretty">
           {page?.acf?.subtitulo ||
-            "Un proceso probado en mas de 500 implementaciones exitosas. Desde el analisis inicial hasta la optimizacion continua."}
+            "Un proceso probado enmás de 500 implementaciones exitosas. Desde el analisis inicial hasta la optimizacion continua."}
         </p>
       </div>
 

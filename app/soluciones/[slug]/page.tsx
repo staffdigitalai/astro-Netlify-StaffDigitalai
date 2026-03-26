@@ -10,7 +10,7 @@ interface Props {
 // Static slugs that have their own dedicated pages (keep backwards compatibility)
 const STATIC_SERVICE_SLUGS = [
   "ia-conversacional",
-  "automatizacion-omnicanal",
+  "automatización-omnicanal",
   "seguridad-ia",
   "home-staging-ia",
 ]
@@ -69,20 +69,20 @@ function generateFallbackService(slug: string): WPService | null {
     "atencion-telefonica-ia": {
       id: 1,
       slug: "atencion-telefonica-ia",
-      title: { rendered: "Atencion Telefonica IA" },
+      title: { rendered: "Atención Telefónica IA" },
       excerpt: {
         rendered:
           "<p>Agentes de voz IA que responden llamadas 24/7, cualifican leads, gestionan citas y resuelven consultas automaticamente. Tu recepcion virtual inteligente.</p>",
       },
       content: {
         rendered: `
-          <h2>Que es la Atencion Telefonica IA?</h2>
+          <h2>Que es la Atención Telefónica IA?</h2>
           <p>Nuestros agentes de voz con inteligencia artificial responden llamadas entrantes de forma natural, cualifican clientes potenciales, gestionan reservas de citas y resuelven consultas frecuentes, todo automaticamente y disponible 24/7.</p>
           <h3>Caracteristicas principales</h3>
           <ul>
             <li>Voz natural con IA conversacional avanzada</li>
             <li>Cualificacion automatica de leads</li>
-            <li>Gestion de citas sincronizada con tu calendario</li>
+            <li>Gestión de citas sincronizada con tu calendario</li>
             <li>Transferencia inteligente a agentes humanos</li>
             <li>Soporte multiidioma</li>
           </ul>
@@ -100,16 +100,16 @@ function generateFallbackService(slug: string): WPService | null {
           },
           {
             titulo: "Cualificacion de Leads",
-            descripcion: "Identifica y prioriza los prospectos mas calientes automaticamente.",
+            descripcion: "Identifica y prioriza los prospectosmás calientes automaticamente.",
             icono: "Target",
           },
           {
             titulo: "Reduccion de Costes",
-            descripcion: "Ahorra hasta un 70% en costes de recepcion y atencion telefonica.",
+            descripcion: "Ahorra hasta un 70% en costes de recepcion y atención telefónica.",
             icono: "PiggyBank",
           },
           {
-            titulo: "Integracion Total",
+            titulo: "Integración Total",
             descripcion: "Conecta con tu CRM, calendario y sistemas existentes sin fricciones.",
             icono: "Plug",
           },
@@ -120,7 +120,7 @@ function generateFallbackService(slug: string): WPService | null {
             descripcion: "Conversaciones fluidas e indistinguibles de un agente humano.",
           },
           {
-            titulo: "Gestion de Citas",
+            titulo: "Gestión de Citas",
             descripcion: "Reserva, confirma y reprograma citas automaticamente.",
           },
           {
@@ -145,7 +145,7 @@ function generateFallbackService(slug: string): WPService | null {
     "analisis-datos-ia": {
       id: 6,
       slug: "analisis-datos-ia",
-      title: { rendered: "Analisis de Datos IA" },
+      title: { rendered: "Análisis de Datos IA" },
       excerpt: {
         rendered:
           "<p>Dashboards inteligentes, predicciones y reportes automaticos para tomar mejores decisiones de negocio.</p>",
@@ -173,10 +173,10 @@ function generateFallbackService(slug: string): WPService | null {
         ],
       },
     },
-    "automatizacion-documentos": {
+    "automatización-documentos": {
       id: 7,
-      slug: "automatizacion-documentos",
-      title: { rendered: "Automatizacion de Documentos" },
+      slug: "automatización-documentos",
+      title: { rendered: "Automatización de Documentos" },
       excerpt: {
         rendered:
           "<p>Extraccion de datos, clasificacion y procesamiento automatico de facturas, contratos y documentos.</p>",

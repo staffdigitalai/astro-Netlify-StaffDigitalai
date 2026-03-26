@@ -70,7 +70,7 @@ export const sectorConversations: Record<string, ConversationSimulation[]> = {
         { text: "Si, es Juan Garcia, matricula 1234 ABC", isUser: true, time: "09:16" },
         { text: "Perfecto Sr. Garcia. Veo que su BMW X3 tiene la revision de los 30.000km pendiente. Tenemos hueco el martes a las 9:00. Le viene bien?", isUser: false, time: "09:16" },
         { text: "Si, perfecto", isUser: true, time: "09:17" },
-        { text: "Reservado para el martes a las 9:00. Le enviamos recordatorio el dia antes. Algo mas en que pueda ayudarle?", isUser: false, time: "09:17" },
+        { text: "Reservado para el martes a las 9:00. Le enviamos recordatorio el dia antes. Algomás en que pueda ayudarle?", isUser: false, time: "09:17" },
       ],
     },
   ],
@@ -316,7 +316,7 @@ export const sectorConversations: Record<string, ConversationSimulation[]> = {
       headerStatus: "en linea",
       messages: [
         { text: "Hola, cuando empiezan las inscripciones para el proximo curso?", isUser: true, time: "10:30" },
-        { text: "Buenos dias! El periodo de inscripcion para el curso 2025-2026 abre el 1 de marzo. Desea que le reserve plaza o le enviemos informacion?", isUser: false, time: "10:30" },
+        { text: "Buenos dias! El periodo de inscripcion para el curso 2025-2026 abre el 1 de marzo. Desea que le reserve plaza o le enviemos información?", isUser: false, time: "10:30" },
         { text: "Me gustaria reservar plaza para mi hijo de 6 anos", isUser: true, time: "10:31" },
         { text: "Perfecto! Para 1o de Primaria. Necesitamos: formulario de preinscripcion + fotocopia DNI + certificado empadronamiento. Desea agendar visita al centro?", isUser: false, time: "10:31" },
         { text: "Si, cuando podria ser?", isUser: true, time: "10:32" },
@@ -387,8 +387,8 @@ export const serviceConversations: Record<string, ConversationSimulation[]> = {
       messages: [
         { text: "Hola, buenos dias. Llamaba para hacer una consulta", isUser: true, time: "22:30" },
         { text: "Buenas noches! Gracias por llamar a StaffDigital. Aunque estamos fuera de horario, puedo ayudarle. En que puedo asistirle?", isUser: false, time: "22:30" },
-        { text: "Queria informacion sobre sus servicios de IA", isUser: true, time: "22:31" },
-        { text: "Por supuesto! Ofrecemos agentes IA con voz humana, agentes de voz y automatizacion. Puedo enviarle informacion por email o agendar una llamada con un especialista para manana. Que prefiere?", isUser: false, time: "22:31" },
+        { text: "Queria información sobre sus servicios de IA", isUser: true, time: "22:31" },
+        { text: "Por supuesto! Ofrecemos agentes IA con voz humana, agentes de voz y automatización. Puedo enviarle información por email o agendar una llamada con un especialista para manana. Que prefiere?", isUser: false, time: "22:31" },
         { text: "Una llamada manana estaria bien", isUser: true, time: "22:32" },
         { text: "Perfecto! Tenemos hueco a las 10:00 o 16:00. Me indica su email y nombre para confirmar la cita?", isUser: false, time: "22:32" },
       ],
@@ -424,9 +424,9 @@ export const serviceConversations: Record<string, ConversationSimulation[]> = {
       headerName: "Asistente Virtual",
       headerStatus: "Activo",
       messages: [
-        { text: "Hola! Estoy buscando informacion sobre vuestros servicios", isUser: true, time: "15:20" },
-        { text: "Hola! Encantado de ayudarte. Que tipo de servicio te interesa: automatizacion de atencion al cliente, cualificacion de leads o gestion de citas?", isUser: false, time: "15:20" },
-        { text: "Atencion al cliente, tenemos muchas consultas repetitivas", isUser: true, time: "15:21" },
+        { text: "Hola! Estoy buscando información sobre vuestros servicios", isUser: true, time: "15:20" },
+        { text: "Hola! Encantado de ayudarte. Que tipo de servicio te interesa: automatización de atención al cliente, cualificacion de leads o gestión de citas?", isUser: false, time: "15:20" },
+        { text: "Atención al cliente, tenemos muchas consultas repetitivas", isUser: true, time: "15:21" },
         { text: "Entiendo! Con nuestro agente IA con voz humana puedes automatizar hasta el 80% de consultas frecuentes. Cuantas consultas recibis al mes aproximadamente?", isUser: false, time: "15:21" },
         { text: "Unas 500-600 al mes", isUser: true, time: "15:22" },
         { text: "Perfecto, con ese volumen el ROI es muy rapido. Puedo agendar una demo personalizada para mostrate casos similares. Te viene bien esta semana?", isUser: false, time: "15:22" },
@@ -440,12 +440,12 @@ export const serviceConversations: Record<string, ConversationSimulation[]> = {
   ],
 
   // AUTOMATIZACION OMNICANAL
-  "automatizacion-omnicanal": [
+  "automatización-omnicanal": [
     {
       id: "omnicanal-whatsapp",
       type: "whatsapp",
       title: "Bandeja Unificada",
-      description: "Gestion de multiples canales",
+      description: "Gestión de multiples canales",
       headerName: "Centro IA",
       headerStatus: "3 canales activos",
       messages: [
@@ -536,7 +536,7 @@ export const serviceConversations: Record<string, ConversationSimulation[]> = {
       messages: [
         { text: "Hola, vi el piso de la calle Mayor. Esta disponible?", isUser: true, time: "16:00" },
         { text: "Hola! Si, el piso de Calle Mayor 25 sigue disponible. Son 3 habitaciones, 95m2, reformado. Te interesa agendar visita?", isUser: false, time: "16:00" },
-        { text: "Si, pero me gustaria ver mas fotos primero", isUser: true, time: "16:01" },
+        { text: "Si, pero me gustaria vermás fotos primero", isUser: true, time: "16:01" },
         { text: "Claro! Te envio tour virtual 360 y galeria completa con el home staging. [Link] Tambien tenemos video drone del edificio y zona.", isUser: false, time: "16:01" },
         { text: "Wow, se ve muy bien! Podemos ver el sabado?", isUser: true, time: "16:02" },
         { text: "Perfecto! El sabado tenemos hueco a las 10:00 y 12:00. Cual prefieres? Necesito tu nombre y telefono para confirmar.", isUser: false, time: "16:02" },
@@ -559,7 +559,7 @@ export const serviceConversations: Record<string, ConversationSimulation[]> = {
         { text: "Cuales son las clausulas de riesgo?", isUser: true, time: "09:01" },
         { text: "1) Clausula 8.3: Renovacion automatica si no se notifica 60 dias antes. 2) Clausula 12.1: Exclusividad territorial limitada. 3) Clausula 15.2: Arbitraje obligatorio en Barcelona.", isUser: false, time: "09:01" },
         { text: "Comparalo con nuestro contrato estandar", isUser: true, time: "09:02" },
-        { text: "Comparando... Tu contrato estandar tiene clausulas mas favorables en arbitraje (Madrid) y penalizacion (3%). Recomiendo renegociar clausulas 12.1 y 15.2.", isUser: false, time: "09:02" },
+        { text: "Comparando... Tu contrato estandar tiene clausulasmás favorables en arbitraje (Madrid) y penalizacion (3%). Recomiendo renegociar clausulas 12.1 y 15.2.", isUser: false, time: "09:02" },
       ],
     },
   ],
@@ -729,7 +729,7 @@ export const whatsappSubPageConversations: Record<string, ConversationSimulation
     {
       id: "citas-whatsapp",
       type: "whatsapp",
-      title: "Gestion de Citas",
+      title: "Gestión de Citas",
       description: "Reservas automaticas",
       headerName: "Citas IA",
       headerStatus: "en linea",
@@ -757,8 +757,8 @@ export const whatsappSubPageConversations: Record<string, ConversationSimulation
       headerName: "Lead IA",
       headerStatus: "en linea",
       messages: [
-        { text: "Quiero informacion sobre sus servicios", isUser: true, time: "10:30" },
-        { text: "Encantado de ayudarle! Para darle la informacion mas relevante: cual es su sector de actividad?", isUser: false, time: "10:30" },
+        { text: "Quiero información sobre sus servicios", isUser: true, time: "10:30" },
+        { text: "Encantado de ayudarle! Para darle la informaciónmás relevante: cual es su sector de actividad?", isUser: false, time: "10:30" },
         { text: "Clinica dental", isUser: true, time: "10:31" },
         { text: "Perfecto! Tenemos solucion especializada para clinicas. Cuantos pacientes atienden aproximadamente al mes?", isUser: false, time: "10:31" },
         { text: "Unos 500", isUser: true, time: "10:32" },
@@ -771,7 +771,7 @@ export const whatsappSubPageConversations: Record<string, ConversationSimulation
       ],
     },
   ],
-  "integracion-crm-whatsapp": [
+  "integración-crm-whatsapp": [
     {
       id: "crm-whatsapp",
       type: "whatsapp",

@@ -206,7 +206,7 @@ export function CaseStudyClient({ caseStudy }: CaseStudyClientProps) {
               href="/casos-exito"
               className="inline-flex items-center gap-2 px-6 py-3 text-white/80 hover:text-white transition-colors"
             >
-              Ver mas casos de exito
+              Vermás casos de exito
               <ArrowRight size={16} />
             </Link>
           </div>

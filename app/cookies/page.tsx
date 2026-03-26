@@ -3,8 +3,8 @@ import { GlassmorphismNav } from "@/components/glassmorphism-nav"
 import { Footer } from "@/components/footer"
 
 export const metadata: Metadata = {
-  title: "Politica de Cookies",
-  description: "Informacion sobre el uso de cookies en staffdigital.ai conforme a la LSSI-CE y el RGPD.",
+  title: "Política de Cookies",
+  description: "Información sobre el uso de cookies en staffdigital.ai conforme a la LSSI-CE y el RGPD.",
 }
 
 export default function CookiesPage() {
@@ -16,7 +16,7 @@ export default function CookiesPage() {
       <GlassmorphismNav />
       <div className="relative z-10 pt-32 pb-20">
         <article className="max-w-3xl mx-auto px-6 sm:px-8 prose prose-invert prose-sm">
-          <h1 className="text-3xl font-bold mb-2">Politica de Cookies</h1>
+          <h1 className="text-3xl font-bold mb-2">Política de Cookies</h1>
           <p className="text-muted-foreground text-sm mb-8">Ultima actualizacion: 24 de marzo de 2026</p>
 
           <h2>1. Que son las Cookies</h2>
@@ -72,7 +72,7 @@ export default function CookiesPage() {
           </ul>
 
           <h2>4. Google Analytics y Google Tag Manager</h2>
-          <p>Utilizamos Google Analytics 4 a traves de Google Tag Manager (GTM-MDB34SRP) para recopilar informacion anonima sobre el uso del sitio web. Google Analytics almacena la informacion recopilada en sus servidores en EE.UU., amparado por el EU-US Data Privacy Framework.</p>
+          <p>Utilizamos Google Analytics 4 a traves de Google Tag Manager (GTM-MDB34SRP) para recopilar información anonima sobre el uso del sitio web. Google Analytics almacena la información recopilada en sus servidores en EE.UU., amparado por el EU-US Data Privacy Framework.</p>
           <p>Puedes desactivar Google Analytics instalando el <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer" className="text-primary">complemento de inhabilitacion de Google Analytics</a>.</p>
 
           <h2>5. Base Legal</h2>

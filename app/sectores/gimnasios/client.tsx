@@ -43,7 +43,7 @@ const data: SectorPageData = {
   ],
   ctaTitle: "Listo para hacer crecer tu",
   ctaAccent: "gimnasio con IA?",
-  ctaDescription: "Unete a centros deportivos que ya convierten mas leads y retienen mas socios con inteligencia artificial.",
+  ctaDescription: "Unete a centros deportivos que ya conviertenmás leads y retienenmás socios con inteligencia artificial.",
 }
 
 export function GimnasiosClient() {
