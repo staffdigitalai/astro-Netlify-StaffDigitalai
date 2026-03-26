@@ -3,13 +3,13 @@ import { getSectorPages, WPSectorPage, stripHtml } from "@/lib/wordpress"
 import { SectorsListClient } from "./sectors-list-client"
 
 export const metadata: Metadata = {
-  title: "Sectores | IA para tu Industria | StaffDigital AI",
+  title: "Sectores | Agentes IA por Industria",
   description:
-    "Soluciones de inteligencia artificial especializadas para clinicas, restaurantes, inmobiliarias, retail, gimnasios y mas. Descubre como la IA puede transformar tu sector.",
+    "Agentes IA con voz humana especializados por sector: clinicas, concesionarios, restaurantes, inmobiliarias y mas.",
   openGraph: {
-    title: "Sectores | IA para tu Industria | StaffDigital AI",
+    title: "Sectores | Agentes IA por Industria | StaffDigital AI",
     description:
-      "Soluciones de IA especializadas para cada industria. Encuentra la solucion perfecta para tu sector.",
+      "Agentes IA con voz humana especializados para cada industria. Encuentra la solucion perfecta para tu sector.",
   },
 }
 

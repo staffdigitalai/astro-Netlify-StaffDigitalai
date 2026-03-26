@@ -20,7 +20,7 @@ const fallbackPlans = [
     caracteristicas: [
       "1 agente de IA conversacional",
       "500 conversaciones/mes",
-      "Chatbot web integrado",
+      "Agente IA web integrado",
       "Soporte por email",
       "Integraciones basicas",
       "Dashboard de analiticas",
@@ -38,7 +38,7 @@ const fallbackPlans = [
     caracteristicas: [
       "3 agentes de IA",
       "2.000 conversaciones/mes",
-      "Chatbot + WhatsApp + Telefono",
+      "Agente IA + WhatsApp + Telefono",
       "Soporte prioritario 24/7",
       "Integraciones avanzadas (CRM)",
       "Analiticas avanzadas",

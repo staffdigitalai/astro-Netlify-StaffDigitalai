@@ -55,7 +55,7 @@ const sampleCases: WPCaseStudy[] = [
       <h2>La Solucion</h2>
       <p>Desarrollamos un sistema de reservas automatizado que incluye:</p>
       <ul>
-        <li>Chatbot para agendar citas 24/7 via WhatsApp y web</li>
+        <li>Agente IA para agendar citas 24/7 via WhatsApp y web</li>
         <li>Sistema de recordatorios automaticos via SMS y email</li>
         <li>Gestion inteligente de lista de espera</li>
         <li>Dashboard de analitica para optimizar horarios</li>
@@ -348,7 +348,7 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
               Quieres resultados similares?
             </h3>
             <p className="text-muted-foreground mb-6 max-w-xl mx-auto">
-              Descubre como StaffDigital AI puede transformar tu empresa con soluciones de automatizacion inteligente personalizadas para tu sector.
+              Descubre como StaffDigital AI puede transformar tu empresa con agentes IA con voz humana personalizados para tu sector.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Button asChild size="lg" className="rounded-full group">

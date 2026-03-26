@@ -32,7 +32,7 @@ const fallbackFaqs: WPFaq[] = [
     title: { rendered: "Que es StaffDigital AI?" },
     acf: {
       pregunta: "Que es StaffDigital AI y como puede ayudar a mi negocio?",
-      respuesta: "StaffDigital AI es una plataforma de inteligencia artificial que automatiza procesos clave de tu negocio, incluyendo atencion telefonica, chatbots, gestion de citas y mas. Ayudamos a empresas a reducir costes, mejorar la atencion al cliente y escalar sus operaciones sin aumentar personal.",
+      respuesta: "StaffDigital AI es una plataforma de inteligencia artificial que automatiza procesos clave de tu negocio, incluyendo atencion telefonica, agentes IA con voz humana, gestion de citas y mas. Ayudamos a empresas a reducir costes, mejorar la atencion al cliente y escalar sus operaciones sin aumentar personal.",
       sector: "General",
     },
   },
@@ -52,7 +52,7 @@ const fallbackFaqs: WPFaq[] = [
     title: { rendered: "Tiempo de implementacion" },
     acf: {
       pregunta: "Cuanto tiempo tarda en implementarse una solucion de IA?",
-      respuesta: "La implementacion tipica tarda entre 2 y 4 semanas, dependiendo de la complejidad del proyecto y las integraciones necesarias. Proyectos mas simples como chatbots basicos pueden estar operativos en pocos dias.",
+      respuesta: "La implementacion tipica tarda entre 2 y 4 semanas, dependiendo de la complejidad del proyecto y las integraciones necesarias. Proyectos mas simples como agentes IA basicos pueden estar operativos en pocos dias.",
       sector: "General",
     },
   },

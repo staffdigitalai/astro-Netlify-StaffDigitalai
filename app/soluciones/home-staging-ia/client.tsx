@@ -47,7 +47,7 @@ const data: ServicePageData = {
     "Preparacion integral: limpieza profesional, pequenas reparaciones y staging fisico o virtual",
     "Contenido visual premium: fotografia HDR, tours 360°, video walkthrough y fotos aereas",
     "Marketing digital: landing pages exclusivas y publicacion en portales optimizada",
-    "Atencion IA 24/7: chatbots y agentes telefonicos que cualifican y reservan visitas automaticamente",
+    "Atencion IA 24/7: agentes IA con voz humana que cualifican y reservan visitas automaticamente",
   ],
 
   // Services list
@@ -72,7 +72,7 @@ const data: ServicePageData = {
     { 
       icon: MessageSquare, 
       title: "Agentes IA para Compradores", 
-      description: "Chatbot y agente telefonico IA que responden consultas 24/7, cualifican compradores segun presupuesto y urgencia, y reservan visitas automaticamente.",
+      description: "Agente IA con voz humana que responde consultas 24/7, cualifica compradores segun presupuesto y urgencia, y reserva visitas automaticamente.",
       highlight: "24/7 atencion compradores"
     },
     { 
@@ -161,7 +161,7 @@ const data: ServicePageData = {
       useCases: [
         "Fotos profesionales para Airbnb, Booking, etc.",
         "Landing page propia para reservas directas",
-        "Chatbot para consultas de huespedes potenciales",
+        "Agente IA para consultas de huespedes potenciales",
         "Automatizacion de check-in/check-out virtual",
       ]
     },
@@ -199,11 +199,11 @@ const data: ServicePageData = {
   relatedServices: [
     { 
       title: "IA Conversacional", 
-      description: "Chatbots y agentes de voz inteligentes para atencion 24/7.",
+      description: "Agentes IA con voz humana para atencion 24/7.",
       href: "/soluciones/ia-conversacional"
     },
     { 
-      title: "Automatizacion Omnicanal", 
+      title: "IA Conversacional Omnicanal",
       description: "Unifica todos tus canales en una bandeja inteligente.",
       href: "/soluciones/automatizacion-omnicanal"
     },

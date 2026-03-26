@@ -4,8 +4,8 @@ import { Footer } from "@/components/footer"
 import { DynamicFaqSection } from "@/components/dynamic-faq-section"
 
 export const metadata: Metadata = {
-  title: "Preguntas Frecuentes - StaffDigital AI",
-  description: "Encuentra respuestas a las preguntas mas comunes sobre nuestras soluciones de automatizacion con IA.",
+  title: "Preguntas Frecuentes",
+  description: "Preguntas frecuentes sobre agentes IA con voz humana. Precios, integracion, seguridad y mas.",
 }
 
 export default function FaqPage() {

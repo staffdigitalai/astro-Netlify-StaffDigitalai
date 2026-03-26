@@ -7,8 +7,8 @@ import { getCategories, getContentTypes, getPosts } from "@/lib/wordpress"
 import type { WPPost } from "@/lib/wordpress"
 
 export const metadata: Metadata = {
-  title: "Blog - StaffDigital AI",
-  description: "Articulos, guias, comparativas y recursos sobre automatizacion con IA para empresas.",
+  title: "Blog",
+  description: "Articulos y guias sobre agentes IA con voz humana. WhatsApp, telefono, chat web y mas.",
 }
 
 // Revalidate every 5 minutes for ISR

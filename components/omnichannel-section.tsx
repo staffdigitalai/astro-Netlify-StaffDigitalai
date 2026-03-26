@@ -12,7 +12,7 @@ const channels = [
   },
   {
     icon: Globe,
-    name: "Chatbot Web",
+    name: "Agente IA Web",
     color: "from-blue-500 to-blue-600",
     description: "Widget personalizado en tu web",
   },

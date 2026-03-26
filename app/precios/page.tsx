@@ -17,15 +17,15 @@ export async function generateMetadata(): Promise<Metadata> {
   }
 
   return {
-    title: page?.acf?.meta_title || "Precios - StaffDigital AI",
+    title: page?.acf?.meta_title || "Precios - Agentes IA con Voz Humana",
     description:
       page?.acf?.meta_description ||
-      "Planes y precios de StaffDigital AI. Soluciones de IA para automatizar tu negocio desde 299 EUR/mes.",
+      "Agentes IA con voz humana desde 250 EUR/mes. Planes Essential, Professional y Enterprise. Piloto 30 dias sin compromiso.",
     openGraph: {
-      title: page?.acf?.meta_title || "Precios - StaffDigital AI",
+      title: page?.acf?.meta_title || "Precios - Agentes IA con Voz Humana | StaffDigital AI",
       description:
         page?.acf?.meta_description ||
-        "Descubre nuestros planes y elige el que mejor se adapte a tu negocio.",
+        "Agentes IA con voz humana desde 250 EUR/mes. Planes flexibles para cada negocio.",
       type: "website",
     },
   }

@@ -6,7 +6,7 @@ import { StaffDigitalLogoDark } from "@/components/staffdigital-logo"
 const solucionesLinks = [
   { title: "WhatsApp IA Empresas", href: "/soluciones/whatsapp-ia-empresas" },
   { title: "IA Conversacional", href: "/soluciones/ia-conversacional" },
-  { title: "Automatización Omnicanal", href: "/soluciones/automatizacion-omnicanal" },
+  { title: "IA Conversacional Omnicanal", href: "/soluciones/automatizacion-omnicanal" },
   { title: "Seguridad IA", href: "/soluciones/seguridad-ia" },
   { title: "Home Staging IA", href: "/soluciones/home-staging-ia" },
   { title: "Ver todas las soluciones", href: "/soluciones" },
@@ -51,7 +51,7 @@ export function Footer() {
           <div className="space-y-5 lg:col-span-1">
             <StaffDigitalLogoDark variant="full" size="md" />
             <p className="text-white/50 text-sm leading-relaxed">
-              Automatización IA para empresas. Chat inteligente, flujos de trabajo y automatizaciones.
+              Agentes IA con Voz Humana para empresas. Chat inteligente, flujos de trabajo y automatizaciones.
             </p>
             <div className="space-y-3">
               <div className="flex items-start gap-2">

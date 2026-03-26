@@ -36,17 +36,17 @@ import {
 
 const data: ServicePageData = {
   serviceName: "IA Conversacional",
-  badge: "Chatbots y Agentes de Voz Inteligentes",
+  badge: "Agentes IA con Voz Humana",
   headline: "Atencion al Cliente",
   headlineAccent: "24/7 con IA",
-  subheadline: "Chatbots inteligentes, asistentes virtuales y agentes de voz que cualifican leads, reservan citas y responden consultas automaticamente.",
+  subheadline: "Agentes IA con voz humana, asistentes virtuales y agentes de voz que cualifican leads, reservan citas y responden consultas automaticamente.",
   valueStatement: "Empresas con IA conversacional aumentan",
   valueHighlight: "+40%",
   valueSuffix: "la conversion de leads",
 
   // Overview section
   overviewTitle: "Que es la IA Conversacional?",
-  overviewDescription: "La IA Conversacional combina procesamiento de lenguaje natural, aprendizaje automatico y reconocimiento de voz para crear asistentes virtuales que mantienen conversaciones naturales con tus clientes. Desde chatbots en tu web hasta agentes telefonicos que responden llamadas, esta tecnologia transforma como las empresas interactuan con sus clientes.",
+  overviewDescription: "La IA Conversacional combina procesamiento de lenguaje natural, aprendizaje automatico y reconocimiento de voz para crear asistentes virtuales que mantienen conversaciones naturales con tus clientes. Desde agentes IA en tu web hasta agentes telefonicos que responden llamadas, esta tecnologia transforma como las empresas interactuan con sus clientes.",
   overviewPoints: [
     "Respuestas instantaneas y personalizadas basadas en el contexto del cliente y su historial",
     "Capacidad de aprender y mejorar continuamente con cada interaccion",
@@ -58,8 +58,8 @@ const data: ServicePageData = {
   services: [
     { 
       icon: MessageSquare, 
-      title: "Chatbots Inteligentes 24/7", 
-      description: "Chatbots con IA avanzada que entienden el contexto, responden consultas complejas y guian a los visitantes hacia la conversion. Personalizados para tu sector y marca.",
+      title: "Agentes IA con Voz Humana 24/7",
+      description: "Agentes IA con voz humana que entienden el contexto, responden consultas complejas y guian a los visitantes hacia la conversion. Personalizados para tu sector y marca.",
       highlight: "Respuesta en menos de 3 segundos"
     },
     { 
@@ -202,7 +202,7 @@ const data: ServicePageData = {
   // Related services
   relatedServices: [
     { 
-      title: "Automatizacion Omnicanal", 
+      title: "IA Conversacional Omnicanal",
       description: "Integra todos tus canales en una bandeja unificada con respuestas automaticas.",
       href: "/soluciones/automatizacion-omnicanal"
     },
@@ -241,8 +241,8 @@ export function ConversationalAIClient() {
           </ServicePageTemplate>
           {conversations.length > 0 && (
             <ConversationSimulator
-              title="Tu Chatbot en Accion"
-              subtitle="Mira como nuestros chatbots cualifican leads y responden consultas automaticamente."
+              title="Tu Agente IA en Accion"
+              subtitle="Mira como nuestros agentes IA cualifican leads y responden consultas automaticamente."
               badge="Simulacion Chat Web"
               badgeIcon="chat"
               simulations={conversations}

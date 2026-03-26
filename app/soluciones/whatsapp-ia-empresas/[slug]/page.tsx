@@ -19,7 +19,7 @@ const pageMetadata: Record<string, { title: string; description: string }> = {
     description: "Responde mensajes de voz con IA en WhatsApp. Transcripcion automatica, respuestas por audio naturales y conversaciones fluidas 24/7.",
   },
   "atencion-cliente-whatsapp": {
-    title: "Atencion al Cliente WhatsApp 24/7 - Chatbot IA | StaffDigital",
+    title: "Atencion al Cliente WhatsApp 24/7 - Agente IA | StaffDigital",
     description: "Automatiza tu atencion al cliente en WhatsApp. Resuelve consultas, gestiona incidencias y da soporte instantaneo sin esperas.",
   },
   "agente-ventas-whatsapp": {

@@ -16,10 +16,10 @@ export async function generateMetadata(): Promise<Metadata> {
   }
 
   return {
-    title: page?.acf?.meta_title || "Nosotros - StaffDigital AI",
+    title: page?.acf?.meta_title || "Nosotros",
     description:
       page?.acf?.meta_description ||
-      "Conoce al equipo detras de StaffDigital AI. Expertos en inteligencia artificial aplicada a la automatizacion empresarial.",
+      "Especialistas en agentes IA con voz humana. Equipo, mision y valores de StaffDigital AI.",
   }
 }
 

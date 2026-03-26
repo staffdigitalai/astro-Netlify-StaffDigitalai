@@ -6,13 +6,13 @@ import { Button } from "@/components/ui/button"
 
 const othersProblems = [
   "Implementan herramientas aisladas sin una estrategia global",
-  "Se centran solo en chatbots o automatizaciones basicas",
+  "Se centran solo en agentes IA basicos o automatizaciones simples",
   "No integran atencion, automatizacion, seguridad y presentacion visual",
   "Requieren mas gestion interna por parte de tu equipo",
 ]
 
 const ourSolutions = [
-  "Unimos IA conversacional, automatizacion omnicanal, seguridad inteligente y Home Staging AI",
+  "Unimos IA conversacional, IA conversacional omnicanal, seguridad inteligente y Home Staging AI",
   "Disenamos una estrategia adaptada a tu negocio y canales",
   "Integramos las soluciones con tus procesos, CRM y operativa",
   "Gestionamos la implementacion, optimizacion y evolucion contigo",

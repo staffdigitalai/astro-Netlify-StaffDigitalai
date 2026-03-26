@@ -18,7 +18,7 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: "WhatsApp IA para Empresas - Agentes Inteligentes 24/7 | StaffDigital",
     description: "Automatiza tu atencion al cliente en WhatsApp con IA. Agentes de voz, ventas, citas y soporte 24/7. +90% penetracion WhatsApp en Espana. Respuesta <5s.",
-    keywords: ["whatsapp ia", "whatsapp business ia", "chatbot whatsapp", "agente whatsapp", "automatizacion whatsapp"],
+    keywords: ["whatsapp ia", "whatsapp business ia", "agente ia whatsapp", "agente whatsapp", "agente voz whatsapp"],
   }
 }
 

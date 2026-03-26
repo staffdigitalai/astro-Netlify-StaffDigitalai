@@ -23,11 +23,11 @@ const caveat = Caveat({
 
 export const metadata: Metadata = {
   title: {
-    default: "StaffDigital AI - Automatización IA para Empresas",
+    default: "StaffDigital AI - Agentes IA con Voz Humana",
     template: "%s | StaffDigital AI",
   },
   description:
-    "Transforma tu negocio con soluciones inteligentes de automatización con IA. Chatbots, agentes de voz, automatización omnicanal y seguridad IA para PYMEs.",
+    "Agentes IA con voz humana para atender llamadas, WhatsApp y chat web. Tus clientes reciben trato humano 24/7. Solicita demo.",
   metadataBase: new URL("https://www.staffdigital.ai"),
   alternates: {
     canonical: "/",
@@ -37,23 +37,23 @@ export const metadata: Metadata = {
     locale: "es_ES",
     url: "https://www.staffdigital.ai",
     siteName: "StaffDigital AI",
-    title: "StaffDigital AI - Automatización IA para Empresas",
+    title: "StaffDigital AI - Agentes IA con Voz Humana para Empresas",
     description:
-      "Chatbots inteligentes, agentes de voz, automatización omnicanal y seguridad IA. Soluciones de IA para PYMEs que operan 24/7.",
+      "Agentes IA con voz humana para llamadas, WhatsApp y chat web. Atencion personalizada 24/7 para tu empresa.",
     images: [
       {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "StaffDigital AI - Automatización IA para Empresas",
+        alt: "StaffDigital AI - Agentes IA con Voz Humana",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "StaffDigital AI - Automatización IA para Empresas",
+    title: "StaffDigital AI - Agentes IA con Voz Humana",
     description:
-      "Chatbots inteligentes, agentes de voz, automatización omnicanal y seguridad IA para PYMEs.",
+      "Agentes IA con voz humana para llamadas, WhatsApp y chat web. Atencion personalizada 24/7.",
     images: ["/og-image.jpg"],
   },
   robots: {
@@ -120,7 +120,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               url: "https://www.staffdigital.ai",
               logo: "https://www.staffdigital.ai/logo.png",
               description:
-                "Soluciones de automatización con IA para empresas. Chatbots, agentes de voz, automatización omnicanal y seguridad IA.",
+                "Agentes IA con voz humana para empresas. Atencion telefonica, WhatsApp, chat web y consultoria de seguridad IA.",
               address: [
                 {
                   "@type": "PostalAddress",

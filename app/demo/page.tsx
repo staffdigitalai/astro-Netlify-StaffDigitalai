@@ -16,10 +16,10 @@ export async function generateMetadata(): Promise<Metadata> {
   }
 
   return {
-    title: page?.acf?.meta_title || "Solicitar Demo - StaffDigital AI",
+    title: page?.acf?.meta_title || "Demo Gratuita - Agentes IA con Voz Humana",
     description:
       page?.acf?.meta_description ||
-      "Solicita una demo gratuita de StaffDigital AI. Descubre como la IA puede transformar tu negocio en 30 minutos.",
+      "Escucha la diferencia. Demo gratuita de agentes IA con voz humana. Voz masculina y femenina disponible.",
   }
 }
 

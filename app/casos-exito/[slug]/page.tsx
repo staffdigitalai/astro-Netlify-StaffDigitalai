@@ -66,7 +66,7 @@ const fallbackCaseStudies: Record<string, WPCaseStudy> = {
         <h2>La Solucion</h2>
         <p>Implementamos un sistema de IA conversacional multicanal que integra WhatsApp, email y chat web. El sistema incluye:</p>
         <ul>
-          <li>Chatbot inteligente con NLP avanzado</li>
+          <li>Agente IA con voz humana con NLP avanzado</li>
           <li>Clasificacion automatica de consultas</li>
           <li>Escalado inteligente a agentes humanos</li>
           <li>Dashboard de metricas en tiempo real</li>

@@ -364,7 +364,7 @@ const features = [
   {
     title: "Soporte Chat IA 24/7",
     description:
-      "Chatbots inteligentes que gestionan consultas de clientes, responden preguntas y captan leads en tu web y canales sociales.",
+      "Agentes IA con voz humana que gestionan consultas de clientes, responden preguntas y captan leads en tu web y canales sociales.",
     demo: AnimatedChatDemo,
     size: "large",
   },

@@ -5,7 +5,7 @@ import { ServicesListClient } from "./services-list-client"
 export const metadata: Metadata = {
   title: "Soluciones de IA para Empresas | StaffDigital AI",
   description:
-    "Descubre nuestras soluciones de inteligencia artificial: atencion telefonica IA, chatbots, automatizacion omnicanal, seguridad y mas. Transforma tu negocio con IA.",
+    "Descubre nuestras soluciones de inteligencia artificial: atencion telefonica IA, agentes IA con voz humana, IA conversacional omnicanal, seguridad y mas. Transforma tu negocio con IA.",
   openGraph: {
     title: "Soluciones de IA para Empresas | StaffDigital AI",
     description:
@@ -42,14 +42,14 @@ const fallbackServices: WPService[] = [
     title: { rendered: "IA Conversacional" },
     excerpt: {
       rendered:
-        "<p>Chatbots inteligentes y asistentes virtuales que atienden a tus clientes en cualquier canal.</p>",
+        "<p>Agentes IA con voz humana y asistentes virtuales que atienden a tus clientes en cualquier canal.</p>",
     },
     content: { rendered: "" },
     featured_media: 0,
     menu_order: 2,
     acf: {
       icono: "MessageSquare",
-      subtitulo: "Chatbots y asistentes virtuales",
+      subtitulo: "Agentes IA y asistentes virtuales",
       cta_texto: "Ver Mas",
       cta_link: "/soluciones/ia-conversacional",
     },
@@ -58,7 +58,7 @@ const fallbackServices: WPService[] = [
     id: 3,
     date: new Date().toISOString(),
     slug: "automatizacion-omnicanal",
-    title: { rendered: "Automatizacion Omnicanal" },
+    title: { rendered: "IA Conversacional Omnicanal" },
     excerpt: {
       rendered:
         "<p>Unifica WhatsApp, email, redes sociales y mas en una bandeja inteligente con respuestas automaticas.</p>",

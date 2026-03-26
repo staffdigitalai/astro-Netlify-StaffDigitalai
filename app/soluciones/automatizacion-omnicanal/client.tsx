@@ -39,18 +39,18 @@ import {
 } from "lucide-react"
 
 const data: ServicePageData = {
-  serviceName: "Automatizacion Omnicanal",
+  serviceName: "IA Conversacional Omnicanal",
   badge: "Bandeja Unificada y Workflows Inteligentes",
   headline: "Todos tus Canales,",
   headlineAccent: "Una Sola Plataforma",
   subheadline: "Unifica WhatsApp, email, redes sociales y telefono en una bandeja inteligente con respuestas automaticas y workflows personalizados.",
   valueStatement: "Reduce el tiempo de respuesta hasta",
   valueHighlight: "90%",
-  valueSuffix: "con automatizacion omnicanal",
+  valueSuffix: "con IA conversacional omnicanal",
 
   // Overview section
-  overviewTitle: "Que es la Automatizacion Omnicanal?",
-  overviewDescription: "La automatizacion omnicanal centraliza todas las comunicaciones de tu negocio en una unica plataforma inteligente. Desde WhatsApp hasta email, desde Instagram hasta llamadas telefonicas, todos los mensajes llegan a un mismo lugar donde la IA los prioriza, responde automaticamente o los asigna al equipo adecuado.",
+  overviewTitle: "Que es la IA Conversacional Omnicanal?",
+  overviewDescription: "La IA conversacional omnicanal centraliza todas las comunicaciones de tu negocio en una unica plataforma inteligente. Desde WhatsApp hasta email, desde Instagram hasta llamadas telefonicas, todos los mensajes llegan a un mismo lugar donde la IA los prioriza, responde automaticamente o los asigna al equipo adecuado.",
   overviewPoints: [
     "Bandeja unica que consolida WhatsApp, email, Instagram, Facebook, Telegram y telefono",
     "Respuestas automaticas inteligentes que mantienen el contexto de cada conversacion",
@@ -97,7 +97,7 @@ const data: ServicePageData = {
 
   // Benefits for SMEs
   benefitsTitle: "Beneficios para PYMEs",
-  benefitsSubtitle: "Como la automatizacion omnicanal transforma las operaciones de tu negocio",
+  benefitsSubtitle: "Como la IA conversacional omnicanal transforma las operaciones de tu negocio",
   benefits: [
     { 
       icon: Clock, 
@@ -207,7 +207,7 @@ const data: ServicePageData = {
   relatedServices: [
     { 
       title: "IA Conversacional", 
-      description: "Chatbots y agentes de voz inteligentes para atencion 24/7.",
+      description: "Agentes IA con voz humana para atencion 24/7.",
       href: "/soluciones/ia-conversacional"
     },
     { 
@@ -225,7 +225,7 @@ const data: ServicePageData = {
   // CTA
   ctaTitle: "Listo para unificar",
   ctaAccent: "todos tus canales?",
-  ctaDescription: "Descubre como la automatizacion omnicanal puede simplificar tus operaciones y mejorar la experiencia del cliente.",
+  ctaDescription: "Descubre como la IA conversacional omnicanal puede simplificar tus operaciones y mejorar la experiencia del cliente.",
   accentColor: "blue",
 }
 

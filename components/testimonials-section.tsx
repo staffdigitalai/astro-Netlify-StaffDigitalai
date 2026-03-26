@@ -57,7 +57,7 @@ export function TestimonialsSection() {
       role: "Responsable de Experiencia del Cliente",
     },
     {
-      text: "Nuestra tienda vio un aumento del 60% en leads cualificados. El chatbot gestiona las consultas de productos perfectamente mientras nos centramos en los clientes presenciales.",
+      text: "Nuestra tienda vio un aumento del 60% en leads cualificados. El agente IA gestiona las consultas de productos perfectamente mientras nos centramos en los clientes presenciales.",
       name: "Laura Gomez",
       role: "Directora de Tienda",
     },
