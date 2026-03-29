@@ -46,6 +46,13 @@ const staticPages: { path: string; priority: number; changeFrequency: MetadataRo
   { path: "/sectores/educacion", priority: 0.7, changeFrequency: "monthly" },
   { path: "/sectores/gimnasios", priority: 0.7, changeFrequency: "monthly" },
   { path: "/sectores/dentistas", priority: 0.7, changeFrequency: "monthly" },
+  { path: "/sectores/centros-belleza", priority: 0.7, changeFrequency: "monthly" },
+  { path: "/sectores/turismo-hoteleria", priority: 0.7, changeFrequency: "monthly" },
+  { path: "/sectores/saas-startups", priority: 0.7, changeFrequency: "monthly" },
+  { path: "/sectores/ecommerce", priority: 0.7, changeFrequency: "monthly" },
+  { path: "/sectores/logistica", priority: 0.7, changeFrequency: "monthly" },
+  { path: "/sectores/lead-generation-pymes", priority: 0.7, changeFrequency: "monthly" },
+  { path: "/sectores/crm-automation", priority: 0.7, changeFrequency: "monthly" },
 ]
 
 async function fetchWPSlugs(type: "posts" | "cases"): Promise<{ slug: string; modified: string }[]> {
