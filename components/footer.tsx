@@ -22,15 +22,17 @@ const productLinks = [
 
 const empresaLinks = [
   { title: "Sobre Nosotros", href: "/nosotros" },
-  { title: "Solicitar Demo", href: "/demo" },
-  { title: "FAQ", href: "/faq" },
+  { title: "Contacto", href: "/contacto" },
+  { title: "Partners", href: "/partners" },
   { title: "Metodología", href: "/metodologia" },
+  { title: "FAQ", href: "/faq" },
 ]
 
 const recursosLinks = [
   { title: "Blog", href: "/blog" },
   { title: "Casos de Éxito", href: "/casos" },
-  { title: "Guías y Recursos", href: "/blog" },
+  { title: "Demo Voz Humana", href: "/demo-voice" },
+  { title: "Solicitar Demo", href: "/demo" },
   { title: "Sectores", href: "/sectores" },
 ]
 

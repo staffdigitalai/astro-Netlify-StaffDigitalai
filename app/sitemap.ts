@@ -16,6 +16,9 @@ const staticPages: { path: string; priority: number; changeFrequency: MetadataRo
   { path: "/integraciones", priority: 0.7, changeFrequency: "monthly" },
   { path: "/metodologia", priority: 0.7, changeFrequency: "monthly" },
   { path: "/seguridad-compliance", priority: 0.7, changeFrequency: "monthly" },
+  { path: "/contacto", priority: 0.8, changeFrequency: "monthly" },
+  { path: "/partners", priority: 0.6, changeFrequency: "monthly" },
+  { path: "/demo-voice", priority: 0.8, changeFrequency: "monthly" },
   // Soluciones
   { path: "/soluciones", priority: 0.8, changeFrequency: "monthly" },
   { path: "/soluciones/whatsapp-ia-empresas", priority: 0.8, changeFrequency: "monthly" },
