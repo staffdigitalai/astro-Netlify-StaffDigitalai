@@ -18,13 +18,18 @@ export function HeroBlock() {
         </div>
 
         {/* H1 */}
-        <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-balance mb-4 animate-fade-in-heading">
+        <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-balance mb-2 animate-fade-in-heading">
           <span className="text-foreground">No vendemos software.</span>
           <br />
           <span className="bg-gradient-to-r from-white via-blue-200 to-white bg-clip-text text-transparent mt-2 inline-block">
             Somos tu equipo digital.
           </span>
         </h1>
+
+        {/* Tagline */}
+        <p className="text-sm sm:text-base text-white/40 mb-6 animate-fade-in-heading tracking-widest uppercase font-light">
+          The AI Company Builder
+        </p>
 
         {/* Rotating context */}
         <div className="flex items-center justify-center gap-2 mb-6 animate-fade-in-heading">
@@ -45,13 +50,13 @@ export function HeroBlock() {
         </div>
 
         {/* Subtitle */}
-        <p className="text-base sm:text-xl md:text-2xl text-white/80 text-balance max-w-2xl mx-auto mb-4 leading-relaxed px-4 sm:px-0 animate-fade-in-subheading font-light">
+        <p className="text-base sm:text-xl md:text-2xl text-white/80 text-balance max-w-2xl mx-auto mb-3 leading-relaxed px-4 sm:px-0 animate-fade-in-subheading font-light">
           Vendemos, agendamos, cualificamos y damos soporte 24/7 con voz humana real. Tú solo cierras ventas.
         </p>
 
-        {/* Emotional proof */}
-        <p className="text-sm sm:text-base text-white/50 mb-8 sm:mb-12 animate-fade-in-subheading italic">
-          Tus clientes hablan con una voz humana, no con un robot.
+        {/* Unified inbox */}
+        <p className="text-sm sm:text-base text-white/50 mb-8 sm:mb-12 animate-fade-in-subheading">
+          Todos tus canales y CRMs en una sola bandeja de entrada inteligente.
         </p>
 
         {/* CTA Buttons */}
