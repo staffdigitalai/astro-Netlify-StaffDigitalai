@@ -4,11 +4,11 @@ import { FacebookIcon, InstagramIcon, LinkedinIcon, YoutubeIcon, MapPin } from "
 import { StaffDigitalLogoDark } from "@/components/staffdigital-logo"
 
 const solucionesLinks = [
+  { title: "Agentes IA con Voz Humana ★", href: "/soluciones/agentes-ia-voz-humana" },
   { title: "Atención Telefónica IA", href: "/soluciones/atencion-telefonica-ia" },
   { title: "WhatsApp IA Empresas", href: "/soluciones/whatsapp-ia-empresas" },
-  { title: "Agente Chat Web IA", href: "/soluciones/agente-chat-web-ia" },
-  { title: "IA Omnicanal", href: "/soluciones/ia-omnicanal" },
-  { title: "Agente de Ventas IA", href: "/soluciones/agente-ventas-ia" },
+  { title: "Lead Generation IA", href: "/soluciones/lead-generation-ia" },
+  { title: "Agente de Soporte IA", href: "/soluciones/agente-soporte-ia" },
   { title: "Ver todas las soluciones", href: "/soluciones" },
 ]
 

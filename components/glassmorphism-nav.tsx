@@ -1,21 +1,21 @@
 "use client"
 
 import { useState, useEffect, useRef } from "react"
-import { Menu, X, ArrowRight, ChevronDown, Stethoscope, Scissors, UtensilsCrossed, Car, ShoppingBag, Building2, Warehouse, Wrench, BriefcaseMedical, Globe, MessageSquare, Layers, Shield, Home, GraduationCap, Dumbbell } from "lucide-react"
+import { Menu, X, ArrowRight, ChevronDown, Stethoscope, Scissors, UtensilsCrossed, Car, ShoppingBag, Building2, Warehouse, Wrench, BriefcaseMedical, Globe, MessageSquare, Layers, Shield, Home, GraduationCap, Dumbbell, Headphones } from "lucide-react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { StaffDigitalLogo } from "@/components/staffdigital-logo"
 
 const services = [
+  { name: "Agentes IA con Voz Humana", href: "/soluciones/agentes-ia-voz-humana", icon: MessageSquare, description: "Voces indistinguibles de personas reales", featured: true },
   { name: "Atención Telefónica IA", href: "/soluciones/atencion-telefonica-ia", icon: MessageSquare, description: "Agentes de voz inteligentes 24/7", featured: true },
-  { name: "WhatsApp IA Empresas", href: "/soluciones/whatsapp-ia-empresas", icon: MessageSquare, description: "Automatiza WhatsApp Business", featured: true },
+  { name: "WhatsApp IA Empresas", href: "/soluciones/whatsapp-ia-empresas", icon: MessageSquare, description: "Agentes IA para WhatsApp Business" },
   { name: "Agente Chat Web IA", href: "/soluciones/agente-chat-web-ia", icon: MessageSquare, description: "Agentes IA para tu sitio web" },
+  { name: "Agente de Ventas IA", href: "/soluciones/agente-ventas-ia", icon: BriefcaseMedical, description: "Cualificación y cierre automatizado" },
+  { name: "Agente de Soporte IA", href: "/soluciones/agente-soporte-ia", icon: Headphones, description: "Resuelve incidencias 24/7" },
+  { name: "Agendamientos IA", href: "/soluciones/agente-agendamientos-ia", icon: GraduationCap, description: "Citas y reservas en piloto automático" },
+  { name: "Lead Generation IA", href: "/soluciones/lead-generation-ia", icon: Layers, description: "De Google Maps a leads cualificados" },
   { name: "IA Omnicanal", href: "/soluciones/ia-omnicanal", icon: Layers, description: "Bandeja unificada y workflows" },
-  { name: "Gestión de Citas IA", href: "/soluciones/gestion-citas-ia", icon: GraduationCap, description: "Reservas automatizadas" },
-  { name: "Cualificacion de Leads", href: "/soluciones/cualificacion-leads", icon: BriefcaseMedical, description: "Scoring y nurturing automatico" },
-  { name: "Seguridad IA", href: "/seguridad-compliance", icon: Shield, description: "Videovigilancia inteligente" },
-  { name: "Home Staging IA", href: "/soluciones/home-staging-ia", icon: Home, description: "Marketing inmobiliario con IA" },
-  { name: "Analisis Documental IA", href: "/soluciones/analisis-documental-ia", icon: Layers, description: "Procesamiento de documentos" },
 ]
 
 const sectors = [

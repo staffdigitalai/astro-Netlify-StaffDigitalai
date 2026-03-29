@@ -19,6 +19,7 @@ const staticPages: { path: string; priority: number; changeFrequency: MetadataRo
   // Soluciones
   { path: "/soluciones", priority: 0.8, changeFrequency: "monthly" },
   { path: "/soluciones/whatsapp-ia-empresas", priority: 0.8, changeFrequency: "monthly" },
+  { path: "/soluciones/agentes-ia-voz-humana", priority: 1.0, changeFrequency: "weekly" },
   { path: "/soluciones/atencion-telefonica-ia", priority: 0.9, changeFrequency: "monthly" },
   { path: "/soluciones/agente-chat-web-ia", priority: 0.8, changeFrequency: "monthly" },
   { path: "/soluciones/agente-chat-productos-ia", priority: 0.8, changeFrequency: "monthly" },
@@ -26,6 +27,9 @@ const staticPages: { path: string; priority: number; changeFrequency: MetadataRo
   { path: "/soluciones/agente-ventas-ia", priority: 0.8, changeFrequency: "monthly" },
   { path: "/soluciones/ia-call-center", priority: 0.8, changeFrequency: "monthly" },
   { path: "/soluciones/automacion-ventas-ia", priority: 0.8, changeFrequency: "monthly" },
+  { path: "/soluciones/agente-soporte-ia", priority: 0.8, changeFrequency: "monthly" },
+  { path: "/soluciones/agente-agendamientos-ia", priority: 0.8, changeFrequency: "monthly" },
+  { path: "/soluciones/lead-generation-ia", priority: 0.8, changeFrequency: "monthly" },
   { path: "/soluciones/onboarding-automatico", priority: 0.7, changeFrequency: "monthly" },
   { path: "/soluciones/home-staging-ia", priority: 0.7, changeFrequency: "monthly" },
   // Sectores
