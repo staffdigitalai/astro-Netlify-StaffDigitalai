@@ -164,6 +164,7 @@ export const solutionFallbacksEn: Record<string, SolutionFallback> = {
       title: "A call centre that scales without hiring.",
       subtitle: "Hundreds of simultaneous calls, consistent brand tone, zero queues. Inbound and outbound, same platform.",
       mockupSlug: "call-center",
+      heroImage: "/images/solutions/hero-ia-call-center.png",
     },
     features: [
       { icon: "phone",       title: "Unlimited inbound",       description: "Handles call-volume spikes without saturating lines." },
