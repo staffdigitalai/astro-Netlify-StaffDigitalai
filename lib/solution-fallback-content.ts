@@ -57,6 +57,15 @@ export interface SolutionFallback {
     title: string
     subtitle: string
     mockupSlug?: string
+    /**
+     * Optional path (under /public) of a hero illustration to render
+     * INSTEAD of the animated `SolutionMockup`. When present, the
+     * solution template renders an `<Image>` for the right column;
+     * when absent, the existing mockup factory takes over. Used for
+     * solutions whose product surface is better communicated by a
+     * curated image than a generic animated demo.
+     */
+    heroImage?: string
   }
   features: SolutionFeature[]
   howItWorks: SolutionHowStep[]
@@ -214,6 +223,7 @@ export const solutionFallbacks: Record<string, SolutionFallback> = {
       title: "Call center automatizado que escala sin contratar.",
       subtitle: "Cientos de llamadas simultáneas, el mismo tono de marca, zero colas. Para operaciones inbound y outbound.",
       mockupSlug: "call-center",
+      heroImage: "/images/solutions/hero-ia-call-center.png",
     },
     features: [
       { icon: "phone",      title: "Inbound ilimitado",       description: "Atiende picos de llamadas sin saturar líneas." },

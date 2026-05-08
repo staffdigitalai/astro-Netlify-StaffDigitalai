@@ -87,6 +87,7 @@ export function DynamicServiceClient({
         title={fallback.hero.title}
         subtitle={fallback.hero.subtitle}
         mockupSlug={fallback.hero.mockupSlug}
+        heroImage={fallback.hero.heroImage}
         locale={locale}
       />
 

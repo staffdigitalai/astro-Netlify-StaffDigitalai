@@ -165,6 +165,7 @@ export const solutionFallbacksPt: Record<string, SolutionFallback> = {
       title: "Um call center que escala sem contratar.",
       subtitle: "Centenas de chamadas em simultâneo, o mesmo tom de marca, zero filas. Para operações inbound e outbound.",
       mockupSlug: "call-center",
+      heroImage: "/images/solutions/hero-ia-call-center.png",
     },
     features: [
       { icon: "phone",       title: "Inbound ilimitado",        description: "Atende picos de chamadas sem saturar linhas." },

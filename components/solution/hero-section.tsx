@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image"
 import Link from "next/link"
 import { motion } from "framer-motion"
 import { ArrowRight } from "lucide-react"
@@ -14,6 +15,12 @@ interface SolutionHeroSectionProps {
   title: string
   subtitle: string
   mockupSlug?: string
+  /**
+   * Optional hero image (relative to /public). When set, the right
+   * column renders an <Image> instead of the animated SolutionMockup.
+   * Alt text falls back to the localized `title`.
+   */
+  heroImage?: string
   locale: string
 }
 
@@ -28,6 +35,7 @@ export function SolutionHeroSection({
   title,
   subtitle,
   mockupSlug,
+  heroImage,
   locale,
 }: SolutionHeroSectionProps) {
   const t = useTranslations("solution_ui")
@@ -75,12 +83,26 @@ export function SolutionHeroSection({
           </div>
         </motion.div>
 
-        {/* Right column: mockup. Uses the existing SolutionMockup factory. */}
+        {/* Right column: heroImage > mockup > placeholder gradient. */}
         <motion.div
           {...reveal}
           className="relative rounded-2xl border border-default bg-bg-card dark:bg-bg-elevated overflow-hidden shadow-[0_20px_60px_-20px_rgba(0,120,170,0.25)]"
         >
-          {mockupSlug ? <SolutionMockup slug={mockupSlug} /> : <div className="aspect-video bg-gradient-to-br from-brand-secondary/15 to-brand-primary/15" aria-hidden="true" />}
+          {heroImage ? (
+            <Image
+              src={heroImage}
+              alt={title}
+              width={1408}
+              height={768}
+              priority
+              sizes="(max-width: 1024px) 100vw, 560px"
+              className="w-full h-auto block"
+            />
+          ) : mockupSlug ? (
+            <SolutionMockup slug={mockupSlug} />
+          ) : (
+            <div className="aspect-video bg-gradient-to-br from-brand-secondary/15 to-brand-primary/15" aria-hidden="true" />
+          )}
         </motion.div>
       </div>
     </section>
